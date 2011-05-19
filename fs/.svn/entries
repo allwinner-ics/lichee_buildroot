@@ -1,0 +1,132 @@
+10
+
+dir
+532
+svn://192.168.1.11/Lichee/trunk/buildroot/fs
+svn://192.168.1.11/Lichee
+
+
+
+2011-05-17T02:52:15.318980Z
+513
+benn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6f3ca99f-bd10-4b0f-b0a8-93dea02f31e6
+
+iso9660
+dir
+
+ext2
+dir
+
+skeleton
+dir
+
+romfs
+dir
+
+tar
+dir
+
+ubifs
+dir
+
+cpio
+dir
+
+jffs2
+dir
+
+Config.in
+file
+
+
+
+
+2011-05-18T10:58:03.406856Z
+ea7d02a009707d386b6cb52e28541dfa
+2011-05-17T02:52:15.318980Z
+513
+benn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1678
+
+cramfs
+dir
+
+cloop
+dir
+
+initramfs
+dir
+
+squashfs
+dir
+
+common.mk
+file
+
+
+
+
+2011-05-18T10:58:03.406856Z
+c0b890280371306de53d6ce0dacc0faa
+2011-05-17T02:52:15.318980Z
+513
+benn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2876
+
