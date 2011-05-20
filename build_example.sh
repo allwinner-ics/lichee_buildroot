@@ -11,6 +11,9 @@
 # Generate .config
 make sun4i_defconfig
 
+rm -rf output/build/lcd-test
+rm -rf output/build/tp-test
+
 # Start building
 make
 
