@@ -1,234 +1,0 @@
-10
-
-dir
-532
-svn://192.168.1.11/Lichee/trunk/buildroot/package/multimedia
-svn://192.168.1.11/Lichee
-
-
-
-2011-05-17T02:52:15.318980Z
-513
-benn
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-6f3ca99f-bd10-4b0f-b0a8-93dea02f31e6
-
-mpd
-dir
-
-libsamplerate
-dir
-
-alsa-lib
-dir
-
-speex
-dir
-
-libao
-dir
-
-libmad
-dir
-
-gst-plugins-ugly
-dir
-
-libvorbis
-dir
-
-libcdaudio
-dir
-
-gst-ffmpeg
-dir
-
-gst-omapfb
-dir
-
-gst-plugins-good
-dir
-
-vorbis-tools
-dir
-
-libogg
-dir
-
-libcue
-dir
-
-tremor
-dir
-
-mpg123
-dir
-
-libsndfile
-dir
-
-faad2
-dir
-
-alsa-utils
-dir
-
-python-mad
-dir
-
-gst-dsp
-dir
-
-libreplaygain
-dir
-
-aumix
-dir
-
-libmms
-dir
-
-gst-plugins-base
-dir
-
-madplay
-dir
-
-gstreamer
-dir
-
-wavpack
-dir
-
-gst-plugins-bad
-dir
-
-libdvdread
-dir
-
-multimedia.mk
-file
-
-
-
-
-2011-05-18T10:57:36.886355Z
-4141164e32e2e0c80ecc7825bf66e750
-2011-05-17T02:52:15.318980Z
-513
-benn
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-34
-
-libmpeg2
-dir
-
-libid3tag
-dir
-
-taglib
-dir
-
-libcuefile
-dir
-
-ffmpeg
-dir
-
-flac
-dir
-
-libmpd
-dir
-
-musepack
-dir
-
-libdvdnav
-dir
-
-libtheora
-dir
-
-mplayer
-dir
-
-Config.in
-file
-
-
-
-
-2011-05-18T10:57:36.886355Z
-22f2455199ba34f5baf68492d1f1da31
-2011-05-17T02:52:15.318980Z
-513
-benn
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2243
-
-swfdec
-dir
-
-festival
-dir
-
-tidsp-binaries
-dir
-
-lame
-dir
-
