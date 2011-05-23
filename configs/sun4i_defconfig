@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
-# Buildroot 2011.02-gd252b37 Configuration
-# Mon May 23 15:15:15 2011
+# Buildroot 2011.02-gacb1915 Configuration
+# Mon May 23 15:57:40 2011
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_arm=y
@@ -619,7 +619,7 @@ BR2_TARGET_ROOTFS_CPIO_GZIP=y
 # Bootloaders
 #
 # BR2_TARGET_BAREBOX is not set
-# BR2_TARGET_UBOOT_AW1623 is not set
+BR2_TARGET_UBOOT_AW1623=y
 # BR2_TARGET_AT91BOOTSTRAP is not set
 # BR2_TARGET_DATAFLASHBOOT is not set
 
