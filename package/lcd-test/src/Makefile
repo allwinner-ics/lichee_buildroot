@@ -1,5 +1,4 @@
-LINUX_DIR=/work/android/android-2.6.36/common/include
-CFLAGS += -static -I$(LINUX_DIR) 
+CFLAGS += -static 
 CFLAGS += -O0
 
 MAIN_SRC :=                    \

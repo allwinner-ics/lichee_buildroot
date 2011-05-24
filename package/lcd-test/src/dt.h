@@ -11,7 +11,7 @@
 #include <sys/mman.h>
 #include <time.h>
 #include <linux/fb.h>
-#include <linux/drv_display.h>
+#include "drv_display.h"
 
 
 #endif

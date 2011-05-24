@@ -39,6 +39,7 @@ static int test_key()
         read(ts_fd, &data, sizeof(data)); 
         if (data.type == EV_KEY) 
         {
+		printf("benn: %d\n", data.code);
         	switch(data.code)
         	{
         		case 114:
