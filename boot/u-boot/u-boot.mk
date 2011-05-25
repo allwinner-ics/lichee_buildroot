@@ -13,14 +13,19 @@ $(U_BOOT_DIR):
 
 
 
-u-boot: $(U_BOOT_DIR) $(U_BOOT_DIR)/.unpacked
+u-boot: $(U_BOOT_DIR) $(U_BOOT_DIR)/.build
 	@echo "uboot: me"
+	cd $(BUILD_DIR)/u-boot/src/u-boot-1.1.6; \
+	cp u-boot.bin $(BINARIES_DIR)
+
+$(U_BOOT_DIR)/.build: $(U_BOOT_DIR) $(U_BOOT_DIR)/.unpacked
+	@echo "uboot: config"
 	cd $(BUILD_DIR)/u-boot/src; \
 	tar -xf u-boot-1.1.6.tar.gz; \
 	cd u-boot-1.1.6; \
 	make aw1623_config; \
-	make; \
-	cp u-boot.bin $(BINARIES_DIR)/
+	make;
+	touch $@
 
 
 $(U_BOOT_DIR)/.unpacked:
