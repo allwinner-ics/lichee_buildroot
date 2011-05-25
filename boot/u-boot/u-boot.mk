@@ -23,8 +23,8 @@ $(U_BOOT_DIR)/.build: $(U_BOOT_DIR) $(U_BOOT_DIR)/.unpacked
 	cd $(BUILD_DIR)/u-boot/src; \
 	tar -xf u-boot-1.1.6.tar.gz; \
 	cd u-boot-1.1.6; \
-	make aw1623_config; \
-	make;
+	make CROSS_COMPILE="$(TARGET_CROSS)" aw1623_config; \
+	make CROSS_COMPILE="$(TARGET_CROSS)";
 	touch $@
 
 
