@@ -11,7 +11,7 @@ mkdir ${CUR_DIR}/out
 cd ${CUR_DIR}/buildroot && ./build.sh
 
 # build kernel
-export $PATH=${CUR_DIR}/buildroot/output/external-toolchain/bin:$PATH
+export PATH=${CUR_DIR}/buildroot/output/external-toolchain/bin:$PATH
 cd ${CUR_DIR}/linux-2.6.36 && ./build.sh kernel
 cd ${CUR_DIR}/linux-2.6.36 && ./build.sh modules
 
