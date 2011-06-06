@@ -1,0 +1,166 @@
+;;;
+;;; AWSFL
+;;; Copyright@AllWinner
+;;;
+
+[Version]
+signature  	= "$Windows NT$"
+Class		    = "ActivityMonitor"				                
+ClassGuid 	= {b86dff51-a31e-4bac-b3cf-e8cfe75c9fc2}
+Provider 	  = "AWSFL"
+DriverVer 	= 11/04/2010,1.02                                
+                                                          
+[DestinationDirs]
+DefaultDestDir	       = 12
+AWSFL.DriverFiles      = 12 			;%windir%\system32\drivers
+AWSFLX64.DriverFiles   = 12
+AWSFLIA64.DriverFiles  = 12
+
+[SourceDisksNames]
+1 = %Disk1%
+
+[SourceDisksFiles]
+AWSFL.sys = 1
+[SourceDisksFiles.amd64]
+AWSFL_X64.sys = 1
+[SourceDisksFiles.ia64]
+AWSFL_IA64.sys = 1
+
+;---------------------------------------------------------------------------------------------
+;      X86 install
+;---------------------------------------------------------------------------------------------
+[DefaultInstall]
+OptionDesc          = %AWSFLServiceDesc%
+CopyFiles           = AWSFL.DriverFiles
+
+[DefaultInstall.Services]
+AddService          = %AWSFLServiceName%,,AWSFL.Service
+AddReg              = AWSFL.AddRegistry
+
+;--------------------------------------------------------------------------------------------
+;     X64 install
+;---------------------------------------------------------------------------------------------
+[DefaultInstall.ntamd64]
+OptionDesc          = %AWSFLServiceDesc%
+CopyFiles           = AWSFLX64.DriverFiles
+
+[DefaultInstall.ntamd64.Services]
+AddService          = %AWSFLServiceName%,,AWSFLX64.Service
+AddReg              = AWSFL.AddRegistry
+
+;-------------------------------------------------------------------------------------------------
+;     IA64 install
+;-----------------------------------------------------------------------------------------------
+[DefaultInstall.ntia64]
+OptionDesc          = %AWSFLServiceDesc%
+CopyFiles           = AWSFLIA64.DriverFiles
+
+[DefaultInstall.ntia64.Services]
+AddService          = %AWSFLServiceName%,,AWSFLIA64.Service
+AddReg              = AWSFL.AddRegistry
+
+;--------------------------------------------------------------------------------------------
+;       X86 Uninstall
+;-------------------------------------------------------------------------------------------
+[DefaultUninstall]
+DelFiles   = AWSFL.DriverFiles
+DelReg     = AWSFL.DelRegistry
+
+[DefaultUninstall.Services]
+DelService = AWSFL,0x200		; Flags note to stop service first
+
+;---------------------------------------------------------------------------------------------
+;      X64 Uninstall
+;---------------------------------------------------------------------------------------------
+[DefaultUninstall.ntamd64]
+DelFiles   = AWSFLX64.DriverFiles
+DelReg     = AWSFL.DelRegistry
+
+[DefaultUninstall.ntamd64.Services]
+DelService = AWSFL,0x200		; Flags note to stop service first
+
+;----------------------------------------------------------------------------------------------
+;      IA64 Uninstall
+;-----------------------------------------------------------------------------------------------
+[DefaultUninstall.ntia64]
+DelFiles   = AWSFLIA64.DriverFiles
+DelReg     = AWSFL.DelRegistry
+
+[DefaultUninstall.ntia64.Services]
+DelService = AWSFL,0x200		; Flags note to stop service first
+
+;----------------------------------------------------------------------------------------------
+;      X86 Service
+;------------------------------------------------------------------------------------------------
+[AWSFL.Service]
+DisplayName      = %AWSFLServiceName%
+Description      = %AWSFLServiceDesc%
+ServiceBinary    = %12%\AWSFL.sys		;%windir%\system32\drivers\AWSFL.sys
+ServiceType      = 2					      ;SERVICE_FILE_SYSTEM_DRIVER
+StartType        = 3					      ;SERVICE_DEMAND_START
+ErrorControl     = 1					      ;SERVICE_ERROR_NORMAL
+LoadOrderGroup   = "FSFilter Activity Monitor"
+AddReg			     = AWSFL.AddRegistry
+
+;-------------------------------------------------------------------------------------------------
+;      X64 Service
+;---------------------------------------------------------------------------------------------------
+[AWSFLX64.Service]
+DisplayName      = %AWSFLServiceName%
+Description      = %AWSFLServiceDesc%
+;ServiceBinary    = %12%\AWSFL_X64.sys	;%windir%\system32\drivers\AWSFL_X64.sys;64位应用程序，驱动拷贝到这里
+ServiceBinary    = %10%\sysWOW64\drivers\AWSFL_X64.sys	;%windir%\system32\drivers\AWSFL_X64.sys;32bit应用程序，驱动拷贝到这里
+
+ServiceType      = 2					      ;SERVICE_FILE_SYSTEM_DRIVER
+StartType        = 3					      ;SERVICE_DEMAND_START
+ErrorControl     = 1					      ;SERVICE_ERROR_NORMAL
+LoadOrderGroup   = "FSFilter Activity Monitor"
+AddReg			     = AWSFL.AddRegistry
+
+;-------------------------------------------------------------------------------------------------------
+;      IA64 Service
+;-------------------------------------------------------------------------------------------------------
+[AWSFLIA64.Service]
+DisplayName      = %AWSFLServiceName%
+Description      = %AWSFLServiceDesc%
+;ServiceBinary    = %12%\AWSFL_IA64.sys	;%windir%\system32\drivers\AWSFL_IA64.sys;64位应用程序，驱动拷贝到这里
+ServiceBinary    = %10%\sysWOW64\drivers\AWSFL_IA64.sys	;%windir%\system32\drivers\AWSFL_IA64.sys;32bit应用程序，驱动拷贝到这里
+ServiceType      = 2					      ;SERVICE_FILE_SYSTEM_DRIVER
+StartType        = 3					      ;SERVICE_DEMAND_START
+ErrorControl     = 1					      ;SERVICE_ERROR_NORMAL
+LoadOrderGroup   = "FSFilter Activity Monitor"
+AddReg			     = AWSFL.AddRegistry
+
+;----------------------------------------------------------------------------------------------------------
+;    Registry Modify
+;---------------------------------------------------------------------------------------------------------
+
+[AWSFL.AddRegistry]
+HKLM,%AWSFLRegistry%,%AWSFLDebugFlags%,0x00010001 ,0
+
+[AWSFL.DelRegistry]
+HKLM,%AWSFLRegistry%,%AWSFLDebugFlags%
+
+;---------------------------------------------------------------------------------------------------
+;  Copy Files
+;---------------------------------------------------------------------------------------------------
+
+[AWSFL.DriverFiles]
+AWSFL.sys
+
+[AWSFLX64.DriverFiles]
+AWSFL_X64.sys
+
+[AWSFLIA64.DriverFiles]
+AWSFL_IA64.sys
+
+;------------------------------------------------------------------------------------------------
+; String Section
+;---------------------------------------------------------------------------------------------------
+
+[Strings]
+AWSFLServiceDesc  = "AWSFL Filter Driver"
+AWSFLServiceName  = "AWSFL"
+AWSFLRegistry     = "system\currentcontrolset\services\AWSFL"
+AWSFLDebugFlags   = "DebugFlags"
+Disk1             = "AWSFL Source Disk"
