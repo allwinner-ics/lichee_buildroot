@@ -1,5 +1,0 @@
-1. 复制bImage内核镜像文件到wboot\bootfs\linux下面
-2. 如果bImage文件较大，比如超过11MB，则修改wboot\bootfs\linux\linux.ini文件
-   把img_size修改为大于bImage的大小的值
-3. 在windowxp上运行image.bat，生成ePDKv100.img包
-4. 使用烧写工具烧到SD卡中即可
