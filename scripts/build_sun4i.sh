@@ -8,6 +8,9 @@
 
 CUR_DIR=`pwd`
 
+#Uncomment here if you want
+#LICHEE_KDIR=${CUR_DIR}/../linux-2.6.36/include
+
 show_help()
 {
     printf "\nValid Options:\n"
