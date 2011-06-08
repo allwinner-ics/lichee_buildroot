@@ -12,6 +12,7 @@ show_help()
 {
     printf "\nValid Options:\n"
     printf "\tbuildroot - build buildroot\n"
+    printf "\thelp      - print help\n"
     printf "\texternal  - build external\n\n"
 }
 
@@ -91,7 +92,10 @@ external)
 	#which arm-none-linux-gnueabi-gcc
 	build_external
 	;;
-*)
+help)
 	show_help
+	;;
+*)
+	build_buildroot
 	;;
 esac
