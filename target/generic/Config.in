@@ -12,6 +12,14 @@ config BR2_TARGET_GENERIC_ISSUE
        help
          Select system banner (/etc/issue) to be displayed at login.
 
+config CONFIG_CHIP_ID
+       int "Platform Chip ID"
+       default 1123
+       help
+         Platform ID.
+	 sun3i: 1120
+	 sun4i: 1123
+
 menuconfig BR2_TARGET_GENERIC_GETTY
 	bool "Generic serial port config"
 
