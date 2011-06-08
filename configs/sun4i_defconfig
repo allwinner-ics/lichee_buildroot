@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
-# Buildroot 2011.02-g8032b3b-dirty Configuration
-# Tue May 24 14:06:34 2011
+# Buildroot 2011.02-00004-g3ffd516-dirty Configuration
+# Tue Jun  7 20:35:08 2011
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_arm=y
@@ -128,6 +128,7 @@ BR2_TARGET_OPTIMIZATION="-pipe"
 #
 BR2_TARGET_GENERIC_HOSTNAME="sun4i"
 BR2_TARGET_GENERIC_ISSUE="Welcome to sun4i System"
+CONFIG_CHIP_ID=1123
 BR2_TARGET_GENERIC_GETTY=y
 BR2_TARGET_GENERIC_GETTY_PORT="ttyS0"
 # BR2_TARGET_GENERIC_GETTY_BAUDRATE_KEEP is not set
@@ -152,6 +153,7 @@ BR2_PACKAGE_BUSYBOX_CONFIG="package/busybox/busybox-1.18.x.config"
 # BR2_PACKAGE_CUSTOMIZE is not set
 BR2_PACKAGE_LCD_TEST=y
 BR2_PACKAGE_TP_TEST=y
+# BR2_PACKAGE_MALI_3D is not set
 
 #
 # Audio and video libraries and applications
