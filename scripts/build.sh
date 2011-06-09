@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 CUR_DIR=`pwd`
 
 # clean
@@ -28,7 +27,7 @@ cp -rf ${CUR_DIR}/linux-2.6.36/output/lib/modules ${CUR_DIR}/out/rootfs/lib/modu
 if [ -f ${CUR_DIR}/buildroot/output/images/u-boot.bin ]; then
 	cp ${CUR_DIR}/buildroot/output/images/u-boot.bin ${CUR_DIR}/out/
 	cp -rf ${CUR_DIR}/linux-2.6.36/output/uImage ${CUR_DIR}/out/rootfs/
-	rm -rf ~/nfs
-	ln -sv ${CUR_DIR}/out/rootfs ~/nfs
+	rm -rf ~/xyz_nfs
+	ln -sv ${CUR_DIR}/out/rootfs ~/xyz_nfs
 fi
  
