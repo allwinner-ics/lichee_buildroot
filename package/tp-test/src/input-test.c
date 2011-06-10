@@ -9,14 +9,58 @@
 
 
 #define CAPTP_DEV "/dev/input/event0" 
-#define KEY_DEV "/dev/input/event0" 
+#define KEY_DEV "/dev/input/event1" 
 #define IR_DEV "/dev/input/event1" 
-//#define TOUS_DEV "/dev/input/event0"
-#define TOUS_DEV "/dev/event0"
+#define TOUS_DEV "/dev/input/event2"
+//#define TOUS_DEV "/dev/event0"
 #define MOU_DEV  "/dev/input/event7"
 #define TOUP_DEV "/dev/input/event7"
 static int ts_fd = -1; 
 static struct input_event data; 
+
+
+#define ABS_X			0x00
+#define ABS_Y			0x01
+#define ABS_Z			0x02
+#define ABS_RX			0x03
+#define ABS_RY			0x04
+#define ABS_RZ			0x05
+#define ABS_THROTTLE		0x06
+#define ABS_RUDDER		0x07
+#define ABS_WHEEL		0x08
+#define ABS_GAS			0x09
+#define ABS_BRAKE		0x0a
+#define ABS_HAT0X		0x10
+#define ABS_HAT0Y		0x11
+#define ABS_HAT1X		0x12
+#define ABS_HAT1Y		0x13
+#define ABS_HAT2X		0x14
+#define ABS_HAT2Y		0x15
+#define ABS_HAT3X		0x16
+#define ABS_HAT3Y		0x17
+#define ABS_PRESSURE		0x18
+#define ABS_DISTANCE		0x19
+#define ABS_TILT_X		0x1a
+#define ABS_TILT_Y		0x1b
+#define ABS_TOOL_WIDTH		0x1c
+
+#define ABS_VOLUME		0x20
+
+#define ABS_MISC		0x28
+
+#define ABS_MT_SLOT		0x2f	/* MT slot being modified */
+#define ABS_MT_TOUCH_MAJOR	0x30	/* Major axis of touching ellipse */
+#define ABS_MT_TOUCH_MINOR	0x31	/* Minor axis (omit if circular) */
+#define ABS_MT_WIDTH_MAJOR	0x32	/* Major axis of approaching ellipse */
+#define ABS_MT_WIDTH_MINOR	0x33	/* Minor axis (omit if circular) */
+#define ABS_MT_ORIENTATION	0x34	/* Ellipse orientation */
+#define ABS_MT_POSITION_X	0x35	/* Center X ellipse position */
+#define ABS_MT_POSITION_Y	0x36	/* Center Y ellipse position */
+#define ABS_MT_TOOL_TYPE	0x37	/* Type of touching device */
+#define ABS_MT_BLOB_ID		0x38	/* Group a set of packets as a blob */
+#define ABS_MT_TRACKING_ID	0x39	/* Unique ID of initiated contact */
+#define ABS_MT_PRESSURE		0x3a	/* Pressure on contact area */
+
 
 static int init_device(char *TS_DEV) 
 { 
@@ -39,7 +83,6 @@ static int test_key()
         read(ts_fd, &data, sizeof(data)); 
         if (data.type == EV_KEY) 
         {
-		printf("benn: %d\n", data.code);
         	switch(data.code)
         	{
         		case 114:
@@ -299,6 +342,11 @@ static int test_touch_screen()
     while(1) 
     { 
         read(ts_fd, &data, sizeof(data)); 
+        printf("data.type == %x   \
+                data.code == %x   \
+                data.value == %d  \n",\
+                data.type, data.code, data.value);
+                
         if (data.type == EV_KEY) 
         { 
             printf(" type: EV_KEY, event = %s, value = %d\n\n", 
@@ -307,9 +355,9 @@ static int test_touch_screen()
         else if(data.type == EV_ABS) 
         { 
             printf(" type: EV_ABS, event = %s, value = %d\n\n", 
-                data.code == ABS_X ? "ABS_X" : 
-                data.code == ABS_Y ? "ABS_Y" : 
-                data.code == ABS_PRESSURE ? "ABS_PRESSURE" : 
+                data.code == ABS_MT_POSITION_X ? "ABS_MT_POSITION_X" : 
+                data.code == ABS_MT_POSITION_Y ? "ABS_MT_POSITION_Y" : 
+                data.code == ABS_MT_TOUCH_MAJOR ? "ABS_MT_TOUCH_MAJOR" : 
                 "Unkown", data.value); 
         } 
     } 
