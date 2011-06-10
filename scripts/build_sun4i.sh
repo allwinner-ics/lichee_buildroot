@@ -44,7 +44,7 @@ EXTERNAL_DIR=${CUR_DIR}/external-packages
 #
 ############################################################################################
 # if unset LICHEE_KDIR, give it a default
-LICHEE_KDIR=${LICHEE_KDIR:-${CUR_DIR}output/staging/usr/include}
+LICHEE_KDIR=${LICHEE_KDIR:-${CUR_DIR}/output/staging/usr/include}
 
 DESTDIR=${CUR_DIR}/output/images
 CROSS_COMPILE=arm-none-linux-gnueabi-
