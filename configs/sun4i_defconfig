@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
-# Buildroot 2011.02-00004-g3ffd516-dirty Configuration
-# Tue Jun  7 20:35:08 2011
+# Buildroot 2011.02-00019-gf4d6a10-dirty Configuration
+# Mon Jun 13 09:49:13 2011
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_arm=y
@@ -154,6 +154,7 @@ BR2_PACKAGE_BUSYBOX_CONFIG="package/busybox/busybox-1.18.x.config"
 BR2_PACKAGE_LCD_TEST=y
 BR2_PACKAGE_TP_TEST=y
 # BR2_PACKAGE_MALI_3D is not set
+BR2_PACKAGE_CEDAR=y
 
 #
 # Audio and video libraries and applications
