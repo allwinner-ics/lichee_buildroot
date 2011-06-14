@@ -60,6 +60,7 @@
 /dev/ram	b	640	0	0	1	0	0	1	4
 /dev/loop	b	640	0	0	7	0	0	1	2
 /dev/rtc	c	640	0	0	10	135	-	-	-
+/dev/mali	c	640	0	0	247	0	-	-	-
 /dev/console	c	666	0	0	5	1	-	-	-
 /dev/tty	c	666	0	0	5	0	-	-	-
 /dev/tty	c	666	0	0	4	0	0	1	8

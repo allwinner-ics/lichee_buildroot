@@ -61,7 +61,8 @@ DIRECTFB_GFX := \
 	$(if $(BR2_PACKAGE_DIRECTFB_PXA3XX),pxa3xx) \
 	$(if $(BR2_PACKAGE_DIRECTFB_UNICHROME),unichrome) \
 	$(if $(BR2_PACKAGE_DIRECTFB_I830),i830)	\
-	$(if $(BR2_PACKAGE_DIRECTFB_EP9X),ep9x)
+	$(if $(BR2_PACKAGE_DIRECTFB_EP9X),ep9x) \
+	$(if $(BR2_PACKAGE_DIRECTFB_VMWARE),vmware)	
 
 ifeq ($(strip $(DIRECTFB_GFX)),)
 DIRECTFB_GFX:=none
@@ -143,7 +144,11 @@ define DIRECTFB_STAGING_CONFIG_FIXUP
 		$(STAGING_DIR)/usr/bin/directfb-config
 endef
 
+define DIRECTFB_INSTALL_COPY_DIRECTFBRC
+	cp -f package/directfb/directfbrc  $(TARGET_DIR)/root/.directfbrc
+endef
 DIRECTFB_POST_INSTALL_STAGING_HOOKS += DIRECTFB_STAGING_CONFIG_FIXUP
+DIRECTFB_POST_INSTALL_TARGET_HOOKS += DIRECTFB_INSTALL_COPY_DIRECTFBRC
 
 $(eval $(call AUTOTARGETS,package,directfb))
 $(eval $(call AUTOTARGETS,package,directfb,host))

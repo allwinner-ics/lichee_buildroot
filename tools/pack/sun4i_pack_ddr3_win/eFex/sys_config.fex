@@ -296,7 +296,7 @@ num     = 3
     class_name  = DISK
     name        = BOOTFS
     size_hi     = 0
-    size_lo     = 131072
+    size_lo     = 32768
     user_type   = 0
     ro          = 0
 
@@ -312,7 +312,7 @@ num     = 3
     class_name  = DISK
     name        = SYSDATAFS
     size_hi     = 0
-    size_lo     = 65536
+    size_lo     = 131072
     user_type   = 0
     ro          = 0
 
@@ -338,7 +338,7 @@ num     = 3
 ;      verify_file  = VERIFY_000000000
 ;********************************************************************************************************************
 [down_num]
-down_num    = 1
+down_num    = 2
 
 ;[download0]
 ;part_name   = SYSDATAFS
@@ -348,6 +348,12 @@ down_num    = 1
 [download0]
 part_name   = BOOTFS
 pkt_name    = BOOTFS_000000000
+encrypt     = 0
+
+[download1]
+part_name   = ROOTFS
+pkt_name    = ROOTFS_000000000
+;verify_file = VERIFY_000000000
 encrypt     = 0
 
 
