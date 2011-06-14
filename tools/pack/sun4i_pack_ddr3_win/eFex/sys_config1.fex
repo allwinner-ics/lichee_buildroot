@@ -1,5 +1,7 @@
+;A10 PAD application
 ;---------------------------------------------------------------------------------------------------------
 ; 说明： 脚本中的字符串区分大小写，用户可以修改"="后面的数值，但是不要修改前面的字符串
+; 描述gpio的形式：Port:端口+组内序号<功能分配><内部电阻状态><驱动能力><输出电平状态>
 ;---------------------------------------------------------------------------------------------------------
 
 ;----------------------------------------------------------------------------------
@@ -58,6 +60,9 @@ jtag_ck = port:PB15<3>
 jtag_do = port:PB16<3>
 jtag_di = port:PB17<3>
 
+;----------------------------------------------------------------------------------
+;os life cycle para configuration
+;----------------------------------------------------------------------------------
 [emac_para]
 EMAC_RXD3   = port:PA00<2><default><default><default>
 EMAC_RXD2   = port:PA01<2><default><default><default>
@@ -97,6 +102,21 @@ twi1_sda = port:PB19<2><default><default><default>
 twi2_used = 1
 twi2_scl = port:PB20<2><default><default><default>
 twi2_sda = port:PB21<2><default><default><default>
+
+;----------------------------------------------------------------------------------
+;uart configuration
+;----------------------------------------------------------------------------------
+[uart_para0]
+uart_port = 0
+uart0_tx   = port:PB22<2>
+uart0_rx   = port:PB23<2>
+
+[uart_para2]
+uart_port = 2
+uart2_rts  = port:PI16<3><default><default><default>
+uart2_cts  = port:PI17<3><default><default><default>
+uart2_tx   = port:PI18<3><default><default><default>
+uart2_rx   = port:PI19<3><default><default><default>
 
 ;----------------------------------------------------------------------------------
 ;touch screen configuration
@@ -283,30 +303,62 @@ SDC_D2      = port:PF5<2><1><default><default>
 sdc_det     = port:PH1<0><default><default><default>
 
 [mmc1_para]
-sdc_used    = 1
-dc_detmode  = 1
-us_width    = 4
-SDC_CMD     = port:PH22<5><1><default><default>
-SDC_CLK     = port:PH23<5><1><default><default>
-SDC_D0      = port:PH24<5><1><default><default>
-SDC_D1      = port:PH25<5><1><default><default>
-SDC_D2      = port:PH26<5><1><default><default>
-SDC_D3      = port:PH27<5><1><default><default>
-sdc_det     = port:PH2<0><default><default><default>
+sdc_used    = 0
 
 [mmc2_para]
 sdc_used    = 0
 
 [mmc3_para]
-sdc_used    = 0
-dc_detmode  = 1
-us_width    = 4
+sdc_used    = 1
+sdc_detmode  = 3
+bus_width    = 4
 SDC3_CMD    = port:PI04<2><1><default><default>
 SDC3_CLK    = port:PI05<2><1><default><default>
 SDC3_D0     = port:PI06<2><1><default><default>
 SDC3_D1     = port:PI07<2><1><default><default>
 SDC3_D2     = port:PI08<2><1><default><default>
 SDC3_D3     = port:PI09<2><1><default><default>
+
+;------------------------------------------------------------------------------------------
+;ps2 configuration
+;PS2_0    SCK-PI20, SDA-PI21       :2 : 2
+;PS2_1A   SCK-PI14, SDA-PI15       
+;PS2_1B   SCK-PH12, SDA-PH13       
+;------------------------------------------------------------------------------------------
+[ps2_0_para]
+ps2_used = 1
+ps2_scl = port:Pi20<2><1><default><default>
+ps2_sda = port:Pi21<2><1><default><default>
+
+[ps2_1_para]
+ps2_used = 1
+ps2_scl = port:PI14<3><1><default><default>
+ps2_sda = port:PI15<3><1><default><default>
+
+;-- PS2_1_B --
+;ps2_scl = port:PH12<4><1><default><default>
+;ps2_sda = port:PH13<4><1><default><default>
+
+;------------------------------------------------------------------------------------------
+;KEYPAD   PH8~11, PH14~19, PH22~27
+;------------------------------------------------------------------------------------------
+[keypad_para]
+KP_IN0 = port:PH08<4><1><default><default>
+KP_IN1 = port:PH09<4><1><default><default>
+KP_IN2 = port:PH10<4><1><default><default>
+KP_IN3 = port:PH11<4><1><default><default>
+KP_IN4 = port:PH14<4><1><default><default>
+KP_IN5 = port:PH15<4><1><default><default>
+KP_IN6 = port:PH16<4><1><default><default>
+KP_IN7 = port:PH17<4><1><default><default>
+KP_OUT0 = port:PH18<4><1><default><default>
+KP_OUT1 = port:PH19<4><1><default><default>
+KP_OUT2 = port:PH22<4><1><default><default>
+KP_OUT3 = port:PH23<4><1><default><default>
+KP_OUT4 = port:PH24<4><1><default><default>
+KP_OUT5 = port:PH25<4><1><default><default>
+KP_OUT6 = port:PH26<4><1><default><default>
+KP_OUT7 = port:PH27<4><1><default><default>
 
 ;------------------------------------------------------------------------------------------
 ;                                      硬件配置  USB参数
@@ -368,17 +420,19 @@ GS_INT2           = port:PI10<6><1><default><default>
 ; gps_spi_cs_num: the chip select number of SPI controller. 0: SPI CS0, 1: SPI CS1
 ;--------------------------------------------------------------------------------
 [gps_para]
-gps_spi_id				= 2
+gps_spi_id			= 2
 gps_spi_cs_num		= 0
 GPS_CLK        		= port:PI00<2><default><default><default>
 GPS_SIGN        	= port:PI01<2><default><default><default>
 GPS_MAG         	= port:PI02<2><default><default><default>
-GPS_SCS    				= port:PC19<3><default><default><default>
-GPS_SCLK   				= port:PC20<3><default><default><default>
-GPS_SMOSI  				= port:PC21<3><default><default><default>
-GPS_VCC_EN 				= port:PC22<1><default><default><default>
+GPS_VCC_EN 			= port:PC22<1><default><default><default>
 GPS_OSC_EN      	= port:PI14<1><default><default><default>
 GPS_RX_EN       	= port:PI15<1><default><default><default>
+
+[spi2_para]
+SPI2_CS    			= port:PC19<3><default><default><default>
+SPI2_SCLK  			= port:PC20<3><default><default><default>
+SPI2_MOSI  			= port:PC21<3><default><default><default>
 
 ;--------------------------------------------------------------------------------
 ;WIFI configuration
@@ -388,14 +442,8 @@ GPS_RX_EN       	= port:PI15<1><default><default><default>
 ;--------------------------------------------------------------------------------
 [wifi_para]
 wifi_host_type   	= 0
-wifi_sdc_id			 	= 3
-wifi_usb_id			 	= 2
-SDC3_CMD         	= port:PI04<2><1><default><default>
-SDC3_CLK         	= port:PI05<2><1><default><default>
-SDC3_D0          	= port:PI06<2><1><default><default>
-SDC3_D1          	= port:PI07<2><1><default><default>
-SDC3_D2          	= port:PI08<2><1><default><default>
-SDC3_D3          	= port:PI09<2><1><default><default>
+wifi_sdc_id			= 3
+wifi_usb_id			= 2
 WIFI_SHDN        	= port:PH09<1><default><default><0>
 WIFI_HOST_WAKEUP 	= port:PH10<1><default><default><0>
 WIFI_GPIO        	= port:PH11<1><default><default><0>
@@ -430,10 +478,6 @@ CP_INT 						= port:PI13<6><1><default><default>
 ;--------------------------------------------------------------------------------
 [bt_para]
 bt_uart_id  = 2
-BT_UART_RTS = port:PI16<3><default><default><default>
-BT_UART_CTS = port:PI17<3><default><default><default>
-BT_UART_TX  = port:PI18<3><default><default><default>
-BT_UART_RX  = port:PI19<3><default><default><default>
 BT_GPIO0    = port:PI20<1><default><default><default>
 BT_GPIO1    = port:PI21<1><default><default><default>
 
