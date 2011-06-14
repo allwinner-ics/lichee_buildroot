@@ -102,6 +102,7 @@ all)
 	build_buildroot
 	export PATH=${CUR_DIR}/output/external-toolchain/bin:$PATH
 	build_external
+	;;
 *)
 	build_buildroot
 	;;
