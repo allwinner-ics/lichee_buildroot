@@ -87,11 +87,13 @@ fi
 if [ "$MODULE" = buildroot ]; then
 	cd ${CUR_DIR}/buildroot && ./build.sh -p ${PLATFORM}
 elif [ "$MODULE" = kernel ]; then
+	export PATH=${CUR_DIR}/buildroot/output/external-toolchain/bin:$PATH
 	cd ${CUR_DIR}/linux-2.6.36 && ./build.sh -p ${PLATFORM}
 	regen_rootfs
 	gen_output_${PLATFORM}
 else
 	cd ${CUR_DIR}/buildroot && ./build.sh -p ${PLATFORM}
+	export PATH=${CUR_DIR}/buildroot/output/external-toolchain/bin:$PATH
 	cd ${CUR_DIR}/linux-2.6.36 && ./build.sh -p ${PLATFORM}
 	regen_rootfs
 	gen_output_${PLATFORM}
