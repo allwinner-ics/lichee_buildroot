@@ -304,7 +304,7 @@ num     = 3
     class_name  = DISK
     name        = ROOTFS
     size_hi     = 0
-    size_lo     = 131072
+    size_lo     = 262144
     user_type   = 0
     ro          = 0
 
@@ -312,7 +312,7 @@ num     = 3
     class_name  = DISK
     name        = SYSDATAFS
     size_hi     = 0
-    size_lo     = 131072
+    size_lo     = 262144
     user_type   = 0
     ro          = 0
 
