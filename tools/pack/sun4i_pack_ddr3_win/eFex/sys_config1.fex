@@ -303,7 +303,7 @@ SDC_D2      = port:PF5<2><1><default><default>
 sdc_det     = port:PH1<0><1><default><default>
 
 [mmc1_para]
-sdc_used    = 0
+sdc_used    = 1
 sdc_detmode = 1
 bus_width   = 4
 SDC_CMD     = port:PH22<5><1><default><default>
