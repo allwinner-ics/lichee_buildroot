@@ -341,24 +341,26 @@ ps2_sda = port:PI15<3><1><default><default>
 
 ;------------------------------------------------------------------------------------------
 ;KEYPAD   PH8~11, PH14~19, PH22~27
+;reserved for evb board testing. 
+;user: yemao.
 ;------------------------------------------------------------------------------------------
-[keypad_para]
-KP_IN0 = port:PH08<4><1><default><default>
-KP_IN1 = port:PH09<4><1><default><default>
-KP_IN2 = port:PH10<4><1><default><default>
-KP_IN3 = port:PH11<4><1><default><default>
-KP_IN4 = port:PH14<4><1><default><default>
-KP_IN5 = port:PH15<4><1><default><default>
-KP_IN6 = port:PH16<4><1><default><default>
-KP_IN7 = port:PH17<4><1><default><default>
-KP_OUT0 = port:PH18<4><1><default><default>
-KP_OUT1 = port:PH19<4><1><default><default>
-KP_OUT2 = port:PH22<4><1><default><default>
-KP_OUT3 = port:PH23<4><1><default><default>
-KP_OUT4 = port:PH24<4><1><default><default>
-KP_OUT5 = port:PH25<4><1><default><default>
-KP_OUT6 = port:PH26<4><1><default><default>
-KP_OUT7 = port:PH27<4><1><default><default>
+;[keypad_para]
+;KP_IN0 = port:PH08<4><1><default><default>
+;KP_IN1 = port:PH09<4><1><default><default>
+;KP_IN2 = port:PH10<4><1><default><default>
+;KP_IN3 = port:PH11<4><1><default><default>
+;KP_IN4 = port:PH14<4><1><default><default>
+;KP_IN5 = port:PH15<4><1><default><default>
+;KP_IN6 = port:PH16<4><1><default><default>
+;KP_IN7 = port:PH17<4><1><default><default>
+;KP_OUT0 = port:PH18<4><1><default><default>
+;KP_OUT1 = port:PH19<4><1><default><default>
+;KP_OUT2 = port:PH22<4><1><default><default>
+;KP_OUT3 = port:PH23<4><1><default><default>
+;KP_OUT4 = port:PH24<4><1><default><default>
+;KP_OUT5 = port:PH25<4><1><default><default>
+;KP_OUT6 = port:PH26<4><1><default><default>
+;KP_OUT7 = port:PH27<4><1><default><default>
 
 ;------------------------------------------------------------------------------------------
 ;                                      ”≤º˛≈‰÷√  USB≤Œ ˝
