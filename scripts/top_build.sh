@@ -57,7 +57,7 @@ gen_output_sun4i()
 	fi
 
 	cp -v ${CUR_DIR}/buildroot/output/images/* ${CUR_DIR}/out/
-	cp -r ${CUR_DIR}/buildroot/output/target ${CUR_DIR}/out/rootfs
+	cp -rf ${CUR_DIR}/buildroot/output/target ${CUR_DIR}/out/rootfs
 	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 }
 
