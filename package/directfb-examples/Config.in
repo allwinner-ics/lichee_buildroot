@@ -2,6 +2,10 @@ config BR2_PACKAGE_DIRECTFB_EXAMPLES
        bool "directfb examples"
        depends on BR2_PACKAGE_DIRECTFB
 
+config BR2_PACKAGE_DIRECTFB_EXAMPLES_SUN4I_TEST
+       bool "usr/bin/df_sun4i_test"
+       depends on BR2_PACKAGE_DIRECTFB_EXAMPLES
+
 config BR2_PACKAGE_DIRECTFB_EXAMPLES_ANDI
        bool "usr/bin/df_andi"
        depends on BR2_PACKAGE_DIRECTFB_EXAMPLES

@@ -658,7 +658,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/drv_display_sun4i.h DirectFB-1.4.
 +#endif
 diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/g2d_driver.h DirectFB-1.4.11/gfxdrivers/vmware/g2d_driver.h
 --- DirectFB-1.4.11_ori/gfxdrivers/vmware/g2d_driver.h	1970-01-01 08:00:00.000000000 +0800
-+++ DirectFB-1.4.11/gfxdrivers/vmware/g2d_driver.h	2011-06-08 11:46:12.734386100 +0800
++++ DirectFB-1.4.11/gfxdrivers/vmware/g2d_driver.h	2011-06-13 17:03:39.605990000 +0800
 @@ -0,0 +1,233 @@
 +/* g2d_driver.h
 + *
@@ -842,8 +842,8 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/g2d_driver.h DirectFB-1.4.11/gfxd
 +}g2d_blt;
 +
 +typedef struct {
-+	g2d_effect_flag		 flag;
-+//	g2d_transform_flag	 flag1;
++	g2d_effect_flag		 flag0;
++	g2d_transform_flag	 flag1;
 +	g2d_image			 src_image;
 +	g2d_rect			 src_rect;
 +	
@@ -934,7 +934,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/Makefile.in DirectFB-1.4.11/gfxdr
  
 diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdrivers/vmware/vmware_2d.c
 --- DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c	2010-11-16 05:13:05.000000000 +0800
-+++ DirectFB-1.4.11/gfxdrivers/vmware/vmware_2d.c	2011-06-11 16:52:29.589995000 +0800
++++ DirectFB-1.4.11/gfxdrivers/vmware/vmware_2d.c	2011-06-16 17:39:46.136392000 +0800
 @@ -16,13 +16,24 @@
  
     You should have received a copy of the GNU Lesser General Public
@@ -1051,7 +1051,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
 -     vdev->src_format = state->src.buffer->format;
 -     vdev->src_bpp    = DFB_BYTES_PER_PIXEL( vdev->src_format );
 +     vdev->src_addr     = state->src.addr;
-+	 vdev->src_paddr  = state->src.phys;
++	 vdev->src_paddr  	= state->src.phys;
 +     vdev->src_pitch    = state->src.pitch;
 +     vdev->src_format   = state->src.buffer->format;
 +     vdev->src_bpp      = DFB_BYTES_PER_PIXEL( vdev->src_format );
@@ -1085,7 +1085,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
  }
  
  /*
-@@ -188,47 +245,69 @@
+@@ -188,47 +245,67 @@
                    CardState           *state,
                    DFBAccelerationMask  accel )
  {
@@ -1139,25 +1139,22 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
 -                    /* FIXME: Currently only copying blits supported. */
 -                    if (state->source->config.format == state->destination->config.format)
 -                         break;
--
++	          case DSPF_ARGB:
++	          case DSPF_RGB32:
++	          case DSPF_RGB16:
++	          case DSPF_ARGB4444:
++	          case DSPF_RGBA4444:
++	          case DSPF_ARGB1555:
++	          case DSPF_RGBA5551:
++
++			    /* FIXME: Currently only copying blits supported. */
++//			    if (state->source->config.format == state->destination->config.format)
++			         break;
+ 
 -               default:
 -                    return;
-+          case DSPF_ARGB:
-+          case DSPF_RGB32:
-+          case DSPF_RGB16:
-+          case DSPF_ARGB4444:
-+          case DSPF_RGBA4444:
-+          case DSPF_ARGB1555:
-+          case DSPF_RGBA5551:
-+
-+                /* FIXME: Currently only copying blits supported. */
-+                if (state->source->config.format == state->destination->config.format)
-+                     break;
-+
 +              default:{
-+             		state->source->config.format =DSPF_ARGB;
-+                    break;
-+//					return;
++						return;
 +               }
            }
  
@@ -1170,7 +1167,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
       }
  
       /* Enable acceleration of the function. */
-@@ -297,6 +376,7 @@
+@@ -297,6 +374,7 @@
  
            case DFXL_BLIT:
                 /* ...require valid source. */
@@ -1178,7 +1175,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
                 VMWARE_CHECK_VALIDATE( SOURCE );
  
                 /*
-@@ -307,6 +387,20 @@
+@@ -307,6 +385,20 @@
                 state->set = VMWARE_SUPPORTED_BLITTINGFUNCTIONS;
                 break;
  
@@ -1199,7 +1196,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
            default:
                 D_BUG( "unexpected drawing/blitting function" );
                 break;
-@@ -320,6 +414,7 @@
+@@ -320,6 +412,7 @@
        * for subsequent rendering functions, unless they aren't defined by 3).
        */
       state->mod_hw = 0;
@@ -1207,7 +1204,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
  }
  
  /*
-@@ -328,75 +423,304 @@
+@@ -328,75 +421,276 @@
  bool
  vmwareFillRectangle( void *drv, void *dev, DFBRectangle *rect )
  {
@@ -1307,6 +1304,12 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
   */
  bool
  vmwareBlit( void *drv, void *dev, DFBRectangle *srect, int dx, int dy )
+-{
+-     VMWareDeviceData *vdev = (VMWareDeviceData*) dev;
+-     void             *dst  = vdev->dst_addr + dy * vdev->dst_pitch +
+-                              DFB_BYTES_PER_LINE(vdev->dst_format, dx);
+-     void             *src  = vdev->src_addr + srect->y * vdev->src_pitch +
+-                              DFB_BYTES_PER_LINE(vdev->src_format, srect->x);
 +{ 
 +    VMWareDeviceData *vdev    = (VMWareDeviceData*) dev;                     
 +    u32 src_colorkey          =  vdev->src_colorkey;         
@@ -1364,7 +1367,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
 +	else if (vdev->blittingflags & DSBLIT_ROTATE270			){blit_para.flag1 = G2D_ROTATE270;}
 +	else if (vdev->blittingflags & DSBLIT_ROTATE180			){blit_para.flag1 = G2D_ROTATE180;}		 	
 +	else if (vdev->blittingflags & DSBLIT_FLIP_HORIZONTAL	){blit_para.flag1 = G2D_FLIP_HORIZONTAL;}	
-+	else if (vdev->blittingflags & G2D_FLIP_VERTICAL		){blit_para.flag1 = G2D_FLIP_VERTICAL;}
++	else if (vdev->blittingflags & DSBLIT_FLIP_VERTICAL		){blit_para.flag1 = G2D_FLIP_VERTICAL;}
 +	else													 {blit_para.flag1 = G2D_TRANSFORM_NONE;}
 +
 +	arg[0] = (unsigned long)&blit_para;
@@ -1379,14 +1382,11 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
 +	
 +    return true;
 +}
-+
+ 
+-     D_DEBUG_AT( VMWare_2D, "%s( %d,%d-%dx%d -> %d, %d )\n", __FUNCTION__,
+-                 DFB_RECTANGLE_VALS( srect ), dx, dy );
 +bool vmwareStretchBlit( void *drv, void *dev,DFBRectangle *srect, DFBRectangle *drect )
- {
--     VMWareDeviceData *vdev = (VMWareDeviceData*) dev;
--     void             *dst  = vdev->dst_addr + dy * vdev->dst_pitch +
--                              DFB_BYTES_PER_LINE(vdev->dst_format, dx);
--     void             *src  = vdev->src_addr + srect->y * vdev->src_pitch +
--                              DFB_BYTES_PER_LINE(vdev->src_format, srect->x);
++{
 +	VMWareDeviceData *vdev    = (VMWareDeviceData*) dev;	
 +	unsigned int src_phy_addr = 0;
 +	unsigned int dst_phy_addr = 0;
@@ -1435,12 +1435,19 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
 +    stretchblit_para.color                   = vdev->src_colorkey;   //set colorkey
 +    stretchblit_para.alpha                   = vdev->alpha;//fix me
 +    
-+    if		(vdev->blittingflags & DSBLIT_BLEND_ALPHACHANNEL){stretchblit_para.flag   = G2D_PIXEL_ALPHA;}
-+	else if (vdev->blittingflags & DSBLIT_BLEND_COLORALPHA	){stretchblit_para.flag   = G2D_PLANE_ALPHA;}
-+	else if (vdev->blittingflags & DSBLIT_SRC_COLORKEY		){stretchblit_para.flag   = G2D_SRC_COLORKEY;}
-+	else if (vdev->blittingflags & DSBLIT_DST_COLORKEY		){stretchblit_para.flag   = G2D_DST_COLORKEY;}
-+	else if (vdev->blittingflags & DSBLIT_NOFX				){stretchblit_para.flag   = G2D_EFFECT_NONE;}
++    if		(vdev->blittingflags & DSBLIT_BLEND_ALPHACHANNEL){stretchblit_para.flag0 = G2D_PIXEL_ALPHA;}
++	else if (vdev->blittingflags & DSBLIT_BLEND_COLORALPHA	){stretchblit_para.flag0 = G2D_PLANE_ALPHA;}
++	else if (vdev->blittingflags & DSBLIT_SRC_COLORKEY		){stretchblit_para.flag0 = G2D_SRC_COLORKEY;}
++	else if (vdev->blittingflags & DSBLIT_DST_COLORKEY		){stretchblit_para.flag0 = G2D_DST_COLORKEY;}
++	else if (vdev->blittingflags & DSBLIT_NOFX				){stretchblit_para.flag0 = G2D_EFFECT_NONE;}
 +
++    if		(vdev->blittingflags & DSBLIT_ROTATE90			){stretchblit_para.flag1 = G2D_ROTATE90;}
++	else if (vdev->blittingflags & DSBLIT_ROTATE270			){stretchblit_para.flag1 = G2D_ROTATE270;}
++	else if (vdev->blittingflags & DSBLIT_ROTATE180			){stretchblit_para.flag1 = G2D_ROTATE180;}		 	
++	else if (vdev->blittingflags & DSBLIT_FLIP_HORIZONTAL	){stretchblit_para.flag1 = G2D_FLIP_HORIZONTAL;}	
++	else if (vdev->blittingflags & DSBLIT_FLIP_VERTICAL		){stretchblit_para.flag1 = G2D_FLIP_VERTICAL;}
++	else													 {stretchblit_para.flag1 = G2D_TRANSFORM_NONE;}
++		
 +    arg[0] =(unsigned long)&stretchblit_para;
 +    arg[1] = 0;
 +
@@ -1454,54 +1461,15 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
 +   
 +}
  
--     D_DEBUG_AT( VMWare_2D, "%s( %d,%d-%dx%d -> %d, %d )\n", __FUNCTION__,
--                 DFB_RECTANGLE_VALS( srect ), dx, dy );
-+#if 0
-+static unsigned int vmware_get_paddr(unsigned int vaddr)
-+{
-+	 unsigned int paddr          = vaddr;
-+     unsigned int fb_vir_addr_lo = fbdata[0];
-+     unsigned int fb_vir_addr_hi = fbdata[0]+fbdata[2];
-+     unsigned int fb_phy_addr_lo = fbdata[1];
-+     unsigned int fb_phy_addr_hi = fbdata[1]+fbdata[2];
-+	
-+	 unsigned long arg[2];
-+
-+	 if((paddr>=fb_vir_addr_lo)&&(paddr<fb_vir_addr_hi))//on fb memory
-+	 {
-+		 paddr -= fb_vir_addr_lo;
-+		 paddr += fb_phy_addr_lo;
-+	 }
-+	 else//not on fb memory
-+	 {
-+		 //check index
-+		 int i;
-+		 for(i=0;i<100;i++)
-+		 {
-+			 if(paddr==mpmem[i])
-+				 break;
-+		 }
-+		 arg[0] = i;
-+		 arg[1] = 0;
-+		 paddr = ioctl(hmp,G2D_CMD_MEM_GETADR,(void*)arg); 
-+	}
- 
 -     while (srect->h--) {
 -          direct_memcpy( dst, src, srect->w * vdev->dst_bpp );
-+	return paddr;
++static unsigned int wmware_get_color_format(unsigned int dfb_format)
++{
++	int cf = 0;
  
 -          dst += vdev->dst_pitch;
 -          src += vdev->src_pitch;
 -     }
--
--     return true;
- }
-+#endif
-+
-+static unsigned int wmware_get_color_format(unsigned int dfb_format)
-+{
-+	int cf = 0;
-+
 +	switch(dfb_format)
 +	{
 +		
@@ -1568,11 +1536,13 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
 +	
 +	}
  
+-     return true;
 +	return cf;
-+}
+ }
+-
 diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.h DirectFB-1.4.11/gfxdrivers/vmware/vmware_2d.h
 --- DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.h	2010-10-31 16:49:49.000000000 +0800
-+++ DirectFB-1.4.11/gfxdrivers/vmware/vmware_2d.h	2011-06-11 16:08:23.339560000 +0800
++++ DirectFB-1.4.11/gfxdrivers/vmware/vmware_2d.h	2011-06-13 14:47:59.146325000 +0800
 @@ -23,15 +23,13 @@
  #ifndef __VMWARE_2D_H__
  #define __VMWARE_2D_H__
@@ -1703,7 +1673,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_gfxdriver.c DirectFB-1.4.1
  static void
 diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_gfxdriver.h DirectFB-1.4.11/gfxdrivers/vmware/vmware_gfxdriver.h
 --- DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_gfxdriver.h	2010-10-31 16:49:49.000000000 +0800
-+++ DirectFB-1.4.11/gfxdrivers/vmware/vmware_gfxdriver.h	2011-06-08 11:46:12.741401800 +0800
++++ DirectFB-1.4.11/gfxdrivers/vmware/vmware_gfxdriver.h	2011-06-11 19:54:07.840661000 +0800
 @@ -33,19 +33,32 @@
       int                    v_flags;
  
@@ -1718,13 +1688,13 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_gfxdriver.h DirectFB-1.4.1
 -     DFBSurfacePixelFormat  src_format;
 -     unsigned long          src_bpp;
 +     void                    *dst_addr;
-+	 void                  *dst_paddr;
++	 void                    *dst_paddr;
 +     unsigned long            dst_pitch;
 +     DFBSurfacePixelFormat    dst_format;
 +     unsigned long            dst_bpp;
 +
 +     void                    *src_addr;
-+	 void                  *src_paddr;
++	 void                    *src_paddr;
 +     unsigned long            src_pitch;
 +     DFBSurfacePixelFormat    src_format;
 +     unsigned long            src_bpp;
