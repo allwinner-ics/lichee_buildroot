@@ -61,6 +61,19 @@ gen_output_sun4i()
 	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 }
 
+gen_output_sun4i_crane()
+{
+        cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr2_win/wboot/bootfs/linux/
+        cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win/wboot/bootfs/linux/
+
+        if [ -d "${CUR_DIR}/out" ]; then
+                mkdir -pv ${CUR_DIR}/out
+        fi
+
+        cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
+}
 
 
 
