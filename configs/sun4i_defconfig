@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
-# Buildroot 2011.02-00001-g80f6b0d-dirty Configuration
-# Fri Jun 17 09:19:29 2011
+# Buildroot 2011.02-00008-g1dc952e Configuration
+# Fri Jun 17 14:47:20 2011
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_arm=y
@@ -75,7 +75,7 @@ BR2_KERNEL_MIRROR="http://www.kernel.org/pub/"
 BR2_GNU_MIRROR="http://ftp.gnu.org/pub/gnu"
 BR2_DEBIAN_MIRROR="http://ftp.debian.org"
 BR2_JLEVEL=2
-# BR2_CCACHE is not set
+BR2_CCACHE=y
 # BR2_DEPRECATED is not set
 # BR2_ENABLE_DEBUG is not set
 BR2_STRIP_strip=y
