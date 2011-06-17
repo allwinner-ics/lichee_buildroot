@@ -52,7 +52,7 @@ gen_output_sun4i()
 	cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
 	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win/wboot/rootfs.fex
 
-	if [ -d "${CUR_DIR}/out" ]; then
+	if [ ! -d "${CUR_DIR}/out" ]; then
 		mkdir -pv ${CUR_DIR}/out
 	fi
 
