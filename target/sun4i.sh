@@ -1,8 +1,18 @@
 #!/bin/sh
 
 #rm -rf output/target/etc/init.d/S*
-echo "#!/bin/sh" > output/target/etc/init.d/rcS
-echo "mount -t devtmpfs none /dev" >> output/target/etc/init.d/rcS
-echo "mknod /dev/mali c 246 0"  >> output/target/etc/init.d/rcS
+
+cat > output/target/etc/init.d/rcS << EOF
+#!/bin/sh
+
+mount -t devtmpfs none /dev
+mknod /dev/mali c 246 0
+hostname sun4i
+
+EOF
+
+
+
+
 
 
