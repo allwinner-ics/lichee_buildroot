@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
-# Buildroot 2011.02-00042-g1e354a0-dirty Configuration
-# Thu Jun 16 14:05:04 2011
+# Buildroot 2011.02-00007-g15f071e Configuration
+# Fri Jun 17 14:35:37 2011
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_arm=y
@@ -153,8 +153,8 @@ BR2_PACKAGE_BUSYBOX_CONFIG="package/busybox/busybox-1.18.x.config"
 # BR2_PACKAGE_CUSTOMIZE is not set
 # BR2_PACKAGE_LCD_TEST is not set
 # BR2_PACKAGE_TP_TEST is not set
-BR2_PACKAGE_MALI_3D=y
-BR2_PACKAGE_CEDAR=y
+# BR2_PACKAGE_MALI_3D is not set
+# BR2_PACKAGE_CEDAR is not set
 
 #
 # Audio and video libraries and applications
@@ -345,22 +345,12 @@ BR2_PACKAGE_E2FSPROGS_LIBBLKID=y
 # BR2_PACKAGE_SQUASHFS is not set
 # BR2_PACKAGE_SSHFS is not set
 # BR2_PACKAGE_SYSSTAT is not set
-BR2_PACKAGE_UDEV=y
-# BR2_PACKAGE_UDEV_UTILS is not set
-
-#
-# Extra udev tools
-#
-# BR2_PACKAGE_UDEV_VOLUME_ID is not set
+# BR2_PACKAGE_UDEV is not set
 # BR2_PACKAGE_USB_MODESWITCH is not set
 # BR2_PACKAGE_USBMOUNT is not set
 # BR2_PACKAGE_USBUTILS is not set
 # BR2_PACKAGE_WIPE is not set
-
-#
-# Note that xfsprogs needs a toolchain with UCLIBC_SV4_DEPRECATED and UCLIBC_HAS_OBSOLETE_BSD_SIGNAL enabled
-#
-BR2_PACKAGE_XFSPROGS=y
+# BR2_PACKAGE_XFSPROGS is not set
 
 #
 # Interpreter languages and scripting
@@ -390,10 +380,7 @@ BR2_PACKAGE_ZLIB=y
 # BR2_PACKAGE_BEECRYPT is not set
 # BR2_PACKAGE_LIBGCRYPT is not set
 # BR2_PACKAGE_LIBGPG_ERROR is not set
-BR2_PACKAGE_OPENSSL=y
-# BR2_PACKAGE_OPENSSL_BIN is not set
-# BR2_PACKAGE_OPENSSL_ENGINES is not set
-# BR2_PACKAGE_OPENSSL_OCF is not set
+# BR2_PACKAGE_OPENSSL is not set
 
 #
 # Database
@@ -418,11 +405,11 @@ BR2_PACKAGE_OPENSSL=y
 # BR2_PACKAGE_ATK is not set
 # BR2_PACKAGE_CAIRO is not set
 # BR2_PACKAGE_FONTCONFIG is not set
-BR2_PACKAGE_FREETYPE=y
-BR2_PACKAGE_JPEG=y
+# BR2_PACKAGE_FREETYPE is not set
+# BR2_PACKAGE_JPEG is not set
 # BR2_PACKAGE_LIBART is not set
 # BR2_PACKAGE_GDK_PIXBUF is not set
-BR2_PACKAGE_LIBPNG=y
+# BR2_PACKAGE_LIBPNG is not set
 # BR2_PACKAGE_LIBSVGTINY is not set
 # BR2_PACKAGE_LIBUNGIF is not set
 # BR2_PACKAGE_PANGO is not set
@@ -438,7 +425,7 @@ BR2_PACKAGE_LIBPNG=y
 #
 # BR2_PACKAGE_LIBAIO is not set
 # BR2_PACKAGE_LIBRAW1394 is not set
-BR2_PACKAGE_TSLIB=y
+# BR2_PACKAGE_TSLIB is not set
 # BR2_PACKAGE_LIBHID is not set
 # BR2_PACKAGE_LIBUSB is not set
 
@@ -453,7 +440,7 @@ BR2_PACKAGE_TSLIB=y
 # BR2_PACKAGE_LIBIDN is not set
 # BR2_PACKAGE_LIBMICROHTTPD is not set
 # BR2_PACKAGE_NEON is not set
-BR2_PACKAGE_LIBNL=y
+# BR2_PACKAGE_LIBNL is not set
 # BR2_PACKAGE_LIBPCAP is not set
 # BR2_PACKAGE_LIBOSIP2 is not set
 # BR2_PACKAGE_LIBRSYNC is not set
@@ -479,14 +466,11 @@ BR2_PACKAGE_LIBNL=y
 #
 # BR2_PACKAGE_ENCHANT is not set
 # BR2_PACKAGE_ICU is not set
-BR2_PACKAGE_NCURSES=y
-# BR2_PACKAGE_NCURSES_TARGET_PANEL is not set
-# BR2_PACKAGE_NCURSES_TARGET_FORM is not set
-# BR2_PACKAGE_NCURSES_TARGET_MENU is not set
+# BR2_PACKAGE_NCURSES is not set
 # BR2_PACKAGE_NEWT is not set
 # BR2_PACKAGE_PCRE is not set
 # BR2_PACKAGE_POPT is not set
-BR2_PACKAGE_READLINE=y
+# BR2_PACKAGE_READLINE is not set
 # BR2_PACKAGE_SLANG is not set
 
 #
