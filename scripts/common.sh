@@ -28,8 +28,8 @@ regen_rootfs()
 
 		cd ${CUR_DIR}/buildroot
 		make rootfs-ext2
-		make rootfs-tar
-		make rootfs-cpio
+		#make rootfs-tar
+		#make rootfs-cpio
 
 	else
 		echo "Skip Regenerating Rootfs..."
