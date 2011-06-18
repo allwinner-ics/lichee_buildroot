@@ -9,6 +9,9 @@ cat > output/target/etc/init.d/rcS << EOF
 #!/bin/sh
 
 mount -t devtmpfs none /dev
+mkdir /dev/pts
+mount -t devpts none /dev/pts
+
 mknod /dev/mali c 246 0
 hostname sun4i
 
