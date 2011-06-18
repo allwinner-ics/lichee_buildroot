@@ -2,6 +2,9 @@
 
 #rm -rf output/target/etc/init.d/S*
 
+(cd output/target && ln -s bin/busybox init)
+
+
 cat > output/target/etc/init.d/rcS << EOF
 #!/bin/sh
 
