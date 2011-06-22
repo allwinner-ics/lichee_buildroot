@@ -328,6 +328,7 @@ usb_detect_type     = 1
 usb_id_gpio         = port:PH4<0><1><default><default>
 usb_det_vbus_gpio   = port:PH5<0><0><default><default>
 usb_drv_vbus_gpio   = port:PB9<1><0><default><0>
+usbc_init_state     = 1
 
 ;--------------------------------
 ;---       USB1控制标志
@@ -339,6 +340,7 @@ usb_detect_type     = 0
 usb_id_gpio         =
 usb_det_vbus_gpio   =
 usb_drv_vbus_gpio   = port:PH6<1><0><default><0>
+usbc_init_state     = 1
 
 ;--------------------------------
 ;---       USB2控制标志
@@ -350,6 +352,7 @@ usb_detect_type     = 0
 usb_id_gpio         =
 usb_det_vbus_gpio   =
 usb_drv_vbus_gpio   = port:PH3<1><0><default><0>
+usbc_init_state     = 1
 
 ;--------------------------------------------------------------------------------
 ; G sensor configuration
