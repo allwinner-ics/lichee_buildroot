@@ -569,3 +569,8 @@ dram_emr1				= 0x0
 dram_emr2				= 0x0
 dram_emr3				= 0x0
 
+[spdif_para]
+SPDIF_MCLK	=  port:PB03<4><1><default><default>
+SPDIF_DO 	=  port:PB13<4><1><default><default>
+SPDIF_DI 	=  port:PB12<4><1><default><default>
+
