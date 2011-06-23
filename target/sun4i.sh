@@ -12,7 +12,7 @@ mount -t devtmpfs none /dev
 mkdir /dev/pts
 mount -t devpts none /dev/pts
 
-mknod /dev/mali c 246 0
+mknod /dev/mali c 245 0
 hostname sun4i
 
 EOF
