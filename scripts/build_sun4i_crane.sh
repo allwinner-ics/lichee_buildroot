@@ -93,7 +93,7 @@ buildroot)
 external)
 	export PATH=${CUR_DIR}/output/external-toolchain/bin:$PATH
 	#which arm-none-linux-gnueabi-gcc
-	build_external
+	#build_external
 	;;
 help)
 	show_help
@@ -101,7 +101,7 @@ help)
 all)
 	build_buildroot
 	export PATH=${CUR_DIR}/output/external-toolchain/bin:$PATH
-	build_external
+	#build_external
 	;;
 *)
 	build_buildroot
