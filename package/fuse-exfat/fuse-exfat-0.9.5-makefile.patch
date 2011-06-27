@@ -1,0 +1,38 @@
+Common subdirectories: fuse-exfat-0.9.5_ori/fuse and fuse-exfat-0.9.5/fuse
+Common subdirectories: fuse-exfat-0.9.5_ori/libexfat and fuse-exfat-0.9.5/libexfat
+diff -uN fuse-exfat-0.9.5_ori/Makefile fuse-exfat-0.9.5/Makefile
+--- fuse-exfat-0.9.5_ori/Makefile	1970-01-01 07:00:00.000000000 +0700
++++ fuse-exfat-0.9.5/Makefile	2011-06-27 17:03:48.004509618 +0800
+@@ -0,0 +1,32 @@
++# Makefile for fuse-exfat, converted from scons
++# Copyright (C) 2011 AllWinner Technology
++# tangliang@allwinnertech.com
++
++#CC=gcc
++#AR=ar
++CFLAGS=-Wall -O2 -DFUSE_USE_VERSION=26 -D_FILE_OFFSET_BITS=64 -Ilibexfat
++
++libs = libexfat/cluster.o libexfat/io.o libexfat/log.o \
++	   libexfat/lookup.o libexfat/mount.o libexfat/node.o libexfat/utf.o \
++	   libexfat/utils.o
++
++
++fuse/mount.exfat: libexfat/libexfat.a fuse/main.o
++	$(CC) -o fuse/mount.exfat-fuse fuse/main.o -Llibexfat -lexfat -lfuse
++
++libexfat/libexfat.a: $(libs)
++	$(AR) rc libexfat/libexfat.a $(libs)
++	ranlib $@
++
++fuse/main.o: fuse/main.c
++	$(CC) -c $(CFLAGS) $< -o $@
++
++$(libs):%.o:%.c
++	$(CC) -c $(CFLAGS) $< -o $@
++
++install:
++	cp -f fuse/mount.exfat-fuse /sbin/mount.exfat-fuse
++	ln -f -s /sbin/mount.exfat-fuse /sbin/mount.exfat
++
++clean:
++	rm -f $(libs) main.o libexfat/libexfat.a fuse/mount.exfat
