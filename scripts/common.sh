@@ -43,14 +43,19 @@ gen_output_sun3i()
 
 gen_output_sun4i()
 {
-	cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr2_win/wboot/bootfs/linux/
+	#cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+	#${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr2_win/wboot/bootfs/linux/
 	cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
 	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win/wboot/bootfs/linux/
-	cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
-	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr2_win/wboot/rootfs.fex
+	#cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
+	#${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr2_win/wboot/rootfs.fex
 	cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
 	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win/wboot/rootfs.fex
+
+	cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot/bootfs/linux/
+	cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
+        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot/rootfs.fex
 
 	if [ ! -d "${CUR_DIR}/out" ]; then
 		mkdir -pv ${CUR_DIR}/out
@@ -63,14 +68,20 @@ gen_output_sun4i()
 
 gen_output_sun4i-lite()
 {
-        cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr2_win/wboot/bootfs/linux/
+        #cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+        #${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr2_win/wboot/bootfs/linux/
         cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
         ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win/wboot/bootfs/linux/
-        cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
-        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr2_win/wboot/rootfs.fex
+        #cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
+        #${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr2_win/wboot/rootfs.fex
         cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
         ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win/wboot/rootfs.fex
+
+        cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot/bootfs/linux/
+        cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
+        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot/rootfs.fex
+
 
         if [ ! -d "${CUR_DIR}/out/sun4i-lite" ]; then
                 mkdir -pv ${CUR_DIR}/out/sun4i-lite
