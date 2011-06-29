@@ -126,7 +126,7 @@ uart2_rx   = port:PI19<3><default><default><default>
 ;----------------------------------------------------------------------------------
 [tp_para]
 tp_int_port   = port:PH21<6><default>
-tp_wakeup     = port:PB13<1><default>
+tp_wakeup     = port:PB13<1><default><default><1>
 tp_io_port    = port:PH21<0><default>
 
 [nand_para]
@@ -569,8 +569,17 @@ dram_emr1				= 0x0
 dram_emr2				= 0x0
 dram_emr3				= 0x0
 
-[spdif_para]
-SPDIF_MCLK	=  port:PB03<4><1><default><default>
-SPDIF_DO 	=  port:PB13<4><1><default><default>
-SPDIF_DI 	=  port:PB12<4><1><default><default>
+;[spdif_para]
+;SPDIF_MCLK	=  port:PB03<4><1><default><default>
+;SPDIF_DO 	=  port:PB13<4><1><default><default>
+;SPDIF_DI 	=  port:PB12<4><1><default><default>
 
+[i2s_para]
+I2S_MCLK    =  port:PB5<2><1><default><default>
+I2S_BCLK    =  port:PB6<2><1><default><default>
+I2S_LRCK    =  port:PB7<2><1><default><default>
+I2S_DO0     =  port:PB8<2><1><default><default>
+I2S_DO1     =  port:PB9<2><1><default><default>
+I2S_DO2     =  port:PB10<2><1><default><default>
+I2S_DO3     =  port:PB11<2><1><default><default>
+I2S_DI      =  port:PB12<2><1><default><default>
