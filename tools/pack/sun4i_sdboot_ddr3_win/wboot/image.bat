@@ -11,7 +11,7 @@ copy  ..\eGon\storage_media\sdcard\Boot1.bin  ..\eFex\card\card_boot1.fex
 ::-------------Éú³ÉMBR
 if exist ..\eFex\sys_config.bin del   ..\eFex\sys_config.bin
 ..\pctools\mod_update\script_old.exe  ..\eFex\sys_config.fex
-..\pctools\mod_update\update_mbr.exe  ..\eFex\sys_config.bin    ..\eFex\card\mbr.fex
+..\pctools\mod_update\update_mbr.exe  ..\eFex\sys_config.bin    ..\eFex\card\mbr.fex    ..\eFex\card\dlinfo.fex
 
 
 if exist bootfs.fex  del  bootfs.fex
