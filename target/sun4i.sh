@@ -2,6 +2,7 @@
 
 #rm -rf output/target/etc/init.d/S*
 
+rm -rf output/target/init
 (cd output/target && ln -s bin/busybox init)
 
 
@@ -14,18 +15,22 @@ mount -t devpts none /dev/pts
 
 mknod /dev/mali c 230 0
 hostname sun4i
-
-export TSLIB_TSEVENTTYPE=H3600
-export TSLIB_CONSOLEDEVICE=none
-export TSLIB_FBDEVICE=/dev/fb0
-export TSLIB_TSDEVICE=/dev/input/event2
-
-export TSLIB_CALIBFILE=/etc/pointercal
-export TSLIB_CONFFILE=/etc/ts.conf
-export TSLIB_PLUGINDIR=/usr/lib/ts
+mkdir /boot
+mount /dev/nanda /boot
 
 
 EOF
+
+sed -i '/TSLIB/d' output/target/etc/profile
+
+echo "export TSLIB_TSEVENTTYPE=H3600" >> output/target/etc/profile
+echo "export TSLIB_CONSOLEDEVICE=none" >> output/target/etc/profile
+echo "export TSLIB_FBDEVICE=/dev/fb0" >> output/target/etc/profile
+echo "export TSLIB_TSDEVICE=/dev/input/event2" >> output/target/etc/profile
+echo "export TSLIB_CALIBFILE=/etc/pointercal" >> output/target/etc/profile
+echo "export TSLIB_CONFFILE=/etc/ts.conf" >> output/target/etc/profile
+echo "export TSLIB_PLUGINDIR=/usr/lib/ts" >> output/target/etc/profile
+echo "" >> output/target/etc/profile
 
 touch output/target/etc/init.d/auto_config_network
 
