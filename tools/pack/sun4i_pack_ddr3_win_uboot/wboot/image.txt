@@ -1,0 +1,1 @@
+N:\workdir\lichee\buildroot\tools\pack\sun4i_pack_ddr3_win_uboot\pctools\eDragonEx200\AWPluginvector.dllN:\workdir\lichee\buildroot\tools\pack\sun4i_pack_ddr3_win_uboot\wbootBuildImg 0

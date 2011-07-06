@@ -57,6 +57,11 @@ gen_output_sun4i()
 	cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
         ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot/rootfs.fex
 
+	if [ -e ${CUR_DIR}/buildroot/output/images/u-boot.bin ]; then
+		cp -v ${CUR_DIR}/buildroot/output/images/u-boot.bin \
+        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win_uboot/wboot/bootfs/linux/
+	fi
+
 	if [ ! -d "${CUR_DIR}/out" ]; then
 		mkdir -pv ${CUR_DIR}/out
 	fi
