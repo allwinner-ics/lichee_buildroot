@@ -524,7 +524,7 @@ dram_emr3				= 0x0
 ;
 ;*************************************************************
 ;dram_baseaddr        	= 0x40000000
-;dram_clk             	= 360
+;dram_clk             	= 408
 ;dram_type				= 2
 ;dram_rank_num     		= 1
 ;dram_chip_density		= 1024
