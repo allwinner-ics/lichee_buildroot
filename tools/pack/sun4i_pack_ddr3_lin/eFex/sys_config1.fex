@@ -12,7 +12,7 @@
 [target]
 debugenable = 1
 storage_mode = 0
-boot_clock   = 768
+boot_clock   = 1008
 core_vol     = 1400
 
 [card_boot]

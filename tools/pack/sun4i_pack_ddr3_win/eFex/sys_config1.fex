@@ -12,7 +12,7 @@
 [target]
 debugenable = 1
 storage_mode = 0
-boot_clock   = 768
+boot_clock   = 1008
 core_vol     = 1400
 
 [card_boot]
@@ -315,6 +315,8 @@ SDC_CMD     = port:PF3<2><1><default><default>
 SDC_D3      = port:PF4<2><1><default><default>
 SDC_D2      = port:PF5<2><1><default><default>
 sdc_det     = port:PH1<0><1><default><default>
+sdc_use_wp  = 0
+sdc_wp      = 
 
 [mmc1_para]
 sdc_used    = 1
@@ -327,6 +329,8 @@ SDC_D1      = port:PH25<5><1><default><default>
 SDC_D2      = port:PH26<5><1><default><default>
 SDC_D3      = port:PH27<5><1><default><default>
 sdc_det     = port:PH2<0><1><default><default>
+sdc_use_wp  = 0
+sdc_wp      = 
 
 [mmc2_para]
 sdc_used    = 0
@@ -342,6 +346,8 @@ SDC3_D1     = port:PI07<2><1><default><default>
 SDC3_D2     = port:PI08<2><1><default><default>
 SDC3_D3     = port:PI09<2><1><default><default>
 sdc_det     = port:PH11<0><1><default><default>
+sdc_use_wp  = 0
+sdc_wp      = 
 
 ;------------------------------------------------------------------------------------------
 ;ps2 configuration
