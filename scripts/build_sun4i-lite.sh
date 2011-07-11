@@ -27,10 +27,10 @@ build_buildroot()
         make sun4i-lite_defconfig
     fi
 
-    if [ -d ${CUR_DIR}/output/build ]; then
-        find ${CUR_DIR}/output/build -maxdepth 2 -name ".stamp_target_installed" -delete
-        rm -rf ${CUR_DIR}/output/build/.root ${CUR_DIR}/output/target
-    fi
+    #if [ -d ${CUR_DIR}/output/build ]; then
+    #    find ${CUR_DIR}/output/build -maxdepth 2 -name ".stamp_*_installed" -delete
+    #    rm -rf ${CUR_DIR}/output/build/.root ${CUR_DIR}/output/target
+    #fi
 
     make
 }
