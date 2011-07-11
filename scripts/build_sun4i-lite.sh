@@ -22,7 +22,16 @@ show_help()
 # Build all for sun4i platform
 build_buildroot()
 {
-    make sun4i-lite_defconfig
+    if [ ! -e .config ]; then
+        printf "\nUsing default config... ...!\n"
+        make sun4i-lite_defconfig
+    fi
+
+    if [ -d ${CUR_DIR}/output/build ]; then
+        find ${CUR_DIR}/output/build -maxdepth 2 -name ".stamp_target_installed" -delete
+        rm -rf ${CUR_DIR}/output/build/.root ${CUR_DIR}/output/target
+    fi
+
     make
 }
 
