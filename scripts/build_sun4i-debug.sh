@@ -24,7 +24,7 @@ build_buildroot()
 {
     if [ ! -e .config ]; then
         printf "\nUsing default config... ...!\n"
-        make sun4i-lite_defconfig
+        make sun4i-debug_defconfig
     fi
 
     #if [ -d ${CUR_DIR}/output/build ]; then
