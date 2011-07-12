@@ -26,6 +26,10 @@ regen_rootfs()
 		cp -rf ${CUR_DIR}/linux-2.6.36/output/lib/modules/* \
 			${CUR_DIR}/buildroot/output/target/lib/modules/
 
+		if [ "$PLATFORM" = "sun4i-debug" ]; then
+			cp -rf ${CUR_DIR}/linux-2.6.36/vmlinux ${CUR_DIR}/buildroot/output/target
+		fi
+
 		cd ${CUR_DIR}/buildroot
 		make rootfs-ext2
 		#make rootfs-tar
