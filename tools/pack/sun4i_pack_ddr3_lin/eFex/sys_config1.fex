@@ -294,6 +294,7 @@ CSI1_POWER_EN 	= port:PH17<1><default><default><1>
 ;   配置选项：                                                                  |
 ;   sdc_used: 此sdc控制器是否使用，1-使用，0-不使用                             |
 ;   sdc_detmode: 卡检测模式，1-gpio检测，2-data3检测，3-无检测，卡常在(不卡拔插)|
+;                4 - manual mode(from proc file system node)                    |
 ;   sdc_bwid: 卡数据位宽，1-1bit， 4-4bit， other-no use                        |
 ;   其余: port配置                                                              |
 ; ------------------------------------------------------------------------------|
