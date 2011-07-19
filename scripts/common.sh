@@ -83,10 +83,10 @@ gen_output_sun4i()
 
 gen_output_sun4i-lite()
 {
-		cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-			${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot
-		cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
-			${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/rootfs.fex
+	cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot
+	cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
+		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/rootfs.fex
 
 
         cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
@@ -108,10 +108,10 @@ gen_output_sun4i-lite()
 
 gen_output_sun4i-debug()
 {
-		cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-			${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot
-		cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
-			${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/rootfs.fex
+	cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot
+	cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
+		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/rootfs.fex
 
 
         cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
@@ -127,17 +127,17 @@ gen_output_sun4i-debug()
         cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 
         echo "Packing for sun4i-debug platform"
-        (cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot; ./image.sh)
+        (cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image.sh)
 
 }
 
 gen_output_sun4i_crane()
 {
         cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr2_win/wboot/bootfs/linux/
+        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot/bootfs/linux/
         cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win/wboot/bootfs/linux/
-	echo "test" > ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win/wboot/rootfs.fex
+        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/bootfs/linux/
+	echo "test" > ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/rootfs.fex
 
         if [ -d "${CUR_DIR}/out" ]; then
                 mkdir -pv ${CUR_DIR}/out
