@@ -357,12 +357,12 @@ sdc_wp      =
 ;PS2_1B   SCK-PH12, SDA-PH13       
 ;------------------------------------------------------------------------------------------
 [ps2_0_para]
-ps2_used = 1
+ps2_used = 0
 ps2_scl = port:Pi20<2><1><default><default>
 ps2_sda = port:Pi21<2><1><default><default>
 
 [ps2_1_para]
-ps2_used = 1
+ps2_used = 0
 ps2_scl = port:PI14<3><1><default><default>
 ps2_sda = port:PI15<3><1><default><default>
 
