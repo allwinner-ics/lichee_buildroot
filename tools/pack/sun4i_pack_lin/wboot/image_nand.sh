@@ -19,6 +19,7 @@ cd $WORKPATH
 
 #--------------------------------准备nand打包文件
 ln -s bootfs_nand bootfs
+mv bImage bootfs/linux/
 
 #--------------------------------生成bootfs.iso
 $SOFTWAREPATH/mod_update/script ../eFex/sys_config1.fex
