@@ -2,6 +2,8 @@ if exist bootfs rmdir /s /q bootfs
 xcopy /i /s /q /y bootfs_sd bootfs
 if exist image.cfg del image.cfg
 copy config\image_sd.cfg image.cfg
+if exist bootfs\linux\bImage del bootfs\linux\bImage
+move bImage bootfs\linux
 ::-------------生成bootfs.iso
 ..\pctools\mod_update\script.exe ..\eFex\sys_config1.fex
 copy  ..\eGon\nand_boot0.bin    ..\eGon\Boot0.bin
@@ -22,12 +24,13 @@ if exist bootfs.fex  del  bootfs.fex
 ..\pctools\fsbuild200\fsbuild.exe config\bootfs.ini ^ ..\efex\split_xxxx.fex
 
 ::-------------生成ePDKv100.img
-if exist ePDKv100_sdcard.img del ePDKv100.img
+if exist ePDKv100_sdcard.img del ePDKv100_sdcard.img
 ..\pctools\eDragonEx200\compile -o image.bin image.cfg
 ..\pctools\eDragonEx200\dragon image.cfg
 if exist bootfs.fex  del  bootfs.fex
 
 ::-------------清理工作
-del ..\eGon\Boot0.bin ..\eGon\Boot1.bin ..\eFex\card\card_boot0.fex ..\eFex\card\card_boot1.fex ..\eFex\sys_config1.bin ..\eFex\sys_config.bin image.cfg
+del ..\eGon\Boot0.bin ..\eGon\Boot1.bin ..\eFex\card\card_boot0.fex ..\eFex\card\card_boot1.fex ..\eFex\sys_config1.bin ..\eFex\sys_config.bin image.cfg 
+::del rootfs.fex bootfs\linux\bImage
 
 pause
