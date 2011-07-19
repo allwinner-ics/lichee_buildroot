@@ -60,13 +60,13 @@ gen_output_sun4i()
 		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/rootfs.fex
 
 	cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot/bootfs/linux/
+        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot
 	cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
-        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot/rootfs.fex
+        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot/rootfs.fex
 
 	if [ -e ${CUR_DIR}/buildroot/output/images/u-boot.bin ]; then
 		cp -v ${CUR_DIR}/buildroot/output/images/u-boot.bin \
-        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win_uboot/wboot/bootfs/linux/
+        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot
 	fi
 
 	if [ ! -d "${CUR_DIR}/out" ]; then
@@ -77,7 +77,7 @@ gen_output_sun4i()
 	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 
 	echo "Packing for sun4i platform"
-	(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot; ./image.sh)
+	(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image.sh)
 
 }
 
@@ -90,14 +90,9 @@ gen_output_sun4i-lite()
 
 
         cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win/wboot/bootfs/linux/
+        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot
         cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
-        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win/wboot/rootfs.fex
-
-        cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot/bootfs/linux/
-        cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
-        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot/rootfs.fex
+        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot/rootfs.fex
 
 
         if [ ! -d "${CUR_DIR}/out" ]; then
@@ -108,7 +103,7 @@ gen_output_sun4i-lite()
         cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 
 	echo "Packing for sun4i platform"
-        (cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot; ./image.sh)
+        (cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image.sh)
 }
 
 gen_output_sun4i-debug()
@@ -120,14 +115,9 @@ gen_output_sun4i-debug()
 
 
         cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win/wboot/bootfs/linux/
+        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot
         cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
-        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_win/wboot/rootfs.fex
-
-        cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot/bootfs/linux/
-        cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
-        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_ddr3_lin/wboot/rootfs.fex
+        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot/rootfs.fex
 
 	if [ ! -d "${CUR_DIR}/out" ]; then
                 mkdir -pv ${CUR_DIR}/out
