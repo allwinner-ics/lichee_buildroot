@@ -658,7 +658,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/drv_display_sun4i.h DirectFB-1.4.
 +#endif
 diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/g2d_driver.h DirectFB-1.4.11/gfxdrivers/vmware/g2d_driver.h
 --- DirectFB-1.4.11_ori/gfxdrivers/vmware/g2d_driver.h	1970-01-01 08:00:00.000000000 +0800
-+++ DirectFB-1.4.11/gfxdrivers/vmware/g2d_driver.h	2011-06-13 17:03:39.605990000 +0800
++++ DirectFB-1.4.11/gfxdrivers/vmware/g2d_driver.h	2011-07-20 14:04:17.063702000 +0800
 @@ -0,0 +1,233 @@
 +/* g2d_driver.h
 + *
@@ -809,7 +809,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/g2d_driver.h DirectFB-1.4.11/gfxd
 +
 +/* image struct */
 +typedef struct {
-+	__u32			 addr;		/* base addr of image frame buffer in byte */
++	__u32			 addr[3];	/* base addr of image frame buffer in byte */
 +	__u32			 w;			/* width of image frame buffer in pixel */
 +	__u32			 h;			/* height of image frame buffer in pixel */
 +	g2d_data_fmt	 format;	/* pixel format of image frame buffer */
@@ -934,7 +934,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/Makefile.in DirectFB-1.4.11/gfxdr
  
 diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdrivers/vmware/vmware_2d.c
 --- DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c	2010-11-16 05:13:05.000000000 +0800
-+++ DirectFB-1.4.11/gfxdrivers/vmware/vmware_2d.c	2011-06-16 17:39:46.136392000 +0800
++++ DirectFB-1.4.11/gfxdrivers/vmware/vmware_2d.c	2011-07-20 14:02:35.476541000 +0800
 @@ -16,13 +16,24 @@
  
     You should have received a copy of the GNU Lesser General Public
@@ -1274,7 +1274,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
 +
 +	 if (vdev->drawingflags & DSDRAW_BLEND		){fill_para.flag = G2D_PLANE_ALPHA;}	
 +	 else if (vdev->drawingflags & DSDRAW_NOFX	){fill_para.flag = G2D_EFFECT_NONE;}
-+	 fill_para.dst_image.addr      = dst_phy_addr;
++	 fill_para.dst_image.addr[0]   = dst_phy_addr;
 +	 fill_para.dst_image.w         = vdev->dst_width;      //set dst width
 +	 fill_para.dst_image.h         = vdev->dst_height;     //set dst height
 +	 fill_para.dst_image.format    = dst_color_f;          //G2D_FMT_RGB565;//(unsigned int)vdev->dst_format;
@@ -1338,7 +1338,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
 +	dst_color_f = wmware_get_color_format((unsigned int)vdev->dst_format );
 +	src_color_f = wmware_get_color_format((unsigned int)vdev->src_format );
 +	
-+	blit_para.src_image.addr         = src_phy_addr;
++	blit_para.src_image.addr[0]      = src_phy_addr;
 +	blit_para.src_image.w            = vdev->src_width;
 +	blit_para.src_image.h            = vdev->src_height;
 +	blit_para.src_image.format       = src_color_f;             //(unsigned int)vdev->dst_format;
@@ -1347,7 +1347,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
 +	blit_para.src_rect.y             = srect->y;
 +	blit_para.src_rect.w             = srect->w;
 +	blit_para.src_rect.h             = srect->h;
-+	blit_para.dst_image.addr         = dst_phy_addr;
++	blit_para.dst_image.addr[0]      = dst_phy_addr;
 +	blit_para.dst_image.w            = vdev->dst_width;			
 +	blit_para.dst_image.h            = vdev->dst_height;
 +	blit_para.dst_image.format       = dst_color_f;             //(unsigned int)vdev->dst_format;
@@ -1411,7 +1411,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
 +	dst_color_f = wmware_get_color_format((unsigned int)vdev->dst_format );
 +	src_color_f = wmware_get_color_format((unsigned int)vdev->src_format );
 +	
-+    stretchblit_para.src_image.addr          = src_phy_addr;
++    stretchblit_para.src_image.addr[0]       = src_phy_addr;
 +    stretchblit_para.src_image.w             = vdev->src_width;
 +    stretchblit_para.src_image.h             = vdev->src_height;
 +    stretchblit_para.src_image.format        = src_color_f;
@@ -1422,7 +1422,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
 +    stretchblit_para.src_rect.w              = srect->w;
 +    stretchblit_para.src_rect.h              = srect->h;
 +
-+    stretchblit_para.dst_image.addr          = dst_phy_addr;
++    stretchblit_para.dst_image.addr[0]       = dst_phy_addr;
 +    stretchblit_para.dst_image.w             = vdev->dst_width;
 +    stretchblit_para.dst_image.h             = vdev->dst_height;
 +    stretchblit_para.dst_image.format        = dst_color_f;
@@ -1542,7 +1542,7 @@ diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.c DirectFB-1.4.11/gfxdr
 -
 diff -uN DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.h DirectFB-1.4.11/gfxdrivers/vmware/vmware_2d.h
 --- DirectFB-1.4.11_ori/gfxdrivers/vmware/vmware_2d.h	2010-10-31 16:49:49.000000000 +0800
-+++ DirectFB-1.4.11/gfxdrivers/vmware/vmware_2d.h	2011-06-13 14:47:59.146325000 +0800
++++ DirectFB-1.4.11/gfxdrivers/vmware/vmware_2d.h	2011-07-20 14:03:49.768245000 +0800
 @@ -23,15 +23,13 @@
  #ifndef __VMWARE_2D_H__
  #define __VMWARE_2D_H__
