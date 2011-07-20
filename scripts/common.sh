@@ -7,6 +7,8 @@ CUR_DIR=`pwd`
 show_help()
 {
 	printf "\nbuild.sh - Top Level Build Scripts\n\n"
+	echo "To pack sdcard, run \"touch .sdcard\" first, then run this script"
+	echo "================================================================="
 	echo "Valid Options:"
 	echo "  -h  Show help message"
 	echo "  -p <platform> platform"
@@ -78,9 +80,13 @@ gen_output_sun4i()
 	cp -v ${CUR_DIR}/buildroot/output/images/* ${CUR_DIR}/out/
 	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 
-	echo "Packing for sun4i platform"
-	(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image.sh)
-
+	if [ -e "${CUR_DIR}/.sdcard" ]; then
+		echo "Packing for sun4i sdcard"
+		(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_sdcard.sh)
+	else
+		echo "Packing for sun4i nand"
+		(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_nand.sh)
+	fi
 }
 
 gen_output_sun4i-lite()
@@ -110,8 +116,13 @@ gen_output_sun4i-lite()
 	cp -v ${CUR_DIR}/buildroot/output/images/* ${CUR_DIR}/out/
 	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 
-	echo "Packing for sun4i platform"
-	(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image.sh)
+	if [ -e "${CUR_DIR}/.sdcard" ]; then
+		echo "Packing for sun4i sdcard"
+		(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_sdcard.sh)
+	else
+		echo "Packing for sun4i nand"
+		(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_nand.sh)
+	fi
 }
 
 gen_output_sun4i-debug()
@@ -141,8 +152,13 @@ gen_output_sun4i-debug()
 	cp -v ${CUR_DIR}/buildroot/output/images/* ${CUR_DIR}/out/
 	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 
-	echo "Packing for sun4i-debug platform"
-	(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image.sh)
+	if [ -e "${CUR_DIR}/.sdcard" ]; then
+		echo "Packing for sun4i sdcard"
+		(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_sdcard.sh)
+	else
+		echo "Packing for sun4i nand"
+		(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_nand.sh)
+	fi
 
 }
 
@@ -163,9 +179,9 @@ gen_output_sun4i_crane()
 
 clean_output()
 {
-	rm -f ${CUR_DIR}/out/*
-	rm -f ${CUR_DIR}/buildroot/output/images/*
-	rm -f ${CUR_DIR}/linux-2.6.36/output/*
+	rm -rf ${CUR_DIR}/out/*
+	rm -rf ${CUR_DIR}/buildroot/output/images/*
+	rm -rf ${CUR_DIR}/linux-2.6.36/output/*
 }
 
 while getopts hp:m: OPTION

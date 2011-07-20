@@ -18,8 +18,14 @@ pushd .
 cd $WORKPATH
 
 #--------------------------------准备nand打包文件
-ln -s bootfs_sd bootfs
-mv bImage bootfs/linux/
+if [ -e u-boot.bin ];then
+	ln -s bootfs_uboot bootfs
+	mv u-boot.bin bootfs/linux/
+	mv uImage bootfs/linux/
+else
+	ln -s bootfs_sd bootfs
+	mv bImage bootfs/linux/
+fi
 
 #--------------------------------生成bootfs.iso
 $SOFTWAREPATH/mod_update/script ../eFex/sys_config1.fex
@@ -50,6 +56,7 @@ $SOFTWAREPATH/eDragonEx/dragon config/image_sd.cfg
 
 #--------------------------清理工作
 rm -f ../eGon/boot0.bin ../eGon/boot1.bin ../eFex/card/card_boot0.fex ../eFex/card/card_boot1.fex ../eFex/sys_config.bin ../eFex/sys_config1.bin
-rm bootfs/linux/bImage
-rm bootfs bootfs.fex rootfs.fex
+rm -f bootfs/linux/bImage bootfs/linux/uImage bootfs/linux/u-boot.bin
+rm -f bImage
+rm -f bootfs bootfs.fex rootfs.fex
 popd
