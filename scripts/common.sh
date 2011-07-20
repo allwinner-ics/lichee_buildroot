@@ -15,7 +15,7 @@ show_help()
 	printf "  sun4i        : full sun4i platform, including directfb, ...\n"
 	printf "  sun4i-lite   : lite sun4i platform, which has much less packages\n"
 	printf "  sun4i_crane  : for android, only have toolchain and kernel\n"
-	printf "  sun4i-debug  : for debug perpuse\n\n"
+	printf "  sun4i-debug  : for debug purpose\n\n"
 	printf "Valid Modules:\n"
 	printf "  kernel       : build linux kernel\n"
 	printf "  buildroot    : toolchain and package\n"
@@ -66,7 +66,9 @@ gen_output_sun4i()
 
 	if [ -e ${CUR_DIR}/buildroot/output/images/u-boot.bin ]; then
 		cp -v ${CUR_DIR}/buildroot/output/images/u-boot.bin \
-        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot
+        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot
+		cp -v ${CUR_DIR}/linux-2.6.36/output/uImage \
+        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot
 	fi
 
 	if [ ! -d "${CUR_DIR}/out" ]; then
@@ -89,21 +91,27 @@ gen_output_sun4i-lite()
 		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/rootfs.fex
 
 
-        cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+	cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot
+	cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
+		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot/rootfs.fex
+
+	if [ -e ${CUR_DIR}/buildroot/output/images/u-boot.bin ]; then
+		cp -v ${CUR_DIR}/buildroot/output/images/u-boot.bin \
         	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot
-        cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
-        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot/rootfs.fex
+		cp -v ${CUR_DIR}/linux-2.6.36/output/uImage \
+        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot
+	fi
 
+	if [ ! -d "${CUR_DIR}/out" ]; then
+		mkdir -pv ${CUR_DIR}/out/
+	fi
 
-        if [ ! -d "${CUR_DIR}/out" ]; then
-                mkdir -pv ${CUR_DIR}/out/
-        fi
-
-        cp -v ${CUR_DIR}/buildroot/output/images/* ${CUR_DIR}/out/
-        cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
+	cp -v ${CUR_DIR}/buildroot/output/images/* ${CUR_DIR}/out/
+	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 
 	echo "Packing for sun4i platform"
-        (cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image.sh)
+	(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image.sh)
 }
 
 gen_output_sun4i-debug()
@@ -114,39 +122,51 @@ gen_output_sun4i-debug()
 		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/rootfs.fex
 
 
-        cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+	cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot
+	cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
+		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot/rootfs.fex
+
+	if [ -e ${CUR_DIR}/buildroot/output/images/u-boot.bin ]; then
+		cp -v ${CUR_DIR}/buildroot/output/images/u-boot.bin \
         	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot
-        cp -v ${CUR_DIR}/buildroot/output/images/rootfs.ext2 \
-        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot/rootfs.fex
+	cp -v ${CUR_DIR}/linux-2.6.36/output/uImage \
+        	${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot
+	fi
 
 	if [ ! -d "${CUR_DIR}/out" ]; then
-                mkdir -pv ${CUR_DIR}/out
-        fi
+		mkdir -pv ${CUR_DIR}/out
+	fi
 
-        cp -v ${CUR_DIR}/buildroot/output/images/* ${CUR_DIR}/out/
-        cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
+	cp -v ${CUR_DIR}/buildroot/output/images/* ${CUR_DIR}/out/
+	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 
-        echo "Packing for sun4i-debug platform"
-        (cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image.sh)
+	echo "Packing for sun4i-debug platform"
+	(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image.sh)
 
 }
 
 gen_output_sun4i_crane()
 {
-        cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot/bootfs/linux/
-        cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-        ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/bootfs/linux/
+	cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot/bootfs/linux/
+	cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
+		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/bootfs/linux/
 	echo "test" > ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/rootfs.fex
 
-        if [ -d "${CUR_DIR}/out" ]; then
-                mkdir -pv ${CUR_DIR}/out
-        fi
+	if [ -d "${CUR_DIR}/out" ]; then
+		mkdir -pv ${CUR_DIR}/out
+	fi
 
-        cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
+	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 }
 
-
+clean_output()
+{
+	rm -f ${CUR_DIR}/out/*
+	rm -f ${CUR_DIR}/buildroot/output/images/*
+	rm -f ${CUR_DIR}/linux-2.6.36/output/*
+}
 
 while getopts hp:m: OPTION
 do
@@ -167,6 +187,7 @@ if [ -z "$PLATFORM" ]; then
 	exit 1
 fi
 
+clean_output
 
 if [ "$MODULE" = buildroot ]; then
 	cd ${CUR_DIR}/buildroot && ./build.sh -p ${PLATFORM}
