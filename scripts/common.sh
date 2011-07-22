@@ -165,9 +165,9 @@ gen_output_sun4i-debug()
 gen_output_sun4i_crane()
 {
 	cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot/bootfs/linux/
+		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot/
 	cp -v ${CUR_DIR}/linux-2.6.36/output/bImage \
-		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/bootfs/linux/
+		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/
 	echo "test" > ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/rootfs.fex
 
 	if [ -d "${CUR_DIR}/out" ]; then
