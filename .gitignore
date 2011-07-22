@@ -17,6 +17,7 @@ tools/pack/sun4i_pack_win/wboot/bootfs/
 tools/pack/sun4i_pack_win/wboot/ePDKv100_nand.img
 tools/pack/sun4i_pack_win/wboot/ePDKv100_sdcard.img
 tools/pack/sun4i_pack_win/wboot/rootfs.fex
+tools/pack/sun4i_pack_win/wboot/bImage
 tools/pack/sun4i_pack_lin/wboot/bootfs/
 tools/pack/sun4i_pack_lin/wboot/ePDKv100_nand.img
 tools/pack/sun4i_pack_lin/wboot/ePDKv100_sdcard.img
