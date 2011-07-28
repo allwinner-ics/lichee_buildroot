@@ -32,6 +32,7 @@ regen_rootfs()
 	echo "Regenerating Rootfs..."
 	if [ -d ${CUR_DIR}/buildroot/output/target ]; then
 		mkdir -p ${CUR_DIR}/buildroot/output/target/lib/modules
+		rm -rf ${CUR_DIR}/buildroot/output/target/lib/modules/2.6.36*
 		cp -rf ${CUR_DIR}/linux-2.6.36/output/lib/modules/* \
 			${CUR_DIR}/buildroot/output/target/lib/modules/
 
