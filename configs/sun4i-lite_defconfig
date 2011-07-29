@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
-# Buildroot 2011.02-00005-gd32995c Configuration
-# Sat Jun 18 16:16:56 2011
+# Buildroot 2011.02-00001-ge2dfff3-dirty Configuration
+# Fri Jul 29 09:51:09 2011
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_arm=y
@@ -155,7 +155,7 @@ BR2_PACKAGE_BUSYBOX_CONFIG="package/busybox/busybox-1.18.x.config"
 # BR2_PACKAGE_LCD_TEST is not set
 BR2_PACKAGE_TP_TEST=y
 BR2_PACKAGE_MALI_3D=y
-# BR2_PACKAGE_CEDAR is not set
+BR2_PACKAGE_CEDAR=y
 
 #
 # Audio and video libraries and applications
@@ -361,8 +361,7 @@ BR2_PACKAGE_IOSTAT=y
 # BR2_PACKAGE_MDADM is not set
 # BR2_PACKAGE_MEMTESTER is not set
 # BR2_PACKAGE_MTD is not set
-# BR2_PACKAGE_NTFS_3G is not set
-# BR2_PACKAGE_NTFSPROGS is not set
+BR2_PACKAGE_NTFS_3G=y
 # BR2_PACKAGE_PCIUTILS is not set
 # BR2_PACKAGE_RNG_TOOLS is not set
 # BR2_PACKAGE_SDPARM is not set
@@ -406,7 +405,10 @@ BR2_PACKAGE_ZLIB=y
 # BR2_PACKAGE_BEECRYPT is not set
 # BR2_PACKAGE_LIBGCRYPT is not set
 # BR2_PACKAGE_LIBGPG_ERROR is not set
-# BR2_PACKAGE_OPENSSL is not set
+BR2_PACKAGE_OPENSSL=y
+# BR2_PACKAGE_OPENSSL_BIN is not set
+# BR2_PACKAGE_OPENSSL_ENGINES is not set
+# BR2_PACKAGE_OPENSSL_OCF is not set
 
 #
 # Database
@@ -421,7 +423,12 @@ BR2_PACKAGE_ZLIB=y
 # BR2_PACKAGE_GAMIN is not set
 # BR2_PACKAGE_LIBCONFIG is not set
 # BR2_PACKAGE_LIBCONFUSE is not set
-# BR2_PACKAGE_LIBFUSE is not set
+BR2_PACKAGE_LIBFUSE=y
+BR2_PACKAGE_FUSE_EXFAT=y
+
+#
+# fuse-exfat requires libfuse support
+#
 # BR2_PACKAGE_LIBLOCKFILE is not set
 # BR2_PACKAGE_LIBSYSFS is not set
 
@@ -431,7 +438,7 @@ BR2_PACKAGE_ZLIB=y
 # BR2_PACKAGE_ATK is not set
 # BR2_PACKAGE_CAIRO is not set
 # BR2_PACKAGE_FONTCONFIG is not set
-# BR2_PACKAGE_FREETYPE is not set
+BR2_PACKAGE_FREETYPE=y
 # BR2_PACKAGE_JPEG is not set
 # BR2_PACKAGE_LIBART is not set
 # BR2_PACKAGE_GDK_PIXBUF is not set
@@ -451,7 +458,7 @@ BR2_PACKAGE_ZLIB=y
 #
 # BR2_PACKAGE_LIBAIO is not set
 # BR2_PACKAGE_LIBRAW1394 is not set
-# BR2_PACKAGE_TSLIB is not set
+BR2_PACKAGE_TSLIB=y
 # BR2_PACKAGE_LIBHID is not set
 # BR2_PACKAGE_LIBUSB is not set
 
@@ -551,9 +558,9 @@ BR2_PACKAGE_IW=y
 # BR2_PACKAGE_NUTTCP is not set
 # BR2_PACKAGE_OLSR is not set
 # BR2_PACKAGE_OPENNTPD is not set
-# BR2_PACKAGE_OPENSSH is not set
+BR2_PACKAGE_OPENSSH=y
 # BR2_PACKAGE_OPENVPN is not set
-# BR2_PACKAGE_PORTMAP is not set
+BR2_PACKAGE_PORTMAP=y
 # BR2_PACKAGE_PPPD is not set
 # BR2_PACKAGE_RADVD is not set
 # BR2_PACKAGE_PPTP_LINUX is not set
