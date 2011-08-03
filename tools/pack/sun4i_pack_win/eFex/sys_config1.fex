@@ -619,3 +619,6 @@ I2S_DO1     =  port:PB9<2><1><default><default>
 I2S_DO2     =  port:PB10<2><1><default><default>
 I2S_DO3     =  port:PB11<2><1><default><default>
 I2S_DI      =  port:PB12<2><1><default><default>
+
+[audio_para]
+audio_pa_ctrl = port:PH15<1><default><default><0>
