@@ -278,48 +278,48 @@ fb1_scaler_mode_enable  = 0
 [lcd0_para]
 lcd0_para_used  = 1
 
-LCD_BL_EN_USED  = 0
-LCD_BL_EN       =
+lcd_bl_en_used  = 0
+lcd_bl_en       =
 
-LCD_POWER_USED  = 1
-LCD_POWER       = port:PH08<1><0><default><0>
+lcd_power_used  = 1
+lcd_power       = port:PH08<1><0><default><0>
 
-LCD_PWM_USED    = 1
-LCD_PWM         = port:PB02<2><default><default><default>
+lcd_pwm_used    = 1
+lcd_pwm         = port:PB02<2><default><default><default>
 
-LCD_GPIO_0      =
-LCD_GPIO_1      =
-LCD_GPIO_2      =
-LCD_GPIO_3      =
+lcd_gpio_0      =
+lcd_gpio_1      =
+lcd_gpio_2      =
+lcd_gpio_3      =
 
-LCDD0    = port:PD00<2><default><default><default>
-LCDD1    = port:PD01<2><default><default><default>
-LCDD2    = port:PD02<2><default><default><default>
-LCDD3    = port:PD03<2><default><default><default>
-LCDD4    = port:PD04<2><default><default><default>
-LCDD5    = port:PD05<2><default><default><default>
-LCDD6    = port:PD06<2><default><default><default>
-LCDD7    = port:PD07<2><default><default><default>
-LCDD8    = port:PD08<2><default><default><default>
-LCDD9    = port:PD09<2><default><default><default>
-LCDD10   = port:PD10<2><default><default><default>
-LCDD11   = port:PD11<2><default><default><default>
-LCDD12   = port:PD12<2><default><default><default>
-LCDD13   = port:PD13<2><default><default><default>
-LCDD14   = port:PD14<2><default><default><default>
-LCDD15   = port:PD15<2><default><default><default>
-LCDD16   = port:PD16<2><default><default><default>
-LCDD17   = port:PD17<2><default><default><default>
-LCDD18   = port:PD18<2><default><default><default>
-LCDD19   = port:PD19<2><default><default><default>
-LCDD20   = port:PD20<2><default><default><default>
-LCDD21   = port:PD21<2><default><default><default>
-LCDD22   = port:PD22<2><default><default><default>
-LCDD23   = port:PD23<2><default><default><default>
-LCDCLK   = port:PD24<2><default><default><default>
-LCDDE    = port:PD25<2><default><default><default>
-LCDHSYNC = port:PD26<2><default><default><default>
-LCDVSYNC = port:PD27<2><default><default><default>
+lcdd0    = port:PD00<2><default><default><default>
+lcdd1    = port:PD01<2><default><default><default>
+lcdd2    = port:PD02<2><default><default><default>
+lcdd3    = port:PD03<2><default><default><default>
+lcdd4    = port:PD04<2><default><default><default>
+lcdd5    = port:PD05<2><default><default><default>
+lcdd6    = port:PD06<2><default><default><default>
+lcdd7    = port:PD07<2><default><default><default>
+lcdd8    = port:PD08<2><default><default><default>
+lcdd9    = port:PD09<2><default><default><default>
+lcdd10   = port:PD10<2><default><default><default>
+lcdd11   = port:PD11<2><default><default><default>
+lcdd12   = port:PD12<2><default><default><default>
+lcdd13   = port:PD13<2><default><default><default>
+lcdd14   = port:PD14<2><default><default><default>
+lcdd15   = port:PD15<2><default><default><default>
+lcdd16   = port:PD16<2><default><default><default>
+lcdd17   = port:PD17<2><default><default><default>
+lcdd18   = port:PD18<2><default><default><default>
+lcdd19   = port:PD19<2><default><default><default>
+lcdd20   = port:PD20<2><default><default><default>
+lcdd21   = port:PD21<2><default><default><default>
+lcdd22   = port:PD22<2><default><default><default>
+lcdd23   = port:PD23<2><default><default><default>
+lcdclk   = port:PD24<2><default><default><default>
+lcdde    = port:PD25<2><default><default><default>
+lcdhsync = port:PD26<2><default><default><default>
+lcdvsync = port:PD27<2><default><default><default>
 
 ;----------------------------------------------------------------------------------
 ;lcd1 configuration
@@ -327,48 +327,48 @@ LCDVSYNC = port:PD27<2><default><default><default>
 [lcd1_para]
 lcd1_para_used = 0
 
-LCD_BL_EN_USED  = 0
-LCD_BL_EN       =
+lcd_bl_en_used  = 0
+lcd_bl_en       =
 
-LCD_POWER_USED  = 0
-LCD_POWER       = 
+lcd_power_used  = 0
+lcd_power       = 
 
-LCD_PWM_USED = 1
-LCD_PWM      = port:PI03<2><default><default><default>
+lcd_pwm_used = 1
+lcd_pwm      = port:PI03<2><default><default><default>
 
-LCD_GPIO_0      =
-LCD_GPIO_1      =
-LCD_GPIO_2      =
-LCD_GPIO_3      =
+lcd_gpio_0      =
+lcd_gpio_1      =
+lcd_gpio_2      =
+lcd_gpio_3      =
 
-LCDD0    = port:PH00<2><default><default><default>
-LCDD1    = port:PH01<2><default><default><default>
-LCDD2    = port:PH02<2><default><default><default>
-LCDD3    = port:PH03<2><default><default><default>
-LCDD4    = port:PH04<2><default><default><default>
-LCDD5    = port:PH05<2><default><default><default>
-LCDD6    = port:PH06<2><default><default><default>
-LCDD7    = port:PH07<2><default><default><default>
-LCDD8    = port:PH08<2><default><default><default>
-LCDD9    = port:PH09<2><default><default><default>
-LCDD10   = port:PH10<2><default><default><default>
-LCDD11   = port:PH11<2><default><default><default>
-LCDD12   = port:PH12<2><default><default><default>
-LCDD13   = port:PH13<2><default><default><default>
-LCDD14   = port:PH14<2><default><default><default>
-LCDD15   = port:PH15<2><default><default><default>
-LCDD16   = port:PH16<2><default><default><default>
-LCDD17   = port:PH17<2><default><default><default>
-LCDD18   = port:PH18<2><default><default><default>
-LCDD19   = port:PH19<2><default><default><default>
-LCDD20   = port:PH20<2><default><default><default>
-LCDD21   = port:PH21<2><default><default><default>
-LCDD22   = port:PH22<2><default><default><default>
-LCDD23   = port:PH23<2><default><default><default>
-LCDCLK   = port:PH24<2><default><default><default>
-LCDDE    = port:PH25<2><default><default><default>
-LCDHSYNC = port:PH26<2><default><default><default>
-LCDVSYNC = port:PH27<2><default><default><default>
+lcdd0    = port:PH00<2><default><default><default>
+lcdd1    = port:PH01<2><default><default><default>
+lcdd2    = port:PH02<2><default><default><default>
+lcdd3    = port:PH03<2><default><default><default>
+lcdd4    = port:PH04<2><default><default><default>
+lcdd5    = port:PH05<2><default><default><default>
+lcdd6    = port:PH06<2><default><default><default>
+lcdd7    = port:PH07<2><default><default><default>
+lcdd8    = port:PH08<2><default><default><default>
+lcdd9    = port:PH09<2><default><default><default>
+lcdd10   = port:PH10<2><default><default><default>
+lcdd11   = port:PH11<2><default><default><default>
+lcdd12   = port:PH12<2><default><default><default>
+lcdd13   = port:PH13<2><default><default><default>
+lcdd14   = port:PH14<2><default><default><default>
+lcdd15   = port:PH15<2><default><default><default>
+lcdd16   = port:PH16<2><default><default><default>
+lcdd17   = port:PH17<2><default><default><default>
+lcdd18   = port:PH18<2><default><default><default>
+lcdd19   = port:PH19<2><default><default><default>
+lcdd20   = port:PH20<2><default><default><default>
+lcdd21   = port:PH21<2><default><default><default>
+lcdd22   = port:PH22<2><default><default><default>
+lcdd23   = port:PH23<2><default><default><default>
+lcdclk   = port:PH24<2><default><default><default>
+lcdde    = port:PH25<2><default><default><default>
+lcdhsync = port:PH26<2><default><default><default>
+lcdvsync = port:PH27<2><default><default><default>
 
 ;--------------------------------------------------------------------------------
 ;csi gpio configuration
@@ -704,7 +704,7 @@ vol_threshold = 3500
 ;*************************************************************
 [dram_para]
 dram_baseaddr        	= 0x40000000
-dram_clk             	= 456
+dram_clk             	= 360
 dram_type				= 3
 dram_rank_num     		= 1
 dram_chip_density		= 2048
