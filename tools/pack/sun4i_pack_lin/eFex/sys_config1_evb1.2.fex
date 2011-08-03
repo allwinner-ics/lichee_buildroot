@@ -278,6 +278,56 @@ fb1_scaler_mode_enable  = 0
 [lcd0_para]
 lcd0_para_used  = 1
 
+lcd_x               = 800
+lcd_y               = 480
+lcd_dclk_freq       = 33
+lcd_pwm_freq        = 1
+lcd_pwm_pol         = 0
+lcd_srgb            = 0x00202020
+lcd_swap            = 0
+lcd_if              = 0
+lcd_hbp             = 46
+lcd_ht              = 1055
+lcd_vbp             = 23
+lcd_vt              = 1050
+lcd_hv_if           = 0
+lcd_hv_smode        = 0
+lcd_hv_s888_if      = 0
+lcd_hv_syuv_if      = 0
+lcd_hv_vspw         = 0
+lcd_hv_hspw         = 0
+lcd_hv_lde_used     = 0
+lcd_hv_lde_iovalue  = 0
+lcd_ttl_stvh        = 0
+lcd_ttl_stvdl       = 0
+lcd_ttl_stvdp       = 0
+lcd_ttl_ckvt        = 0
+lcd_ttl_ckvh        = 0
+lcd_ttl_ckvd        = 0
+lcd_ttl_oevt        = 0
+lcd_ttl_oevh        = 0
+lcd_ttl_oevd        = 0
+lcd_ttl_sthh        = 0
+lcd_ttl_sthd        = 0
+lcd_ttl_oehh        = 0
+lcd_ttl_oehd        = 0
+lcd_ttl_revd        = 0
+lcd_ttl_datarate    = 0
+lcd_ttl_revsel      = 0
+lcd_ttl_datainv_en  = 0
+lcd_ttl_datainv_sel = 0
+lcd_lvds_ch         = 0
+lcd_lvds_mode       = 0
+lcd_lvds_bitwidth   = 0
+lcd_lvds_io_cross   = 0
+lcd_cpu_if          = 0
+lcd_cpu_da          = 0
+lcd_frm             = 0
+lcd_io_cfg0         = 0x10000000
+lcd_io_cfg1         = 0
+lcd_io_strength     = 0
+
+
 lcd_bl_en_used  = 1
 lcd_bl_en       = port:PH07<1><0><default><1>
 
@@ -327,6 +377,55 @@ lcdvsync = port:PD27<2><default><default><default>
 [lcd1_para]
 lcd1_para_used = 0
 
+lcd_x               = 0
+lcd_y               = 0
+lcd_dclk_freq       = 0
+lcd_pwm_freq        = 0
+lcd_pwm_pol         = 0
+lcd_srgb            = 0
+lcd_swap            = 0
+lcd_if              = 0
+lcd_hbp             = 0
+lcd_ht              = 0
+lcd_vbp             = 0
+lcd_vt              = 0
+lcd_hv_if           = 0
+lcd_hv_smode        = 0
+lcd_hv_s888_if      = 0
+lcd_hv_syuv_if      = 0
+lcd_hv_vspw         = 0
+lcd_hv_hspw         = 0
+lcd_hv_lde_used     = 0
+lcd_hv_lde_iovalue  = 0
+lcd_ttl_stvh        = 0
+lcd_ttl_stvdl       = 0
+lcd_ttl_stvdp       = 0
+lcd_ttl_ckvt        = 0
+lcd_ttl_ckvh        = 0
+lcd_ttl_ckvd        = 0
+lcd_ttl_oevt        = 0
+lcd_ttl_oevh        = 0
+lcd_ttl_oevd        = 0
+lcd_ttl_sthh        = 0
+lcd_ttl_sthd        = 0
+lcd_ttl_oehh        = 0
+lcd_ttl_oehd        = 0
+lcd_ttl_revd        = 0
+lcd_ttl_datarate    = 0
+lcd_ttl_revsel      = 0
+lcd_ttl_datainv_en  = 0
+lcd_ttl_datainv_sel = 0
+lcd_lvds_ch         = 0
+lcd_lvds_mode       = 0
+lcd_lvds_bitwidth   = 0
+lcd_lvds_io_cross   = 0
+lcd_cpu_if          = 0
+lcd_cpu_da          = 0
+lcd_frm             = 0
+lcd_io_cfg0         = 0
+lcd_io_cfg1         = 0
+lcd_io_strength     = 0
+
 lcd_bl_en_used  = 0
 lcd_bl_en       =
 
@@ -369,6 +468,9 @@ lcdclk   = port:PH24<2><default><default><default>
 lcdde    = port:PH25<2><default><default><default>
 lcdhsync = port:PH26<2><default><default><default>
 lcdvsync = port:PH27<2><default><default><default>
+
+
+
 
 ;--------------------------------------------------------------------------------
 ;csi gpio configuration
