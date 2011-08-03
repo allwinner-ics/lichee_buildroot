@@ -278,11 +278,11 @@ fb1_scaler_mode_enable  = 0
 [lcd0_para]
 lcd0_para_used  = 1
 
-lcd_bl_en_used  = 0
-lcd_bl_en       =
+lcd_bl_en_used  = 1
+lcd_bl_en       = port:PH07<1><0><default><1>
 
 lcd_power_used  = 1
-lcd_power       = port:PH08<1><0><default><0>
+lcd_power       = port:PH08<1><0><default><1>
 
 lcd_pwm_used    = 1
 lcd_pwm         = port:PB02<2><default><default><default>
