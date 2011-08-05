@@ -112,6 +112,16 @@ twi2_used = 1
 twi2_scl = port:PB20<2><default><default><default>
 twi2_sda = port:PB21<2><default><default><default>
 
+[twi_device_para]
+goodix_ctp_used = 1
+goodix_ctp_twi_addr = 0x55
+goodix_ctp_twi_id   = 2
+ft5x_ctp_used = 1
+ft5x_ctp_twi_addr = 0x70
+ft5x_ctp_twi_id   = 2
+hv_keyboard_used = 1
+hv_keyboard_twi_addr = 0x62
+hv_keyboard_twi_id = 2
 ;----------------------------------------------------------------------------------
 ;uart configuration
 ;----------------------------------------------------------------------------------
@@ -217,15 +227,39 @@ spi_cs1   		= port:PA09<4><default><default><default>
 spi_sclk  		= port:PI06<4><default><default><default>
 spi_mosi  		= port:PI07<4><default><default><default>
 spi_miso  		= port:PI08<4><default><default><default>
-;touch screen configuration
+;----------------------------------------------------------------------------------
+;ft5x capacitor tp configuration
 ;external int function
 ;wakeup output function
-;notice :    tp_int_port &  tp_io_port use the same port
+;notice ---    tp_int_port &  tp_io_port use the same port
 ;----------------------------------------------------------------------------------
-[tp_para]
-tp_int_port   = port:PH21<6><default>
-tp_wakeup     = port:PB13<1><default><default><1>
-tp_io_port    = port:PH21<0><default>
+[ft5x_ctp_para]
+ft5x_ctp_used			    = 1
+ft5x_ctp_mname			    = string:ft5x0x
+ft5x_ctp_screen_max_x       = 800
+ft5x_ctp_screen_max_y       = 480
+ft5x_ctp_revert_x_flag      = 0
+ft5x_ctp_revert_y_flag      = 0
+ft5x_ctp_int_port   		= port:PH21<6><default>
+ft5x_ctp_wakeup     		= port:PB13<1><default><default><1>
+ft5x_ctp_io_port    		= port:PH21<0><default>
+;----------------------------------------------------------------------------------
+;goodix capacitor tp configuration
+;external int function
+;wakeup output function
+;notice ---    tp_int_port &  tp_io_port use the same port
+;----------------------------------------------------------------------------------
+[goodix_ctp_para]
+goodix_ctp_used			    = 0
+goodix_ctp_mname			= string:goodix
+goodix_ctp_screen_max_x     = 800
+goodix_ctp_screen_max_y     = 480
+goodix_ctp_int_port   		= port:PH21<6><default>
+goodix_ctp_wakeup     		= port:PB13<1><default><default><1>
+goodix_ctp_io_port    		= port:PH21<0><default>
+
+[hv_keypad_para]
+hv_keypad_used = 0
 
 [nand_para]
 NAND_WE	 =  port:PC00<2><default><default><default>
