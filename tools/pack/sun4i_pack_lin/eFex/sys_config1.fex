@@ -776,7 +776,7 @@ sdio_wifi_used		= 1
 sdio_wifi_mname		= string:wifi_n20s_nanon20s
 sdio_wifi_sdc_id	= 3
 sdio_wifi_shdn        	= port:PH09<1><default><default><0>
-sdio_wifi_host_wakeup 	= port:PH10<1><default><default><0>
+sdio_wifi_host_wakeup 	= port:PH10<1><default><default><1>
 sdio_wifi_vdd_en       	= port:PH11<1><default><default><0>
 sdio_wifi_vcc_en       	= port:PH12<1><default><default><0>
 
