@@ -112,6 +112,16 @@ twi2_used = 1
 twi2_scl = port:PB20<2><default><default><default>
 twi2_sda = port:PB21<2><default><default><default>
 
+[twi_device_para]
+goodix_ctp_used = 1
+goodix_ctp_twi_addr = 0x55
+goodix_ctp_twi_id   = 2
+ft5x_ctp_used = 1
+ft5x_ctp_twi_addr = 0x70
+ft5x_ctp_twi_id   = 2
+hv_keyboard_used = 1
+hv_keyboard_twi_addr = 0x62
+hv_keyboard_twi_id = 2
 ;----------------------------------------------------------------------------------
 ;uart configuration
 ;----------------------------------------------------------------------------------
@@ -120,64 +130,64 @@ uart_port = 0
 uart0_tx   = port:PB22<2>
 uart0_rx   = port:PB23<2>
 
-[uart_para1]
-uart_port 		= 1
-uart_used		= 0
-uart_type		= 8
-uart1_tx   		= port:PA10<4><default><default><default>
-uart1_rx   		= port:PA11<4><default><default><default>
-uart1_rts  		= port:PA12<4><default><default><default>
-uart1_cts  		= port:PA13<4><default><default><default>
-uart1_dtr  		= port:PA14<4><default><default><default>
-uart1_dsr  		= port:PA15<4><default><default><default>
-uart1_dcd  		= port:PA16<4><default><default><default>
-uart1_ring 		= port:PA17<4><default><default><default>
+;[uart_para1]
+;uart_port 		= 1
+;uart_used		= 0
+;uart_type		= 8
+;uart1_tx   		= port:PA10<4><default><default><default>
+;uart1_rx   		= port:PA11<4><default><default><default>
+;uart1_rts  		= port:PA12<4><default><default><default>
+;uart1_cts  		= port:PA13<4><default><default><default>
+;uart1_dtr  		= port:PA14<4><default><default><default>
+;uart1_dsr  		= port:PA15<4><default><default><default>
+;uart1_dcd  		= port:PA16<4><default><default><default>
+;uart1_ring 		= port:PA17<4><default><default><default>
 
-[uart_para2]
-uart_port 		= 2
-uart_used		= 0
-uart_type		= 4
-uart2_tx   		= port:PI18<3><default><default><default>
-uart2_rx   		= port:PI19<3><default><default><default>
-uart2_rts  		= port:PI16<3><default><default><default>
-uart2_cts  		= port:PI17<3><default><default><default>
-
-[uart_para3]
-uart_port 		= 3
-uart_used		= 0
-uart_type		= 4
-uart3_tx   		= port:PH00<4><default><default><default>
-uart3_rx   		= port:PH01<4><default><default><default>
-uart3_rts  		= port:PH02<4><default><default><default>
-uart3_cts  		= port:PH03<4><default><default><default>
-
-[uart_para4]
-uart_port 		= 4
-uart_used		= 0
-uart_type		= 2
-uart4_tx   		= port:PH04<4><default><default><default>
-uart4_rx   		= port:PH05<4><default><default><default>
-
-[uart_para5]
-uart_port 		= 5
-uart_used		= 0
-uart_type		= 2
-uart5_tx   		= port:PH06<4><default><default><default>
-uart5_rx   		= port:PH07<4><default><default><default>
-
-[uart_para6]
-uart_port 		= 6
-uart_used		= 0
-uart_type		= 2
-uart6_tx   		= port:PA12<4><default><default><default>
-uart6_rx   		= port:PA13<4><default><default><default>
-
-[uart_para7]
-uart_port 		= 7
-uart_used		= 0
-uart_type		= 2
-uart7_tx   		= port:PA14<4><default><default><default>
-uart7_rx   		= port:PA15<4><default><default><default>
+;[uart_para2]
+;uart_port 		= 2
+;uart_used		= 0
+;uart_type		= 4
+;uart2_tx   		= port:PI18<3><default><default><default>
+;uart2_rx   		= port:PI19<3><default><default><default>
+;uart2_rts  		= port:PI16<3><default><default><default>
+;uart2_cts  		= port:PI17<3><default><default><default>
+;
+;[uart_para3]
+;uart_port 		= 3
+;uart_used		= 0
+;uart_type		= 4
+;uart3_tx   		= port:PH00<4><default><default><default>
+;uart3_rx   		= port:PH01<4><default><default><default>
+;uart3_rts  		= port:PH02<4><default><default><default>
+;uart3_cts  		= port:PH03<4><default><default><default>
+;
+;[uart_para4]
+;uart_port 		= 4
+;uart_used		= 0
+;uart_type		= 2
+;uart4_tx   		= port:PH04<4><default><default><default>
+;uart4_rx   		= port:PH05<4><default><default><default>
+;
+;[uart_para5]
+;uart_port 		= 5
+;uart_used		= 0
+;uart_type		= 2
+;uart5_tx   		= port:PH06<4><default><default><default>
+;uart5_rx   		= port:PH07<4><default><default><default>
+;
+;[uart_para6]
+;uart_port 		= 6
+;uart_used		= 0
+;uart_type		= 2
+;uart6_tx   		= port:PA12<4><default><default><default>
+;uart6_rx   		= port:PA13<4><default><default><default>
+;
+;[uart_para7]
+;uart_port 		= 7
+;uart_used		= 0
+;uart_type		= 2
+;uart7_tx   		= port:PA14<4><default><default><default>
+;uart7_rx   		= port:PA15<4><default><default><default>
 
 ;----------------------------------------------------------------------------------
 ;spi configuration
@@ -217,15 +227,39 @@ spi_cs1   		= port:PA09<4><default><default><default>
 spi_sclk  		= port:PI06<4><default><default><default>
 spi_mosi  		= port:PI07<4><default><default><default>
 spi_miso  		= port:PI08<4><default><default><default>
-;touch screen configuration
+;----------------------------------------------------------------------------------
+;ft5x capacitor tp configuration
 ;external int function
 ;wakeup output function
-;notice :    tp_int_port &  tp_io_port use the same port
+;notice ---    tp_int_port &  tp_io_port use the same port
 ;----------------------------------------------------------------------------------
-[tp_para]
-tp_int_port   = port:PH21<6><default>
-tp_wakeup     = port:PB13<1><default><default><1>
-tp_io_port    = port:PH21<0><default>
+[ft5x_ctp_para]
+ft5x_ctp_used			    = 1
+ft5x_ctp_mname			    = string:ft5x0x
+ft5x_ctp_screen_max_x       = 800
+ft5x_ctp_screen_max_y       = 480
+ft5x_ctp_revert_x_flag      = 0
+ft5x_ctp_revert_y_flag      = 0
+ft5x_ctp_int_port   		= port:PH21<6><default>
+ft5x_ctp_wakeup     		= port:PB13<1><default><default><1>
+ft5x_ctp_io_port    		= port:PH21<0><default>
+;----------------------------------------------------------------------------------
+;goodix capacitor tp configuration
+;external int function
+;wakeup output function
+;notice ---    tp_int_port &  tp_io_port use the same port
+;----------------------------------------------------------------------------------
+[goodix_ctp_para]
+goodix_ctp_used			    = 0
+goodix_ctp_mname			= string:goodix
+goodix_ctp_screen_max_x     = 800
+goodix_ctp_screen_max_y     = 480
+goodix_ctp_int_port   		= port:PH21<6><default>
+goodix_ctp_wakeup     		= port:PB13<1><default><default><1>
+goodix_ctp_io_port    		= port:PH21<0><default>
+
+[hv_keypad_para]
+hv_keypad_used = 0
 
 [nand_para]
 NAND_WE	 =  port:PC00<2><default><default><default>
@@ -487,36 +521,46 @@ lcdvsync = port:PH27<2><default><default><default>
 ;csi gpio configuration
 ;--------------------------------------------------------------------------------
 [csi0_para]
-CSI0_PCK 				= port:PE00<3><default><default><default>
-CSI0_CK	 				= port:PE01<3><default><default><default>
-CSI0_HSYNC 			= port:PE02<3><default><default><default>
-CSI0_VSYNC			= port:PE03<3><default><default><default>
-CSI0_D0	 				= port:PE04<3><default><default><default>
-CSI0_D1	 				= port:PE05<3><default><default><default>
-CSI0_D2  				= port:PE06<3><default><default><default>
-CSI0_D3  				= port:PE07<3><default><default><default>
-CSI0_D4  				= port:PE08<3><default><default><default>
-CSI0_D5	 				= port:PE09<3><default><default><default>
-CSI0_D6  				= port:PE10<3><default><default><default>
-CSI0_D7  				= port:PE11<3><default><default><default>
-CSI0_RESET  		= port:PH13<1><default><default><0>
-CSI0_POWER_EN 	= port:PH16<1><default><default><1>
+csi_used			= 1
+csi_mname			= string:gc0308
+csi_twi_id			= 1
+csi_twi_addr		= 0x42
+csi_pck 			= port:PE00<3><default><default><default>
+csi_ck	 			= port:PE01<3><default><default><default>
+csi_hsync 			= port:PE02<3><default><default><default>
+csi_vsync			= port:PE03<3><default><default><default>
+csi_d0	 			= port:PE04<3><default><default><default>
+csi_d1	 			= port:PE05<3><default><default><default>
+csi_d2  			= port:PE06<3><default><default><default>
+csi_d3  			= port:PE07<3><default><default><default>
+csi_d4  			= port:PE08<3><default><default><default>
+csi_d5	 			= port:PE09<3><default><default><default>
+csi_d6  			= port:PE10<3><default><default><default>
+csi_d7  			= port:PE11<3><default><default><default>
+csi_reset  		= port:PH13<1><default><default><0>
+csi_power_en 		= port:PH16<1><default><default><0>
+csi_stby	 		= port:PH18<1><default><default><1>
 
 [csi1_para]
-CSI1_PCK 				= port:PG00<3><default><default><default>
-CSI1_CK	 				= port:PG01<3><default><default><default>
-CSI1_HSYNC 			= port:PG02<3><default><default><default>
-CSI1_VSYNC			= port:PG03<3><default><default><default>
-CSI1_D0	 				= port:PG04<3><default><default><default>
-CSI1_D1	 				= port:PG05<3><default><default><default>
-CSI1_D2  				= port:PG06<3><default><default><default>
-CSI1_D3  				= port:PG07<3><default><default><default>
-CSI1_D4  				= port:PG08<3><default><default><default>
-CSI1_D5	 				= port:PG09<3><default><default><default>
-CSI1_D6  				= port:PG10<3><default><default><default>
-CSI1_D7  				= port:PG11<3><default><default><default>
-CSI1_RESET  		= port:PH14<1><default><default><0>
-CSI1_POWER_EN 	= port:PH17<1><default><default><1>
+csi_used			= 1
+csi_mname			= string:gt2005
+csi_twi_id			= 1
+csi_twi_addr		= 0x78
+csi_pck 			= port:PG00<3><default><default><default>
+csi_ck	 			= port:PG01<3><default><default><default>
+csi_hsync 			= port:PG02<3><default><default><default>
+csi_vsync			= port:PG03<3><default><default><default>
+csi_d0	 			= port:PG04<3><default><default><default>
+csi_d1	 			= port:PG05<3><default><default><default>
+csi_d2  			= port:PG06<3><default><default><default>
+csi_d3  			= port:PG07<3><default><default><default>
+csi_d4  			= port:PG08<3><default><default><default>
+csi_d5	 			= port:PG09<3><default><default><default>
+csi_d6  			= port:PG10<3><default><default><default>
+csi_d7  			= port:PG11<3><default><default><default>
+csi_reset  			= port:PH14<1><default><default><0>
+csi_power_en 		= port:PH17<1><default><default><0>
+csi_stby	 		= port:PH19<1><default><default><1>
 
 ;--------------------------------------------------------------------------------
 ;   SDMMC PINS MAPPING:                                                         |
