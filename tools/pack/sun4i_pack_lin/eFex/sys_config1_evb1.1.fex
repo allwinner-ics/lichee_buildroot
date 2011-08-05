@@ -835,20 +835,25 @@ dram_emr1				= 0x0
 dram_emr2				= 0x0
 dram_emr3				= 0x0
 
-;[spdif_para]
-;SPDIF_MCLK	=  port:PB03<4><1><default><default>
-;SPDIF_DO 	=  port:PB13<4><1><default><default>
-;SPDIF_DI 	=  port:PB12<4><1><default><default>
-
 [i2s_para]
-I2S_MCLK    =  port:PB5<2><1><default><default>
-I2S_BCLK    =  port:PB6<2><1><default><default>
-I2S_LRCK    =  port:PB7<2><1><default><default>
-I2S_DO0     =  port:PB8<2><1><default><default>
-I2S_DO1     =  port:PB9<2><1><default><default>
-I2S_DO2     =  port:PB10<2><1><default><default>
-I2S_DO3     =  port:PB11<2><1><default><default>
-I2S_DI      =  port:PB12<2><1><default><default>
+i2s_used			= 1
+i2s_id				= string:i2s_interface
+i2s_channel			= 2
+i2s_mclk    		= port:PB5<2><1><default><default>
+i2s_bclk    		= port:PB6<2><1><default><default>
+i2s_lrclk    		= port:PB7<2><1><default><default>
+i2s_dout0     		= port:PB8<2><1><default><default>
+i2s_dout1     		= port:PB9<2><1><default><default>  
+i2s_dout2     		= port:PB10<2><1><default><default> 
+i2s_dout3     		= port:PB11<2><1><default><default> 
+i2s_din      		= port:PB12<2><1><default><default>
+
+[spdif_para]
+spdif_used			= 0
+spdif_id			= string:spdif
+spdif_mclk			= port:PB3<4><1><default><default> 
+spdif_dout 			= port:PB13<4><1><default><default>
+spdif_din 			= port:PB12<4><1><default><default> 
 
 [audio_para]
 audio_pa_ctrl = port:PH15<1><default><default><0>
