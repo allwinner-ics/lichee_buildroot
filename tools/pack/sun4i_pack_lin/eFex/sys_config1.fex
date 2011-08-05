@@ -528,7 +528,7 @@ lcdvsync = port:PH27<2><default><default><default>
 ;--------------------------------------------------------------------------------
 [csi0_para]
 csi_used			= 1
-csi_mname			= string:gc0308
+csi_mname			= string:ov7670
 csi_twi_id			= 1
 csi_twi_addr		= 0x42
 csi_pck 			= port:PE00<3><default><default><default>
@@ -544,11 +544,11 @@ csi_d5	 			= port:PE09<3><default><default><default>
 csi_d6  			= port:PE10<3><default><default><default>
 csi_d7  			= port:PE11<3><default><default><default>
 csi_reset  		= port:PH13<1><default><default><0>
-csi_power_en 		= port:PH16<1><default><default><0>
-csi_stby	 		= port:PH18<1><default><default><1>
+;csi_power_en 		= port:PH16<1><default><default><0>
+csi_stby	 		= port:PH16<1><default><default><1>
 
 [csi1_para]
-csi_used			= 1
+csi_used			= 0
 csi_mname			= string:gt2005
 csi_twi_id			= 1
 csi_twi_addr		= 0x78
@@ -565,8 +565,8 @@ csi_d5	 			= port:PG09<3><default><default><default>
 csi_d6  			= port:PG10<3><default><default><default>
 csi_d7  			= port:PG11<3><default><default><default>
 csi_reset  			= port:PH14<1><default><default><0>
-csi_power_en 		= port:PH17<1><default><default><0>
-csi_stby	 		= port:PH19<1><default><default><1>
+;csi_power_en 		= port:PH17<1><default><default><0>
+csi_stby	 		= port:PH17<1><default><default><1>
 
 ;--------------------------------------------------------------------------------
 ;   SDMMC PINS MAPPING:                                                         |
