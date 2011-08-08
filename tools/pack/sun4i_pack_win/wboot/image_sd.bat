@@ -3,7 +3,7 @@ xcopy /i /s /q /y bootfs_sd bootfs
 if exist image.cfg del image.cfg
 copy config\image_sd.cfg image.cfg
 if exist bootfs\linux\bImage del bootfs\linux\bImage
-move bImage bootfs\linux
+copy bImage bootfs\linux
 ::-------------生成bootfs.iso
 ..\pctools\mod_update\script.exe ..\eFex\sys_config1.fex
 copy  ..\eGon\nand_boot0.bin    ..\eGon\Boot0.bin
@@ -12,7 +12,8 @@ copy  ..\eGon\nand_boot1.bin    ..\eGon\Boot1.bin
 copy  ..\eGon\sd_boot0.bin  ..\eFex\card\card_boot0.fex
 copy  ..\eGon\sd_boot1.bin  ..\eFex\card\card_boot1.fex
 ..\pctools\mod_update\update_23.exe ..\eFex\sys_config1.bin ..\eFex\card\card_boot0.fex ..\eFex\card\card_boot1.fex  SDMMC_CARD
-
+copy  ..\eFex\sys_config1.bin	.\bootfs\script.bin
+copy  ..\eFex\sys_config1.bin	.\bootfs\script0.bin
 
 ::-------------生成MBR
 if exist ..\eFex\sys_config.bin del   ..\eFex\sys_config.bin

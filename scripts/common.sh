@@ -81,13 +81,13 @@ gen_output_sun4i()
 	cp -v ${CUR_DIR}/buildroot/output/images/* ${CUR_DIR}/out/
 	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 
-	if [ -e "${CUR_DIR}/.sdcard" ]; then
-		echo "Packing for sun4i sdcard"
-		(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_sdcard.sh)
-	else
-		echo "Packing for sun4i nand"
-		(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_nand.sh)
-	fi
+	#if [ -e "${CUR_DIR}/.sdcard" ]; then
+	#	echo "Packing for sun4i sdcard"
+	#	(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_sdcard.sh)
+	#else
+	#	echo "Packing for sun4i nand"
+	#	(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_nand.sh)
+	#fi
 }
 
 gen_output_sun4i-lite()
@@ -117,13 +117,14 @@ gen_output_sun4i-lite()
 	cp -v ${CUR_DIR}/buildroot/output/images/* ${CUR_DIR}/out/
 	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 
-	if [ -e "${CUR_DIR}/.sdcard" ]; then
-		echo "Packing for sun4i sdcard"
-		(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_sdcard.sh)
-	else
-		echo "Packing for sun4i nand"
-		(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_nand.sh)
-	fi
+	echo "Done"
+	#if [ -e "${CUR_DIR}/.sdcard" ]; then
+	#	echo "Packing for sun4i sdcard"
+	#	(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_sdcard.sh)
+	#else
+	#	echo "Packing for sun4i nand"
+	#	(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_nand.sh)
+	#fi
 }
 
 gen_output_sun4i-debug()
@@ -153,13 +154,13 @@ gen_output_sun4i-debug()
 	cp -v ${CUR_DIR}/buildroot/output/images/* ${CUR_DIR}/out/
 	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
 
-	if [ -e "${CUR_DIR}/.sdcard" ]; then
-		echo "Packing for sun4i sdcard"
-		(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_sdcard.sh)
-	else
-		echo "Packing for sun4i nand"
-		(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_nand.sh)
-	fi
+	#if [ -e "${CUR_DIR}/.sdcard" ]; then
+	#	echo "Packing for sun4i sdcard"
+	#	(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_sdcard.sh)
+	#else
+	#	echo "Packing for sun4i nand"
+	#	(cd ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_lin/wboot; ./image_nand.sh)
+	#fi
 
 }
 
