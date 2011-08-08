@@ -249,6 +249,8 @@ spi_miso                 = port:PI08<4><default><default><default>
 ;external int function
 ;wakeup output function
 ;notice ---    tp_int_port &  tp_io_port use the same port
+;name should be compatible with the corresponding ctp driver. 
+;at present, only "ft5x_ts" and "Goodix-TS" is supported.
 ;----------------------------------------------------------------------------------
 [ctp_para]
 ctp_used                 = 0
@@ -266,10 +268,11 @@ ctp_io_port              = port:PH21<0><default>
 
 ;----------------------------------------------------------------------------------
 ;touch key configuration
+;at present, only "hv_keypad" is supported.
 ;----------------------------------------------------------------------------------
 [tkey_para]
 tkey_used                = 0
-tkey_name                = 
+tkey_name                = "hv_keypad"
 tkey_twi_id              = 2
 tkey_twi_addr            = 0x62
 tkey_int                 = port:PI13<6><default><default><default>
@@ -922,7 +925,7 @@ spdif_din                =
 
 [audio_para]
 audio_used               = 1
-audo_pa_ctrl             = port:PH15<1><default><default><0>
+audio_pa_ctrl            = port:PH15<1><default><default><0>
 
 ;----------------------------------------------------------------------------------
 ;ir --- infra remote configuration
