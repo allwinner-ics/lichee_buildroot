@@ -359,9 +359,9 @@ lcd_pwm_pol              = 0
 lcd_srgb                 = 0x00202020
 lcd_swap                 = 0
 lcd_if                   = 0
-lcd_hbp             = 215
+lcd_hbp                  = 215
 lcd_ht                   = 1055
-lcd_vbp             = 34
+lcd_vbp                  = 34
 lcd_vt                   = 1050
 lcd_hv_if                = 0
 lcd_hv_smode             = 0
@@ -807,6 +807,7 @@ luns                     = 2
 ;--------------------------------------------------------------------------------
 [gsensor_para]
 gsensor_used             = 1
+gsenser_name             = "gsenser"
 gsensor_twi_id           = 1
 gsensor_twi_addr         = 0x18
 gsensor_int1             = port:PH00<6><1><default><default>
@@ -838,7 +839,7 @@ gps_rx_en                = port:PI15<1><default><default><0>
 sdio_wifi_used           = 1
 sdio_wifi_sdc_id         = 3
 sdio_wifi_shdn           = port:PH09<1><default><default><0>
-sdio_wifi_host_wakeup    = port:PH10<1><default><default><0>
+sdio_wifi_host_wakeup    = port:PH10<1><default><default><1>
 sdio_wifi_vdd_en         = port:PH11<1><default><default><0>
 sdio_wifi_vcc_en         = port:PH12<1><default><default><0>
 

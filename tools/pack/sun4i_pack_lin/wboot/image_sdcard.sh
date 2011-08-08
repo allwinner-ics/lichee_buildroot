@@ -35,6 +35,8 @@ $SOFTWAREPATH/mod_update/update_23 ../eFex/sys_config1.bin ../eGon/boot0.bin ../
 cp -f ../eGon/sd_boot0.bin ../eFex/card/card_boot0.fex
 cp -f ../eGon/sd_boot1.bin ../eFex/card/card_boot1.fex
 $SOFTWAREPATH/mod_update/update_23 ../eFex/sys_config1.bin ../eFex/card/card_boot0.fex ../eFex/card/card_boot1.fex SDMMC_CARD
+cp  ..\eFex\sys_config1.bin    .\bootfs\script.bin
+cp  ..\eFex\sys_config1.bin    .\bootfs\script0.bin
 
 #----------------------------------生成mbr
 if [ -e ../eFex/sys_config.bin ]
