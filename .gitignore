@@ -22,3 +22,10 @@ tools/pack/sun4i_pack_lin/wboot/bootfs/
 tools/pack/sun4i_pack_lin/wboot/ePDKv100_nand.img
 tools/pack/sun4i_pack_lin/wboot/ePDKv100_sdcard.img
 tools/pack/sun4i_pack_lin/wboot/rootfs.fex
+tools/pack/sun4i_pack_lin/eFex/card/dlinfo.fex
+tools/pack/sun4i_pack_lin/eFex/card/mbr.fex
+tools/pack/sun4i_pack_lin/wboot/bImage
+
+
+
+

@@ -24,7 +24,7 @@ if [ -e u-boot.bin ];then
 	mv uImage bootfs/linux/
 else
 	ln -s bootfs_sd bootfs
-	mv bImage bootfs/linux/
+	cp -vf bImage bootfs/linux/
 fi
 
 #--------------------------------生成bootfs.iso
@@ -58,7 +58,6 @@ $SOFTWAREPATH/eDragonEx/dragon config/image_sd.cfg
 
 #--------------------------清理工作
 rm -f ../eGon/boot0.bin ../eGon/boot1.bin ../eFex/card/card_boot0.fex ../eFex/card/card_boot1.fex ../eFex/sys_config.bin ../eFex/sys_config1.bin
-rm -f bootfs/linux/bImage bootfs/linux/uImage bootfs/linux/u-boot.bin
-rm -f bImage
-rm -f bootfs bootfs.fex rootfs.fex
+rm -f bootfs/linux/bImage bootfs/linux/uImage bootfs/linux/u-boot.bin bootfs/script.bin bootfs/script0.bin
+rm -f bootfs bootfs.fex
 popd
