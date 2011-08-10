@@ -419,7 +419,7 @@ lcd_lvds_io_cross        = 0
 lcd_cpu_if               = 0
 lcd_cpu_da               = 0
 lcd_frm                  = 0
-lcd_io_cfg0              = 0x04000000
+lcd_io_cfg0              = 0x10000000
 lcd_io_cfg1              = 0
 lcd_io_strength          = 0
 

@@ -1,6 +1,5 @@
 #!/bin/ash
 
-
 export TSLIB_TSEVENTTYPE=H3600
 export TSLIB_CONSOLEDEVICE=none
 export TSLIB_FBDEVICE=/dev/fb0
@@ -33,6 +32,11 @@ for item in $(ls /sys/class/input |grep event)
 	  echo "INFO: $item, $DNAME"
 	  /test/td -t 30 -s 9 -c "/usr/bin/evtest /dev/input/$item"
 	  ;;
+	  *ts*)
+	  echo "#######################TEST TS#########################"
+	  echo "INFO: $item, $DNAME"
+	  /test/td -t 30 -s 9 -c "/usr/bin/evtest /dev/input/$item"
+	  ;;
 	  *)
 	  echo "#######################Skip############################"
 	  echo "INFO: $item, $DNAME"
@@ -44,21 +48,21 @@ done
 print "\n\n#########################################################\n\n"
 
 printf "\n\n#### Test GPU 3D ####\n\n"
-insmod /lib/modules/2.6.36-android\+/ump.ko
-insmod /lib/modules/2.6.36-android\+/mali.ko
+insmod /lib/modules/`uname -r`/ump.ko
+insmod /lib/modules/`uname -r`/mali.ko
 /test/td -t 15 -s 9 -c "/test/gpu/lightshow/lightshow -w 800 -h 480"
 
 print "\n\n#########################################################\n\n"
 
 printf "\n\n#### Test CedarX(LCD) ####\n\n"
-/test/td -t 30 -s 6 -c "/test/CedarXPlayerTest-v1.4.0 /root/test1.mp4"
+/test/td -t 30 -s 6 -c "/test/CedarXPlayerTest-1.4.1 /root/test1.mp4"
 
 print "\n\n#########################################################\n\n"
 
 printf "\n\n#### Test CedarX(HDMI) ####\n\n"
 /test/display/fb_test.dat -o 4 9
 printf "\n\n#### Test CedarX ####\n\n"
-/test/td -t 30 -s 6 -c "/test/CedarXPlayerTest-v1.4.0 /root/test1.mp4"
+/test/td -t 30 -s 6 -c "/test/CedarXPlayerTest-1.4.1 /root/test1.mp4"
 /test/display/fb_test.dat -o 1 0
 
 print "\n\n#########################################################\n\n"
