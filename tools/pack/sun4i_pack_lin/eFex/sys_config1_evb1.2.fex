@@ -370,6 +370,7 @@ fb1_scaler_mode_enable   = 0
 ;lcd_lvds_bitwidth:  0:24bit; 1:18bit
 ;lcd_lvds_io_cross:  0:normal; 1:pn cross
 ;lcd_cpu_if:         0:18bit; 1:16bit mode0; 2:16bit mode1; 3:16bit mode2; 4:16bit mode3; 5:9bit; 6:8bit 256K; 7:8bit 65K
+;lcd_io_cfg0:        0x10000000 - MAGIC_VER_A, 0x04000000 - MAGIC_VER_B
 ;----------------------------------------------------------------------------------
 [lcd0_para]
 lcd_used                 = 1
@@ -419,7 +420,7 @@ lcd_lvds_io_cross        = 0
 lcd_cpu_if               = 0
 lcd_cpu_da               = 0
 lcd_frm                  = 0
-lcd_io_cfg0              = 0x04000000
+lcd_io_cfg0              = 0x10000000
 lcd_io_cfg1              = 0
 lcd_io_strength          = 0
 
