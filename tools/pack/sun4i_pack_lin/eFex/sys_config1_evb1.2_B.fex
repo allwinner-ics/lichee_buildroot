@@ -361,6 +361,15 @@ fb1_scaler_mode_enable   = 0
 
 ;----------------------------------------------------------------------------------
 ;lcd0 configuration
+
+;lcd_dclk_freq:      in MHZ unit
+;lcd_pwm_freq:       in HZ unit
+;lcd_if:             0:hv(sync+de); 1:8080; 2:ttl; 3:lvds
+;lcd_lvds_ch:		     0:single channel; 1:dual channel
+;lcd_lvds_mode:      0:NS mode; 1:JEIDA mode
+;lcd_lvds_bitwidth:  0:24bit; 1:18bit
+;lcd_lvds_io_cross:  0:normal; 1:pn cross
+;lcd_cpu_if:         0:18bit; 1:16bit mode0; 2:16bit mode1; 3:16bit mode2; 4:16bit mode3; 5:9bit; 6:8bit 256K; 7:8bit 65K
 ;----------------------------------------------------------------------------------
 [lcd0_para]
 lcd_used                 = 1
@@ -368,7 +377,7 @@ lcd_used                 = 1
 lcd_x                    = 800
 lcd_y                    = 480
 lcd_dclk_freq            = 33
-lcd_pwm_freq             = 1
+lcd_pwm_freq             = 1000
 lcd_pwm_pol              = 0
 lcd_srgb                 = 0x00202020
 lcd_swap                 = 0
@@ -410,7 +419,7 @@ lcd_lvds_io_cross        = 0
 lcd_cpu_if               = 0
 lcd_cpu_da               = 0
 lcd_frm                  = 0
-lcd_io_cfg0              = 0x10000000
+lcd_io_cfg0              = 0x04000000
 lcd_io_cfg1              = 0
 lcd_io_strength          = 0
 
@@ -460,6 +469,15 @@ lcdvsync                 = port:PD27<2><default><default><default>
 
 ;----------------------------------------------------------------------------------
 ;lcd1 configuration
+
+;lcd_dclk_freq:      in MHZ unit
+;lcd_pwm_freq:       in HZ unit
+;lcd_if:             0:hv(sync+de); 1:8080; 2:ttl; 3:lvds
+;lcd_lvds_ch:		     0:single channel; 1:dual channel
+;lcd_lvds_mode:      0:NS mode; 1:JEIDA mode
+;lcd_lvds_bitwidth:  0:24bit; 1:18bit
+;lcd_lvds_io_cross:  0:normal; 1:pn cross
+;lcd_cpu_if:         0:18bit; 1:16bit mode0; 2:16bit mode1; 3:16bit mode2; 4:16bit mode3; 5:9bit; 6:8bit 256K; 7:8bit 65K
 ;----------------------------------------------------------------------------------
 [lcd1_para]
 lcd_used                 = 0
