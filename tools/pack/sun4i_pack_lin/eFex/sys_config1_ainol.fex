@@ -588,6 +588,7 @@ lcdvsync                 = port:PH27<2><default><default><default>
 [csi0_para]
 csi_used                 = 1
 csi_twi_id               = 1
+csi_mnane                = "ov7670"
 csi_twi_addr             = 0x42
 csi_pck                  = port:PE00<3><default><default><default>
 csi_ck                   = port:PE01<3><default><default><default>
@@ -608,6 +609,7 @@ csi_stby                 = port:PH18<1><default><default><0>
 [csi1_para]
 csi_used                 = 1
 csi_twi_id               = 1
+csi_mname                = "gt2005"
 csi_twi_addr             = 0x78
 csi_pck                  = port:PG00<3><default><default><default>
 csi_ck                   = port:PG01<3><default><default><default>
