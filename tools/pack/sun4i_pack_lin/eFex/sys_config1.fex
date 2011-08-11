@@ -603,7 +603,7 @@ csi_power_en             = port:PH16<1><default><default><0>
 csi_stby                 = port:PH18<1><default><default><0>
 
 [csi1_para]
-csi_used                 = 1
+csi_used                 = 0
 csi_twi_id               = 1
 csi_mname                = "gt2005"
 csi_twi_addr             = 0x78
