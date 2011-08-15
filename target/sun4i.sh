@@ -15,8 +15,10 @@ mount -t devpts none /dev/pts
 
 mknod /dev/mali c 230 0
 hostname sun4i
-mkdir /boot
+mkdir -p /boot
 mount /dev/nanda /boot
+MODULES_DIR=/lib/modules/2.6.36-android\+
+(cd $MODULES_DIR;insmod hdmi.ko;insmod disp.ko;insmod lcd.ko)
 
 
 EOF
