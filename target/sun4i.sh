@@ -17,8 +17,8 @@ mknod /dev/mali c 230 0
 hostname sun4i
 mkdir -p /boot
 mount /dev/nanda /boot
-MODULES_DIR=/lib/modules/2.6.36-android\+
-(cd $MODULES_DIR;insmod hdmi.ko;insmod disp.ko;insmod lcd.ko)
+MODULES_DIR=/lib/modules/\`uname -r\`
+(cd \$MODULES_DIR;insmod hdmi.ko;insmod disp.ko;insmod lcd.ko)
 
 
 EOF
