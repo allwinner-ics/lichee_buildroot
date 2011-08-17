@@ -3,8 +3,9 @@ menu "Package Selection for the target"
 source "package/busybox/Config.in"
 source "package/customize/Config.in"
 
-source "package/lcd-test/Config.in"
-source "package/tp-test/Config.in"
+#source "package/lcd-test/Config.in"
+#source "package/tp-test/Config.in"
+source "package/ext4-utils/Config.in"
 source "package/mali-3d/Config.in"
 source "package/cedar/Config.in"
 
