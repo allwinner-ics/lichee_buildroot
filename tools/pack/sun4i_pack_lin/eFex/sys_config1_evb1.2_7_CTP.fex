@@ -424,8 +424,8 @@ lcd_io_cfg1              = 0
 lcd_io_strength          = 0
 
 
-lcd_bl_en_used  = 0
-lcd_bl_en       =
+lcd_bl_en_used           = 1
+lcd_bl_en                = port:PH07<1><0><default><1>
 
 lcd_power_used           = 1
 lcd_power                = port:PH08<1><0><default><1>
