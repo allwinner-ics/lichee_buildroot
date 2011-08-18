@@ -45,19 +45,19 @@ for item in $(ls /sys/class/input |grep event)
 done
 
 
-print "\n\n#########################################################\n\n"
+printf "\n\n#########################################################\n\n"
 
 printf "\n\n#### Test GPU 3D ####\n\n"
 insmod /lib/modules/`uname -r`/ump.ko
 insmod /lib/modules/`uname -r`/mali.ko
 /test/td -t 15 -s 9 -c "/test/gpu/lightshow/lightshow -w 800 -h 480"
 
-print "\n\n#########################################################\n\n"
+printf "\n\n#########################################################\n\n"
 
 printf "\n\n#### Test CedarX(LCD) ####\n\n"
 /test/td -t 30 -s 6 -c "/test/CedarXPlayerTest-1.4.1 /root/test1.mp4"
 
-print "\n\n#########################################################\n\n"
+printf "\n\n#########################################################\n\n"
 
 printf "\n\n#### Test CedarX(HDMI) ####\n\n"
 /test/display/fb_test.dat -o 4 9
@@ -65,7 +65,7 @@ printf "\n\n#### Test CedarX ####\n\n"
 /test/td -t 30 -s 6 -c "/test/CedarXPlayerTest-1.4.1 /root/test1.mp4"
 /test/display/fb_test.dat -o 1 0
 
-print "\n\n#########################################################\n\n"
+printf "\n\n#########################################################\n\n"
 
 echo "Test Network start"
 sleep 3
@@ -75,7 +75,7 @@ ifconfig eth0 192.168.3.123
 ifconfig lo 127.0.0.1
 ping -c 10 192.168.3.1
 
-echo 7 > proc/sys/kernel/printk
+echo 7 > /proc/sys/kernel/printk
 
 
 
