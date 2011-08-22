@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
-# Buildroot 2011.02-00015-g23af976-dirty Configuration
-# Thu Jun 23 09:08:14 2011
+# Buildroot 2011.02-00003-ga94dbe1-dirty Configuration
+# Mon Aug 22 11:15:12 2011
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_arm=y
@@ -86,7 +86,7 @@ BR2_STRIP_strip=y
 # BR2_OPTIMIZE_2 is not set
 # BR2_OPTIMIZE_3 is not set
 BR2_OPTIMIZE_S=y
-# BR2_PREFER_STATIC_LIB is not set
+BR2_PREFER_STATIC_LIB=y
 # BR2_HAVE_DOCUMENTATION is not set
 # BR2_HAVE_DEVFILES is not set
 
@@ -151,8 +151,7 @@ BR2_BUSYBOX_VERSION="1.18.3"
 BR2_PACKAGE_BUSYBOX_CONFIG="package/busybox/busybox-1.18.x.config"
 # BR2_PACKAGE_BUSYBOX_SHOW_OTHERS is not set
 # BR2_PACKAGE_CUSTOMIZE is not set
-# BR2_PACKAGE_LCD_TEST is not set
-# BR2_PACKAGE_TP_TEST is not set
+# BR2_KERNEL_HEADER is not set
 # BR2_PACKAGE_MALI_3D is not set
 # BR2_PACKAGE_CEDAR is not set
 
@@ -329,7 +328,6 @@ BR2_PACKAGE_GENEXT2FS=y
 # BR2_PACKAGE_MEMTESTER is not set
 # BR2_PACKAGE_MTD is not set
 # BR2_PACKAGE_NTFS_3G is not set
-# BR2_PACKAGE_NTFSPROGS is not set
 # BR2_PACKAGE_PCIUTILS is not set
 # BR2_PACKAGE_RNG_TOOLS is not set
 # BR2_PACKAGE_SDPARM is not set
