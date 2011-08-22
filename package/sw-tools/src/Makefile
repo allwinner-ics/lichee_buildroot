@@ -13,7 +13,7 @@ clear:
 	rm -rf *.o
 
 install:
-	cp -f td sw_ctl mxc622x_test $(DESTDIR)/bin
+	cp -f td sw_ctl mxc622x_test run-test1.sh $(DESTDIR)/bin
 
 .PHONY: clean
 clean: 
