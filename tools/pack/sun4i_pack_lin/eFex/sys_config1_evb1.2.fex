@@ -370,7 +370,6 @@ fb1_scaler_mode_enable   = 0
 ;lcd_lvds_bitwidth:  0:24bit; 1:18bit
 ;lcd_lvds_io_cross:  0:normal; 1:pn cross
 ;lcd_cpu_if:         0:18bit; 1:16bit mode0; 2:16bit mode1; 3:16bit mode2; 4:16bit mode3; 5:9bit; 6:8bit 256K; 7:8bit 65K
-;lcd_io_cfg0:        0x10000000 - MAGIC_VER_A, 0x04000000 - MAGIC_VER_B
 ;----------------------------------------------------------------------------------
 [lcd0_para]
 lcd_used                 = 1
@@ -599,8 +598,8 @@ csi_d5                   = port:PE09<3><default><default><default>
 csi_d6                   = port:PE10<3><default><default><default>
 csi_d7                   = port:PE11<3><default><default><default>
 csi_reset                = port:PH13<1><default><default><0>
-csi_power_en             = port:PH16<1><default><default><0>
-csi_stby                 = port:PH18<1><default><default><0>
+;csi_power_en             = port:PH16<1><default><default><0>
+csi_stby                 = port:PH16<1><default><default><1>
 
 [csi1_para]
 csi_used                 = 0
@@ -620,8 +619,8 @@ csi_d5                   = port:PG09<3><default><default><default>
 csi_d6                   = port:PG10<3><default><default><default>
 csi_d7                   = port:PG11<3><default><default><default>
 csi_reset                = port:PH14<1><default><default><0>
-csi_power_en             = port:PH17<1><default><default><0>
-csi_stby                 = port:PH19<1><default><default><0>
+;csi_power_en             = port:PH17<1><default><default><0>
+csi_stby                 = port:PH17<1><default><default><0>
 
 ;--------------------------------------------------------------------------------
 ;tv configuration
@@ -957,6 +956,7 @@ spdif_din                =
 
 [audio_para]
 audio_used               = 1
+audio_lr_change      	 = 0
 audio_pa_ctrl            = port:PH15<1><default><default><0>
 
 ;----------------------------------------------------------------------------------

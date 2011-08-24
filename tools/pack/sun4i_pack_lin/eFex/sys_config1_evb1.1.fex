@@ -269,7 +269,7 @@ ctp_name                 = "ft5x_ts"
 ctp_twi_id               = 2
 ctp_twi_addr             = 0x70
 ctp_screen_max_x         = 800
-ctp_screen_max_y         = 600
+ctp_screen_max_y         = 480
 ctp_revert_x_flag        = 0
 ctp_revert_y_flag        = 0
 
@@ -599,8 +599,8 @@ csi_d5                   = port:PE09<3><default><default><default>
 csi_d6                   = port:PE10<3><default><default><default>
 csi_d7                   = port:PE11<3><default><default><default>
 csi_reset                = port:PH13<1><default><default><0>
-csi_power_en             = port:PH16<1><default><default><0>
-csi_stby                 = port:PH18<1><default><default><0>
+;csi_power_en             = port:PH16<1><default><default><0>
+csi_stby                 = port:PH16<1><default><default><1>
 
 [csi1_para]
 csi_used                 = 0
@@ -620,8 +620,8 @@ csi_d5                   = port:PG09<3><default><default><default>
 csi_d6                   = port:PG10<3><default><default><default>
 csi_d7                   = port:PG11<3><default><default><default>
 csi_reset                = port:PH14<1><default><default><0>
-csi_power_en             = port:PH17<1><default><default><0>
-csi_stby                 = port:PH19<1><default><default><0>
+;csi_power_en             = port:PH17<1><default><default><0>
+csi_stby                 = port:PH17<1><default><default><0>
 
 ;--------------------------------------------------------------------------------
 ;tv configuration
@@ -957,6 +957,7 @@ spdif_din                =
 
 [audio_para]
 audio_used               = 1
+audio_lr_change      	 = 0
 audio_pa_ctrl            = port:PH15<1><default><default><0>
 
 ;----------------------------------------------------------------------------------
