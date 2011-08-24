@@ -254,6 +254,12 @@ spi_mosi                 = port:PI07<4><default><default><default>
 spi_miso                 = port:PI08<4><default><default><default>
 
 
+;----------------------------------------------------------------------------------
+;rtp_screen_size: 表屏幕尺寸，以斜对角方向长度为准，以寸为单位
+;----------------------------------------------------------------------------------
+[rtp_para]
+rtp_used                 = 1
+rtp_screen_size          = 5
 
 ;----------------------------------------------------------------------------------
 ;capacitor tp configuration
@@ -264,7 +270,7 @@ spi_miso                 = port:PI08<4><default><default><default>
 ;at present, only "ft5x_ts" and "Goodix-TS" is supported.
 ;----------------------------------------------------------------------------------
 [ctp_para]
-ctp_used                 = 1
+ctp_used                 = 0
 ctp_name                 = "ft5x_ts"
 ctp_twi_id               = 2
 ctp_twi_addr             = 0x70

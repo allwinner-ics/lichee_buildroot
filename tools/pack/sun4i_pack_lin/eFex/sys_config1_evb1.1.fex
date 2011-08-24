@@ -254,6 +254,12 @@ spi_mosi                 = port:PI07<4><default><default><default>
 spi_miso                 = port:PI08<4><default><default><default>
 
 
+;----------------------------------------------------------------------------------
+;rtp_screen_size: 表屏幕尺寸，以斜对角方向长度为准，以寸为单位
+;----------------------------------------------------------------------------------
+[rtp_para]
+rtp_used                 = 1
+rtp_screen_size          = 5
 
 ;----------------------------------------------------------------------------------
 ;capacitor tp configuration
@@ -370,7 +376,6 @@ fb1_scaler_mode_enable   = 0
 ;lcd_lvds_bitwidth:  0:24bit; 1:18bit
 ;lcd_lvds_io_cross:  0:normal; 1:pn cross
 ;lcd_cpu_if:         0:18bit; 1:16bit mode0; 2:16bit mode1; 3:16bit mode2; 4:16bit mode3; 5:9bit; 6:8bit 256K; 7:8bit 65K
-;lcd_io_cfg0:        0x10000000 - MAGIC_VER_A, 0x04000000 - MAGIC_VER_B
 ;----------------------------------------------------------------------------------
 [lcd0_para]
 lcd_used                 = 1
@@ -383,9 +388,9 @@ lcd_pwm_pol              = 0
 lcd_srgb                 = 0x00202020
 lcd_swap                 = 0
 lcd_if                   = 0
-lcd_hbp                  = 215
+lcd_hbp                  = 46
 lcd_ht                   = 1055
-lcd_vbp                  = 34
+lcd_vbp                  = 23
 lcd_vt                   = 1050
 lcd_hv_if                = 0
 lcd_hv_smode             = 0
