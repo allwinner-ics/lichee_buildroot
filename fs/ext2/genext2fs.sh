@@ -29,8 +29,10 @@ then
     # size ~= superblock, block+inode bitmaps, inodes (8 per block), blocks
     # we scale inodes / blocks with 10% to compensate for bitmaps size + slack
     BLOCKS=$(du -s -c -k $TARGET_DIR | grep total | sed -e "s/total//")
-    BLOCKS=$(expr 500 + \( $BLOCKS + $INODES / 8 \) \* 11 / 10)
+    BLOCKS=$(expr 500 + \( $BLOCKS + $INODES / 8 \) \* 13 / 10)
     set -- $@ -b $BLOCKS
 fi
+
+echo $@
 
 exec genext2fs $@
