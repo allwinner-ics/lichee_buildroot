@@ -14,8 +14,8 @@ $(EXT4_UTILS_DIR)/.configured : $(EXT4_UTILS_DIR)/.source
 
 
 ext4-utils-binary: $(EXT4_UTILS_DIR)/.configured zlib
-	$(MAKE) CC="$(TARGET_CC)" -C $(EXT4_UTILS_DIR) all
-	$(MAKE) CC="$(HOSTCC)" -C $(EXT4_UTILS_HOST_DIR) all
+	$(MAKE) BUILD_DIR=$(BUILD_DIR) CC="$(TARGET_CC)" -C $(EXT4_UTILS_DIR) all
+	$(MAKE) BUILD_DIR=$(BUILD_DIR) CC="$(HOSTCC)" -C $(EXT4_UTILS_HOST_DIR) all
 	mkdir -pv $(HOST_DIR)/usr/bin
 
 

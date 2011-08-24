@@ -1,6 +1,6 @@
 #CC=gcc
 
-CFLAGS=-I. -I/home/benn/A10-lite/lichee/buildroot/output/staging/usr/include/
+CFLAGS=-I. -I$(BUILD_DIR)/kernel-header/linux-2.6.36-android/include
 
 make_ext4fsobj=make_ext4fs.o make_ext4fs_main.o ext4_utils.o allocate.o backed_block.o output_file.o \
 contents.o extent.o indirect.o uuid.o sha1.o sparse_crc32.o
