@@ -172,7 +172,7 @@ gen_output_sun4i_crane()
 		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/
 	echo "test" > ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/rootfs.fex
 
-	if [ -d "${CUR_DIR}/out" ]; then
+	if [ ! -d "${CUR_DIR}/out" ]; then
 		mkdir -pv ${CUR_DIR}/out
 	fi
 
