@@ -172,11 +172,13 @@ gen_output_sun4i_crane()
 		${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/
 	echo "test" > ${CUR_DIR}/buildroot/tools/pack/sun4i_pack_win/wboot/rootfs.fex
 
-	if [ ! -d "${CUR_DIR}/out" ]; then
-		mkdir -pv ${CUR_DIR}/out
+	if [ ! -d "${CUR_DIR}/out/android" ]; then
+		mkdir -p ${CUR_DIR}/out/android
 	fi
 
-	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/
+	cp -r ${CUR_DIR}/linux-2.6.36/output/* ${CUR_DIR}/out/android/
+	mkdir -p ${CUR_DIR}/out/android/toolchain/
+	cp ${CUR_DIR}/buildroot/dl/arm-2010.09-50-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2 ${CUR_DIR}/out/android/toolchain/
 }
 
 clean_output()
