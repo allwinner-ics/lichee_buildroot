@@ -18,7 +18,7 @@ hostname sun4i
 mkdir -p /boot
 mount /dev/nanda /boot
 MODULES_DIR=/lib/modules/\`uname -r\`
-(cd \$MODULES_DIR;insmod hdmi.ko;insmod disp.ko;insmod lcd.ko)
+(cd \$MODULES_DIR;insmod disp.ko;insmod lcd.ko;insmod hdmi.ko)
 
 
 EOF
