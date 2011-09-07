@@ -255,18 +255,32 @@ spi_miso                 = port:PI08<4><default><default><default>
 
 
 ;----------------------------------------------------------------------------------
-;rtp_screen_size: 表屏幕尺寸，以斜对角方向长度为准，以寸为单位
+;rtp_screen_size     :       表屏幕尺寸，以斜对角方向长度为准，以寸为单位
+;tp_regidity_level   :       表屏幕的硬度，以指覆按压，抬起时开始计时，多少个10ms时间单位之后，硬件采集不到数据为准；
+;                            通常，我们建议的屏，5寸屏设为5,7寸屏设为7，
+;                            对于某些供应商提供的屏，硬度可能不合要求，需要适度调整
+;rtp_press_threshold_enable: whether press threshold is enable or not. 0 is suggested.
+;rtp_press_threshold       : only when rtp_press_threshold_enable == 1, this para take effect.
+                             between 0 and 0xFFFFFF  is supported.more bigger, more sensitive, 0x1f40 is suggested.
+;rtp_sensitive_level :       between 0 and 0xf is supported.more bigger, more sensitive, 0xf is suggested.
+;rtp_exchange_x_y_flag :     in some case, x, y need to be exchanged, at that situation, 1 is setted. 
+                             normally, 0 is setted. 
 ;----------------------------------------------------------------------------------
 [rtp_para]
-rtp_used                 = 1
-rtp_screen_size          = 5
+rtp_used      = 1
+rtp_screen_size = 5
+rtp_regidity_level = 5
+rtp_press_threshold_enable = 0
+rtp_press_threshold = 0x1f40
+rtp_sensitive_level = 0xf
+rtp_exchange_x_y_flag = 0
 
 ;----------------------------------------------------------------------------------
 ;capacitor tp configuration
 ;external int function
 ;wakeup output function
 ;notice ---    tp_int_port &  tp_io_port use the same port
-;name should be compatible with the corresponding ctp driver. 
+;name should be compatible with the corresponding ctp driver.
 ;at present, only "ft5x_ts" and "Goodix-TS" is supported.
 ;----------------------------------------------------------------------------------
 [ctp_para]
