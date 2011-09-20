@@ -156,67 +156,68 @@ twi2_sda                 = port:PB21<2><default><default><default>
 [uart_para0]
 uart_used                = 1
 uart_port                = 0
-uart0_tx                 = port:PB22<2>
-uart0_rx                 = port:PB23<2>
+uart_type                = 2
+uart_tx                  = port:PB22<2>
+uart_rx                  = port:PB23<2>
 
 [uart_para1]
 uart_used                = 0
 uart_port                = 1
 uart_type                = 8
-uart1_tx                 = port:PA10<4><default><default><default>
-uart1_rx                 = port:PA11<4><default><default><default>
-uart1_rts                = port:PA12<4><default><default><default>
-uart1_cts                = port:PA13<4><default><default><default>
-uart1_dtr                = port:PA14<4><default><default><default>
-uart1_dsr                = port:PA15<4><default><default><default>
-uart1_dcd                = port:PA16<4><default><default><default>
-uart1_ring               = port:PA17<4><default><default><default>
+uart_tx                  = port:PA10<4><default><default><default>
+uart_rx                  = port:PA11<4><default><default><default>
+uart_rts                 = port:PA12<4><default><default><default>
+uart_cts                 = port:PA13<4><default><default><default>
+uart_dtr                 = port:PA14<4><default><default><default>
+uart_dsr                 = port:PA15<4><default><default><default>
+uart_dcd                 = port:PA16<4><default><default><default>
+uart_ring                = port:PA17<4><default><default><default>
 
 [uart_para2]
 uart_used                = 0
 uart_port                = 2
 uart_type                = 4
-uart2_tx                 = port:PI18<3><default><default><default>
-uart2_rx                 = port:PI19<3><default><default><default>
-uart2_rts                = port:PI16<3><default><default><default>
-uart2_cts                = port:PI17<3><default><default><default>
+uart_tx                  = port:PI18<3><default><default><default>
+uart_rx                  = port:PI19<3><default><default><default>
+uart_rts                 = port:PI16<3><default><default><default>
+uart_cts                 = port:PI17<3><default><default><default>
 
 [uart_para3]
 uart_used                = 0
 uart_port                = 3
 uart_type                = 4
-uart3_tx                 = port:PH00<4><default><default><default>
-uart3_rx                 = port:PH01<4><default><default><default>
-uart3_rts                = port:PH02<4><default><default><default>
-uart3_cts                = port:PH03<4><default><default><default>
+uart_tx                  = port:PH00<4><default><default><default>
+uart_rx                  = port:PH01<4><default><default><default>
+uart_rts                 = port:PH02<4><default><default><default>
+uart_cts                 = port:PH03<4><default><default><default>
 
 [uart_para4]
 uart_used                = 0
 uart_port                = 4
 uart_type                = 2
-uart4_tx                 = port:PH04<4><default><default><default>
-uart4_rx                 = port:PH05<4><default><default><default>
+uart_tx                  = port:PH04<4><default><default><default>
+uart_rx                  = port:PH05<4><default><default><default>
 
 [uart_para5]
 uart_used                = 0
 uart_port                = 5
 uart_type                = 2
-uart5_tx                 = port:PH06<4><default><default><default>
-uart5_rx                 = port:PH07<4><default><default><default>
+uart_tx                  = port:PH06<4><default><default><default>
+uart_rx                  = port:PH07<4><default><default><default>
 
 [uart_para6]
 uart_used                = 0
 uart_port                = 6
 uart_type                = 2
-uart6_tx                 = port:PA12<4><default><default><default>
-uart6_rx                 = port:PA13<4><default><default><default>
+uart_tx                  = port:PA12<4><default><default><default>
+uart_rx                  = port:PA13<4><default><default><default>
 
 [uart_para7]
 uart_used                = 0
 uart_port                = 7
 uart_type                = 2
-uart7_tx                 = port:PA14<4><default><default><default>
-uart7_rx                 = port:PA15<4><default><default><default>
+uart_tx                  = port:PA14<4><default><default><default>
+uart_rx                  = port:PA15<4><default><default><default>
 
 ;----------------------------------------------------------------------------------
 ;spi configuration
