@@ -1,0 +1,58 @@
+################################################################################
+#
+# @file:      pack
+# @desc:      pack tool for linux
+# @author:    benn (benn@allwinnertech.com)
+#
+#################################################################################
+
+ROOT_DIR=$PWD
+TOOLS_DIR=${ROOT_DIR}/pctools/linux
+export PATH=${TOOLS_DIR}/mod_update:${TOOLS_DIR}/eDragonEx:${TOOLS_DIR}/fsbuild200:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${TOOLS_DIR}/libs
+
+####################################
+# Clean before pack
+####################################
+if [ -d out ]; then
+rm -rf out/
+fi
+mkdir out/
+
+####################################
+# Copy all needed files to out dir
+####################################
+cp -r eFex/sys_config.fex eFex/sys_config1.fex eFex/split_xxxx.fex eFex/card/mbr.fex \
+   eGon/storage_media/nand/boot0.bin eGon/storage_media/nand/boot1.bin \
+   wboot/bootfs wboot/image.cfg wboot/bootfs.ini \
+   out/
+cp -r eGon/storage_media/sdcard/boot0.bin out/card_boot0.fex
+cp -r eGon/storage_media/sdcard/boot1.bin out/card_boot1.fex
+
+####################################
+# Enter work dir and begin to pack
+####################################
+cd out/
+
+####################################
+# Convert path to linux style
+####################################
+sed -i 's/\\bootfs/\/bootfs/g' bootfs.ini
+sed -i 's/\\\\/\//g' image.cfg
+
+ln -s ../wboot/*.fex .
+script_old sys_config.fex
+script sys_config1.fex
+update_23 sys_config1.bin boot0.bin boot1.bin
+update_23 sys_config1.bin card_boot0.fex card_boot1.fex SDMMC_CARD
+cp sys_config1.bin bootfs/script0.bin
+cp sys_config1.bin bootfs/script.bin
+
+update_mbr sys_config.bin mbr.fex
+fsbuild bootfs.ini split_xxxx.fex
+dragon image.cfg
+cd -
+
+printf "\nPack Done!\n\n"
+
+
