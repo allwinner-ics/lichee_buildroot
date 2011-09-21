@@ -7,8 +7,9 @@
 #################################################################################
 
 ROOT_DIR=$PWD
-export PATH=${ROOT_DIR}/pctools/mod_update:${ROOT_DIR}/pctools/eDragonEx:${ROOT_DIR}/pctools/fsbuild200:$PATH
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${ROOT_DIR}/pctools/libs
+TOOLS_DIR=${ROOT_DIR}/pctools/linux
+export PATH=${TOOLS_DIR}/mod_update:${TOOLS_DIR}/eDragonEx:${TOOLS_DIR}/fsbuild200:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${TOOLS_DIR}/libs
 
 ####################################
 # Clean before pack
@@ -28,8 +29,17 @@ cp -r eFex/sys_config.fex eFex/sys_config1.fex eFex/split_xxxx.fex eFex/card/mbr
 cp -r eGon/storage_media/sdcard/boot0.bin out/card_boot0.fex
 cp -r eGon/storage_media/sdcard/boot1.bin out/card_boot1.fex
 
-
+####################################
+# Enter work dir and begin to pack
+####################################
 cd out/
+
+####################################
+# Convert path to linux style
+####################################
+sed -i 's/\\bootfs/\/bootfs/g' bootfs.ini
+sed -i 's/\\\\/\//g' image.cfg
+
 ln -s ../wboot/*.fex .
 script_old sys_config.fex
 script sys_config1.fex
