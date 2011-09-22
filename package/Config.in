@@ -5,12 +5,13 @@ source "package/customize/Config.in"
 
 #source "package/lcd-test/Config.in"
 #source "package/tp-test/Config.in"
-source "package/kernel-header/Config.in"
-source "package/sw-tools/Config.in"
-source "package/ext4-utils/Config.in"
-source "package/fsck_msdos/Config.in"
-source "package/mali-3d/Config.in"
-source "package/cedar/Config.in"
+#source "package/kernel-header/Config.in"
+#source "package/sw-tools/Config.in"
+#source "package/ext4-utils/Config.in"
+#source "package/tiobench/Config.in"
+#source "package/fsck_msdos/Config.in"
+#source "package/mali-3d/Config.in"
+#source "package/cedar/Config.in"
 
 # Audio and video applications
 source "package/multimedia/Config.in"
@@ -505,6 +506,16 @@ source "package/uemacs/Config.in"
 if BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
 source "package/vim/Config.in"
 endif
+endmenu
+
+menu "Additional tools(Lichee)"
+source "package/kernel-header/Config.in"
+source "package/sw-tools/Config.in"
+source "package/ext4-utils/Config.in"
+source "package/tiobench/Config.in"
+source "package/fsck_msdos/Config.in"
+source "package/mali-3d/Config.in"
+source "package/cedar/Config.in"
 endmenu
 
 endmenu
