@@ -11,6 +11,28 @@ TOOLS_DIR=${ROOT_DIR}/pctools/linux
 export PATH=${TOOLS_DIR}/mod_update:${TOOLS_DIR}/eDragonEx:${TOOLS_DIR}/fsbuild200:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${TOOLS_DIR}/libs
 
+
+if [ $# = 0 ]; then
+MEDIA=nand
+echo "default packing for nand"
+fi
+
+if [ $# = 1 ]; then
+	if [ "$1" = "nand" ]; then
+		MEDIA=nand
+		echo "packing for nand"
+	elif [ "$1" = "sdcard" ]; then
+		MEDIA=sdcard
+		echo "packing for sdcard"
+	else
+		echo "Wrong media type"
+		echo "currently supported media type is nand or sdcard"
+		echo "./pack nand	-- to pack for nand"
+		echo "./pack sdcard	-- to pack for sdcard"
+		exit 1
+	fi
+fi
+
 ####################################
 # Clean before pack
 ####################################
@@ -22,12 +44,14 @@ mkdir out/
 ####################################
 # Copy all needed files to out dir
 ####################################
-cp -r eFex/sys_config.fex eFex/sys_config1.fex eFex/split_xxxx.fex eFex/card/mbr.fex \
-   eGon/storage_media/nand/boot0.bin eGon/storage_media/nand/boot1.bin \
-   wboot/bootfs wboot/image.cfg wboot/bootfs.ini \
+cp -rf eFex/sys_config.fex eFex/sys_config1.fex eFex/split_xxxx.fex eFex/card/mbr.fex \
+   eGon/storage_media/$MEDIA/boot0.bin eGon/storage_media/$MEDIA/boot1.bin \
+   wboot/bootfs wboot/image_$MEDIA.cfg wboot/bootfs.ini \
    out/
-cp -r eGon/storage_media/sdcard/boot0.bin out/card_boot0.fex
-cp -r eGon/storage_media/sdcard/boot1.bin out/card_boot1.fex
+mv out/bootfs/boot_$MEDIA.axf out/bootfs/boot.axf
+mv out/bootfs/sprite_$MEDIA.axf out/bootfs/sprite.axf
+cp -rf eGon/storage_media/$MEDIA/boot0.bin out/card_boot0.fex
+cp -rf eGon/storage_media/$MEDIA/boot1.bin out/card_boot1.fex
 
 ####################################
 # Enter work dir and begin to pack
@@ -38,7 +62,7 @@ cd out/
 # Convert path to linux style
 ####################################
 sed -i 's/\\bootfs/\/bootfs/g' bootfs.ini
-sed -i 's/\\\\/\//g' image.cfg
+sed -i 's/\\\\/\//g' image_$MEDIA.cfg
 
 ln -s ../wboot/*.fex .
 script_old sys_config.fex
@@ -50,9 +74,9 @@ cp sys_config1.bin bootfs/script.bin
 
 update_mbr sys_config.bin mbr.fex
 fsbuild bootfs.ini split_xxxx.fex
-dragon image.cfg
+dragon image_$MEDIA.cfg
 cd -
 
 printf "\nPack Done!\n\n"
-
-
+echo "==========================image is at==========================="
+echo "$ROOT_DIR/out/ePDKv100_$MEDIA.img"
