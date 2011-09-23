@@ -412,6 +412,8 @@ lcd_used                 = 1
 lcd_x                    = 800
 lcd_y                    = 480
 lcd_dclk_freq            = 33
+lcd_pwm_not_used         = 0
+lcd_pwm_ch               = 0
 lcd_pwm_freq             = 10000
 lcd_pwm_pol              = 0
 lcd_if                   = 0
@@ -432,7 +434,11 @@ lcd_lvds_io_cross        = 0
 lcd_cpu_if               = 0
 lcd_frm                  = 0
 lcd_io_cfg0              = 0x10000000
-
+lcd_gamma_correction_en  = 0
+lcd_gamma_tbl_0          = 0x00000000
+lcd_gamma_tbl_1          = 0x00010101
+;........
+lcd_gamma_tbl_255        = 0x00ffffff
 
 lcd_bl_en_used           = 0
 lcd_bl_en                =
@@ -509,6 +515,8 @@ lcd_used                 = 0
 lcd_x                    = 0
 lcd_y                    = 0
 lcd_dclk_freq            = 0
+lcd_pwm_not_used         = 0
+lcd_pwm_ch               = 1
 lcd_pwm_freq             = 0
 lcd_pwm_pol              = 0
 lcd_if                   = 0
@@ -529,7 +537,11 @@ lcd_lvds_io_cross        = 0
 lcd_cpu_if               = 0
 lcd_frm                  = 0
 lcd_io_cfg0              = 0
-
+lcd_gamma_correction_en  = 0
+lcd_gamma_tbl_0          = 0x00000000
+lcd_gamma_tbl_1          = 0x00010101
+;........
+lcd_gamma_tbl_255        = 0x00ffffff
 
 lcd_bl_en_used           = 0
 lcd_bl_en                =
