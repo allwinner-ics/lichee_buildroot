@@ -587,12 +587,22 @@ dac3_src                 = 0
 
 ;--------------------------------------------------------------------------------
 ;csi gpio configuration
+;csi_if: 0:hv_8bit 1:hv_16bit 2:hv_24bit 3:bt656 1ch 4:bt656 2ch 5:bt656 4ch
+;csi_mode: 0:sample one csi to one buffer 1:sample two csi to one buffer
+;csi_dev_qty: The quantity of devices linked to csi interface
+;csi_vflip: flip in vertical direction 0:disable 1:enable
+;csi_hflip: flip in horizontal direction 0:disable 1:enable
 ;--------------------------------------------------------------------------------
 [csi0_para]
 csi_used                 = 1
+csi_mname				 				 = "ov7670"
 csi_twi_id               = 1
-csi_mname                = "ov7670"
 csi_twi_addr             = 0x42
+csi_if									 = 0
+csi_mode								 = 0
+csi_dev_qty							 = 1
+csi_vflip								 = 0
+csi_hflip								 = 0
 csi_pck                  = port:PE00<3><default><default><default>
 csi_ck                   = port:PE01<3><default><default><default>
 csi_hsync                = port:PE02<3><default><default><default>
@@ -605,15 +615,31 @@ csi_d4                   = port:PE08<3><default><default><default>
 csi_d5                   = port:PE09<3><default><default><default>
 csi_d6                   = port:PE10<3><default><default><default>
 csi_d7                   = port:PE11<3><default><default><default>
+csi_d8                   = 
+csi_d9                   = 
+csi_d10                  = 
+csi_d11                  = 
+csi_d12                  = 
+csi_d13                  = 
+csi_d14                  = 
+csi_d15                  = 
 csi_reset                = port:PH13<1><default><default><0>
-;csi_power_en             = port:PH16<1><default><default><0>
+csi_power_en             = 
 csi_stby                 = port:PH16<1><default><default><1>
+csi_reset_b              = 
+csi_power_en_b           = 
+csi_stby_b               = 
 
 [csi1_para]
 csi_used                 = 0
+csi_mname				 				 = "gt2005"
 csi_twi_id               = 1
-csi_mname                = "gt2005"
 csi_twi_addr             = 0x78
+csi_if									 = 0
+csi_mode								 = 0
+csi_dev_qty							 = 1
+csi_vflip								 = 0
+csi_hflip								 = 0
 csi_pck                  = port:PG00<3><default><default><default>
 csi_ck                   = port:PG01<3><default><default><default>
 csi_hsync                = port:PG02<3><default><default><default>
@@ -626,9 +652,28 @@ csi_d4                   = port:PG08<3><default><default><default>
 csi_d5                   = port:PG09<3><default><default><default>
 csi_d6                   = port:PG10<3><default><default><default>
 csi_d7                   = port:PG11<3><default><default><default>
+csi_d8                   = 
+csi_d9                   = 
+csi_d10                  = 
+csi_d11                  = 
+csi_d12                  = 
+csi_d13                  = 
+csi_d14                  = 
+csi_d15                  = 
+csi_d16                  = 
+csi_d17                  = 
+csi_d18                  = 
+csi_d19                  = 
+csi_d20                  = 
+csi_d21                  = 
+csi_d22                  = 
+csi_d23                  = 
 csi_reset                = port:PH14<1><default><default><0>
-;csi_power_en             = port:PH17<1><default><default><0>
+csi_power_en             = 
 csi_stby                 = port:PH17<1><default><default><0>
+csi_reset_b              = 
+csi_power_en_b           = 
+csi_stby_b               = 
 
 ;--------------------------------------------------------------------------------
 ;tv configuration
