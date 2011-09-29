@@ -46,7 +46,7 @@ regen_rootfs()
         if [ "$PLATFORM" = "sun4i-debug" ]; then
             cp -rf ${KERN_DIR}/vmlinux ${BR_OUT_DIR}/target
         fi
-        (cd ${BR_DIR};  make rootfs-ext2)
+        (cd ${BR_DIR};  make LICHEE_GEN_ROOTFS=y rootfs-ext4)
     else
         echo "Skip Regenerating Rootfs..."
     fi
@@ -60,7 +60,7 @@ gen_output_sun3i()
 gen_output_generic()
 {
     cp -v ${KERN_OUT_DIR}/bImage ${BR_PACK_DIR}/wboot/bootfs/linux/
-    cp -v ${BR_OUT_DIR}/images/rootfs.ext2 ${BR_PACK_DIR}/wboot/rootfs.fex
+    cp -v ${BR_OUT_DIR}/images/rootfs.ext4 ${BR_PACK_DIR}/wboot/rootfs.fex
 
     if [ ! -d "${OUT_DIR}" ]; then
         mkdir -pv ${OUT_DIR}

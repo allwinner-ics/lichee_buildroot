@@ -27,9 +27,7 @@ build_buildroot()
 	make sun4i_defconfig
     fi
 
-    rm -rf output/build/lcd-test
-    rm -rf output/build/tp-test
-    make
+    make LICHEE_GEN_ROOTFS=n
 }
 
 EXTERNAL_DIR=${CUR_DIR}/external-packages

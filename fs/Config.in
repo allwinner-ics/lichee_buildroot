@@ -49,6 +49,7 @@ endif
 source "fs/cramfs/Config.in"
 source "fs/cloop/Config.in"
 source "fs/ext2/Config.in"
+source "fs/ext4/Config.in"
 source "fs/jffs2/Config.in"
 source "fs/ubifs/Config.in"
 source "fs/squashfs/Config.in"

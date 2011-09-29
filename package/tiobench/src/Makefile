@@ -48,7 +48,6 @@ dist:
 
 install:
 	echo tiotest install to $(BINDIR)
-	sleep 5
 	if [ ! -d $(BINDIR) ]; then \
 		mkdir -p $(BINDIR); \
 	fi;

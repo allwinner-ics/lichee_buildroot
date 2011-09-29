@@ -27,12 +27,7 @@ build_buildroot()
         make sun4i-debug_defconfig
     fi
 
-    #if [ -d ${CUR_DIR}/output/build ]; then
-    #    find ${CUR_DIR}/output/build -maxdepth 2 -name ".stamp_*_installed" -delete
-    #    rm -rf ${CUR_DIR}/output/build/.root ${CUR_DIR}/output/target
-    #fi
-
-    make
+    make LICHEE_GEN_ROOTFS=n
 }
 
 EXTERNAL_DIR=${CUR_DIR}/external-packages
