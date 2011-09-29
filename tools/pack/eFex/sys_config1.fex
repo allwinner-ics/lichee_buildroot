@@ -268,8 +268,8 @@ spi_miso                 = port:PI08<4><default><default><default>
                              normally, 0 is setted. 
 ;----------------------------------------------------------------------------------
 [rtp_para]
-rtp_used      = 1
-rtp_screen_size = 5
+rtp_used                 = 1
+rtp_screen_size          = 5
 rtp_regidity_level = 5
 rtp_press_threshold_enable = 0
 rtp_press_threshold = 0x1f40
@@ -417,9 +417,9 @@ lcd_pwm_ch               = 0
 lcd_pwm_freq             = 10000
 lcd_pwm_pol              = 0
 lcd_if                   = 0
-lcd_hbp                  = 215
+lcd_hbp                  = 46
 lcd_ht                   = 1055
-lcd_vbp                  = 34
+lcd_vbp                  = 23
 lcd_vt                   = 1050
 lcd_hv_if                = 0
 lcd_hv_smode             = 0
