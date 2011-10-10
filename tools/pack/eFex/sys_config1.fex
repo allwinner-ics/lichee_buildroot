@@ -604,17 +604,28 @@ dac3_src                 = 0
 ;csi_dev_qty: The quantity of devices linked to csi interface
 ;csi_vflip: flip in vertical direction 0:disable 1:enable
 ;csi_hflip: flip in horizontal direction 0:disable 1:enable
+;csi_stby_mode: 0:not shut down power at standby 1:shut down power at standby
+;csi_iovdd: camera module io power , pmu power supply  
+;csi_avdd:	camera module analog power , pmu power supply	
+;csi_dvdd:	camera module core power , pmu power supply
+;pmu_ldo3:  fill "axp20_pll"
+;pmu_ldo4:  fill "axp20_hdmi"
+;fill "" when not using any pmu power supply
 ;--------------------------------------------------------------------------------
 [csi0_para]
 csi_used                 = 1
-csi_mname				 				 = "ov7670"
+csi_mname                = "ov7670"
 csi_twi_id               = 1
 csi_twi_addr             = 0x42
-csi_if									 = 0
-csi_mode								 = 0
-csi_dev_qty							 = 1
-csi_vflip								 = 0
-csi_hflip								 = 0
+csi_if                   = 0
+csi_mode                 = 0
+csi_dev_qty              = 1
+csi_vflip                = 1
+csi_hflip                = 0
+csi_stby_mode            = 0
+csi_iovdd                = ""
+csi_avdd                 = ""
+csi_dvdd                 = ""
 csi_pck                  = port:PE00<3><default><default><default>
 csi_ck                   = port:PE01<3><default><default><default>
 csi_hsync                = port:PE02<3><default><default><default>
@@ -644,14 +655,18 @@ csi_stby_b               =
 
 [csi1_para]
 csi_used                 = 0
-csi_mname				 				 = "gt2005"
+csi_mname                = "gt2005"
 csi_twi_id               = 1
 csi_twi_addr             = 0x78
-csi_if									 = 0
-csi_mode								 = 0
-csi_dev_qty							 = 1
-csi_vflip								 = 0
-csi_hflip								 = 0
+csi_if                   = 0
+csi_mode                 = 0
+csi_dev_qty              = 1
+csi_vflip                = 0
+csi_hflip                = 0
+csi_stby_mode            = 0
+csi_iovdd                = ""
+csi_avdd                 = ""
+csi_dvdd                 = ""
 csi_pck                  = port:PG00<3><default><default><default>
 csi_ck                   = port:PG01<3><default><default><default>
 csi_hsync                = port:PG02<3><default><default><default>
