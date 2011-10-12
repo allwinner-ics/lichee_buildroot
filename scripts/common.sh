@@ -46,7 +46,7 @@ regen_rootfs()
         if [ "$PLATFORM" = "sun4i-debug" ]; then
             cp -rf ${KERN_DIR}/vmlinux ${BR_OUT_DIR}/target
         fi
-        (cd ${BR_DIR};  make LICHEE_GEN_ROOTFS=y rootfs-ext4)
+        (cd ${BR_DIR};  make target-finalize; make LICHEE_GEN_ROOTFS=y rootfs-ext4)
     else
         echo "Skip Regenerating Rootfs..."
     fi
