@@ -262,10 +262,10 @@ spi_miso                 = port:PI08<4><default><default><default>
 ;                            对于某些供应商提供的屏，硬度可能不合要求，需要适度调整
 ;rtp_press_threshold_enable: whether press threshold is enable or not. 0 is suggested.
 ;rtp_press_threshold       : only when rtp_press_threshold_enable == 1, this para take effect.
-                             between 0 and 0xFFFFFF  is supported.more bigger, more sensitive, 0x1f40 is suggested.
+;                             between 0 and 0xFFFFFF  is supported.more bigger, more sensitive, 0x1f40 is suggested.
 ;rtp_sensitive_level :       between 0 and 0xf is supported.more bigger, more sensitive, 0xf is suggested.
 ;rtp_exchange_x_y_flag :     in some case, x, y need to be exchanged, at that situation, 1 is setted. 
-                             normally, 0 is setted. 
+;                             normally, 0 is setted. 
 ;----------------------------------------------------------------------------------
 [rtp_para]
 rtp_used                 = 0
@@ -927,6 +927,10 @@ gsensor_twi_addr         = 0x18
 gsensor_int1             = port:PH00<6><1><default><default>
 gsensor_int2             = port:PI10<6><1><default><default>
 
+[g2d_para]
+g2d_used                 = 1
+g2d_size                 = 0x1000000
+
 ;--------------------------------------------------------------------------------
 ; gps gpio configuration
 ; gps_spi_id    --- the index of SPI controller. 0: SPI0, 1: SPI1, 2: SPI2, 15: no SPI used
@@ -935,6 +939,7 @@ gsensor_int2             = port:PI10<6><1><default><default>
 ;--------------------------------------------------------------------------------
 [gps_para]
 gps_used                 = 0
+gps_size                 = 0x1000000
 gps_spi_id               = 2
 gps_spi_cs_num           = 0
 gps_lradc                = 1
