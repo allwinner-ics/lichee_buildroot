@@ -17,7 +17,7 @@ sw-tools-binary: $(SW_TOOLS_DIR)/.configured
 
 
 sw-tools: sw-tools-binary
-	$(MAKE) DESTDIR="$(TARGET_DIR)" -C $(SW_TOOLS_DIR) install
+	$(MAKE) HOSTDIR="$(HOST_DIR)" DESTDIR="$(TARGET_DIR)" -C $(SW_TOOLS_DIR) install
 
 
 ##############################################################
