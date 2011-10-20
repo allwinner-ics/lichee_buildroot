@@ -38,8 +38,8 @@ show_help()
 
 regen_rootfs()
 {
-    echo "Regenerating Rootfs..."
     if [ -d ${BR_OUT_DIR}/target ]; then
+		echo "Copy modules to target..."
         mkdir -p ${BR_OUT_DIR}/target/lib/modules
         rm -rf ${BR_OUT_DIR}/target/lib/modules/2.6.36*
         cp -rf ${KERN_OUT_DIR}/lib/modules/* ${BR_OUT_DIR}/target/lib/modules/
@@ -47,7 +47,11 @@ regen_rootfs()
         if [ "$PLATFORM" = "sun4i-debug" ]; then
             cp -rf ${KERN_DIR}/vmlinux ${BR_OUT_DIR}/target
         fi
-	(cd ${BR_DIR}; make target-generic-getty-busybox; make target-finalize)
+	fi
+
+	if [ "$PLATFORM" != "sun4i_crane" ]; then
+		echo "Regenerating Rootfs..."
+		(cd ${BR_DIR}; make target-generic-getty-busybox; make target-finalize)
         (cd ${BR_DIR};  make LICHEE_GEN_ROOTFS=y rootfs-ext4)
     else
         echo "Skip Regenerating Rootfs..."
