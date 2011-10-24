@@ -13,9 +13,10 @@ echo -e '\033[0;31;1m###################################\033[0m'
 CUR_DIR=`pwd`
 export PATH=${CUR_DIR}/output/external-toolchain/bin:$PATH
 echo $CUR_DIR
+if [ ! -e output ]; then
 mkdir  output
 cd output
 tar -jxf ../dl/arm-2010.09-50-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2 
 mv arm-2010.09 external-toolchain 
-
+fi
 
