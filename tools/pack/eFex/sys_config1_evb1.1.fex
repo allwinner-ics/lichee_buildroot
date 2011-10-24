@@ -281,6 +281,32 @@ spi_mosi                 = port:PI07<3><default><default><default>
 spi_miso                 = port:PI08<3><default><default><default>
 spi_cs1                  = port:PA09<3><default><default><default>
 
+;------------------------------------------------------------------------------------------------
+;external spi devices configuration
+;spi_dev_num - the number connectted to main chip
+; - if there are n spi devices exist, you have to define [spi_board0]..[spi_boardm](m=n-1) respectively.
+;------------------------------------------------------------------------------------------------
+[spi_devices]
+spi_dev_num             = 0
+
+;------------------------------------------------------------------------------------------------
+; base spi board information define
+; modalias - name
+; max_speed_hz - max speed
+; bus_num - used spi controller NO.
+; mode - mode, bit field defined in <include/linux/spi/spi.h>
+; full_duplex - 1:full duplex mode, 0:half duplex mode
+; manual_cs - manually control cs level select, not support now
+;------------------------------------------------------------------------------------------------
+[spi_board0]
+modalias                = "aaa"
+max_speed_hz            = 12000000
+bus_num                 = 1
+chip_select             = 0
+mode                    = 3
+full_duplex             = 0
+manual_cs               = 0
+
 ;----------------------------------------------------------------------------------
 ;rtp_screen_size     :       表屏幕尺寸，以斜对角方向长度为准，以寸为单位
 ;tp_regidity_level   :       表屏幕的硬度，以指覆按压，抬起时开始计时，多少个10ms时间单位之后，硬件采集不到数据为准；
