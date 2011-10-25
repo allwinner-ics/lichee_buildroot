@@ -42,8 +42,7 @@ xcopy /q /e wboot\bootfs\* out\bootfs\
 
 cd out
 
-rename bootfs\boot_%a%.axf boot.axf 
-rename bootfs\sprite_%a%.axf  sprite.axf 
+
 script_old.exe  sys_config.fex
 script.exe sys_config1.fex
 update_23.exe sys_config1.bin boot0.bin boot1.bin

@@ -85,8 +85,6 @@ cp -rf eFex/split_xxxx.fex eFex/card/mbr.fex \
    wboot/bootfs wboot/bootfs.ini \
    out/
 
-mv out/bootfs/boot_$BOOT_TYPE.axf out/bootfs/boot.axf
-mv out/bootfs/sprite_$BOOT_TYPE.axf out/bootfs/sprite.axf
 cp -rf eGon/storage_media/$BOOT_TYPE/boot0.bin out/card_boot0.fex
 cp -rf eGon/storage_media/$BOOT_TYPE/boot1.bin out/card_boot1.fex
 
