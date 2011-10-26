@@ -22,11 +22,10 @@ NAME
     pack - The pack tools for linux firmware
 
 SYNOPSIS
-    pack [-h] [-b boot_type] [-B board_type] [-p product_type]
+    pack [-h] [-B board_type] [-p product_type]
 
 OPTIONS
     -h                  Display help message
-    -b [boot_type]      Boot media type, e.g. nand, sdcard, nor,...
     -B [board_type]     Board type, e.g. evb1.1, evb1.2A, evb1.2B,...
     -p [product_type]   Product type, e.g. linux, crane,...\n\n
 "
@@ -40,8 +39,6 @@ do
 	exit 0
 	;;
 	p) PRODUCT_TYPE=$OPTARG
-	;;
-	b) BOOT_TYPE=$OPTARG
 	;;
 	B) BOARD_TYPE=$OPTARG
 	;;
@@ -57,7 +54,8 @@ done
 if [ ! -f "eFex/sys_config_${PRODUCT_TYPE}.fex" -o \
    ! -f eFex/sys_config1_${BOARD_TYPE}.fex -o \
    ! -f wboot/image_${PRODUCT_TYPE}.cfg -o \
-   ! -d eGon/storage_media/$BOOT_TYPE ]; then
+   ! -d eGon/storage_media/nand -o \
+   ! -d eGon/storage_media/sdcard ]; then
    printf "\nError: Missing some files\n"
    show_help
    exit 1
@@ -81,12 +79,12 @@ cp eFex/sys_config1_${BOARD_TYPE}.fex out/sys_config1.fex
 cp wboot/image_${PRODUCT_TYPE}.cfg out/image.cfg
 
 cp -rf eFex/split_xxxx.fex eFex/card/mbr.fex \
-   eGon/storage_media/$BOOT_TYPE/boot0.bin eGon/storage_media/$BOOT_TYPE/boot1.bin \
+   eGon/storage_media/nand/boot0.bin eGon/storage_media/nand/boot1.bin \
    wboot/bootfs wboot/bootfs.ini \
    out/
 
-cp -rf eGon/storage_media/$BOOT_TYPE/boot0.bin out/card_boot0.fex
-cp -rf eGon/storage_media/$BOOT_TYPE/boot1.bin out/card_boot1.fex
+cp -rf eGon/storage_media/sdcard/boot0.bin out/card_boot0.fex
+cp -rf eGon/storage_media/sdcard/boot1.bin out/card_boot1.fex
 
 ####################################
 # Enter work dir and begin to pack
@@ -100,7 +98,7 @@ sed -i 's/\\bootfs/\/bootfs/g' bootfs.ini
 sed -i 's/\\\\/\//g' image.cfg
 sed -i 's/imagename/;imagename/g' image.cfg
 
-IMG_NAME="${PRODUCT_TYPE}-${BOARD_TYPE}-${BOOT_TYPE}.img"
+IMG_NAME="${PRODUCT_TYPE}-${BOARD_TYPE}.img"
 echo "imagename = $IMG_NAME" >> image.cfg
 echo "" >> image.cfg
 
