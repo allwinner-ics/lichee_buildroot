@@ -103,7 +103,7 @@ echo "imagename = $IMG_NAME" >> image.cfg
 echo "" >> image.cfg
 
 ln -s ../wboot/*.fex .
-dos2unix sys_config.fex
+busybox dos2unix sys_config.fex
 script_old sys_config.fex
 script sys_config1.fex
 update_23 sys_config1.bin boot0.bin boot1.bin
