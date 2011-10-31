@@ -1,14 +1,7 @@
 @echo off
-set /p stroagef=固件类型 1:nand 2:sdcard 
 set /p ostype=系统类型 1:linux 2:crane 
 set /p boardtype=目标版型号 1:evb1.1 2:evb1.2A 3:evb1.2B
 
-if %stroagef%==2 goto stroageset0
-set stroage=nand
-goto stroageset1
-:stroageset0
-set stroage=sdcard
-:stroageset1
 if %ostype%==2 goto osset0
 set os=linux
 goto osset1
@@ -61,7 +54,7 @@ xcopy /q /e wboot\bootfs\* out\bootfs\
 
 
 cd out
-set IMG_NAME="%os%-%board%-%stroage%.img"
+set IMG_NAME="%os%-%board%.img"
 echo imagename = %IMG_NAME% >> image.cfg
 
 script_old.exe  sys_config.fex
