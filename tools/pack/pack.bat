@@ -60,11 +60,12 @@ echo imagename = %IMG_NAME% >> image.cfg
 script_old.exe  sys_config.fex
 script.exe sys_config1.fex
 update_23.exe sys_config1.bin boot0.bin boot1.bin
-update_23.exe sys_config1.bin card_boot0.fex card_boot0.fex SDMMC_CARD
+update_23.exe sys_config1.bin card_boot0.fex card_boot1.fex SDMMC_CARD
 copy sys_config1.bin bootfs\script.bin
 copy sys_config1.bin bootfs\script0.bin
 update_mbr.exe sys_config.bin mbr.fex
 fsbuild.exe "%CD%\bootfs.ini" "%CD%\split_xxxx.fex"
+FileAddSum.exe rootfs.fex
 compile.exe -o image.bin image.cfg
 dragon.exe image.cfg 
 
