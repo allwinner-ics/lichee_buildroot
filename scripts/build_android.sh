@@ -53,15 +53,24 @@ function do_pack()
     ln -sv ${OUT}/images/recovery.img  $LICHEE_ROOT/buildroot/tools/pack/wboot/android/recovery.fex
     cd $LICHEE_ROOT/buildroot/tools/pack
 
-#FIXME: to support more board
     case $TARGET_PRODUCT in
     crane_evb_v13)
-        echo "use evb1.2B"
-        ./pack -B evb1.2B -p crane
+        ./pack-new -c sun4i -p crane -b evb-v13
         ;;
     crane_evb)
-        echo "use evb1.2A"
-        ./pack -B evb1.2A -p crane
+        ./pack-new -c sun4i -p crane -b evb
+        ;;
+    crane_aino)
+        ./pack-new -c sun4i -p crane -b aino
+        ;;
+    crane_h5)
+        ./pack-new -c sun4i -p crane -b onda_n507h5
+        ;;
+    crane_h6)
+        ./pack-new -c sun4i -p crane -b onda_m702h6
+        ;;
+    crane_t780)
+        ./pack-new -c sun4i -p crane -b t780
         ;;
     *)
         echo "Skip pack, please pack manually"
