@@ -74,17 +74,17 @@ mkdir out/
 # Copy all needed files to out dir
 ####################################
 
-cp eFex/sys_config_${PRODUCT_TYPE}.fex out/sys_config.fex
-cp eFex/sys_config1_${BOARD_TYPE}.fex out/sys_config1.fex
-cp wboot/image_${PRODUCT_TYPE}.cfg out/image.cfg
+cp -v eFex/sys_config_${PRODUCT_TYPE}.fex out/sys_config.fex
+cp -v eFex/sys_config1_${BOARD_TYPE}.fex out/sys_config1.fex
+cp -v wboot/image_${PRODUCT_TYPE}.cfg out/image.cfg
 
-cp -rf eFex/split_xxxx.fex eFex/card/mbr.fex \
+cp -vrf eFex/split_xxxx.fex eFex/card/mbr.fex \
    eGon/storage_media/nand/boot0.bin eGon/storage_media/nand/boot1.bin \
    wboot/bootfs wboot/bootfs.ini \
    out/
 
-cp -rf eGon/storage_media/sdcard/boot0.bin out/card_boot0.fex
-cp -rf eGon/storage_media/sdcard/boot1.bin out/card_boot1.fex
+cp -vrf eGon/storage_media/sdcard/boot0.bin out/card_boot0.fex
+cp -vrf eGon/storage_media/sdcard/boot1.bin out/card_boot1.fex
 
 ####################################
 # Enter work dir and begin to pack
@@ -108,8 +108,8 @@ script_old sys_config.fex
 script sys_config1.fex
 update_23 sys_config1.bin boot0.bin boot1.bin
 update_23 sys_config1.bin card_boot0.fex card_boot1.fex SDMMC_CARD
-cp sys_config1.bin bootfs/script0.bin
-cp sys_config1.bin bootfs/script.bin
+cp -v sys_config1.bin bootfs/script0.bin
+cp -v sys_config1.bin bootfs/script.bin
 
 update_mbr sys_config.bin mbr.fex
 fsbuild bootfs.ini split_xxxx.fex

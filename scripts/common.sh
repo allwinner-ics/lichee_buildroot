@@ -13,6 +13,7 @@ KERN_OUT_DIR=$KERN_DIR/output
 BR_DIR=$CUR_DIR/buildroot
 BR_PACK_DIR=$BR_DIR/tools/pack
 BR_OUT_DIR=$BR_DIR/output
+U_BOOT_DIR=$CUR_DIR/u-boot
 
 
 #
@@ -91,6 +92,7 @@ gen_output_sun3i()
 gen_output_generic()
 {
     cp -v ${KERN_OUT_DIR}/bImage ${BR_PACK_DIR}/wboot/bootfs/linux/
+    cp -v ${U_BOOT_DIR}/u-boot.bin ${BR_PACK_DIR}/wboot/bootfs/linux/
     cp -v ${BR_OUT_DIR}/images/rootfs.ext4 ${BR_PACK_DIR}/wboot/rootfs.fex
 
     if [ ! -d "${OUT_DIR}" ]; then
@@ -188,6 +190,7 @@ else
     cd ${BR_DIR} && ./build.sh -p ${PLATFORM}
     export PATH=${BR_OUT_DIR}/external-toolchain/bin:$PATH
     cd ${KERN_DIR} && ./build.sh -p ${PLATFORM}
+    cd ${U_BOOT_DIR} && make aw1623
     regen_rootfs
     gen_output_${PLATFORM}
 fi

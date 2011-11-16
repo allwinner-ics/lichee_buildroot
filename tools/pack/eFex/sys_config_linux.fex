@@ -291,11 +291,11 @@ size = 1024
 ;     4、size_hi + size_lo = 0, 表示此分区不存在
 ;********************************************************************************************************
 [part_num]
-num     = 3
+num     = 5
 
 [partition0]
     class_name  = DISK
-    name        = BOOTFS
+    name        = bootfs
     size_hi     = 0
     size_lo     = 32768
     user_type   = 0
@@ -303,15 +303,31 @@ num     = 3
 
 [partition1]
     class_name  = DISK
-    name        = ROOTFS
+    name        = environment
     size_hi     = 0
-    size_lo     = 300144
+    size_lo     = 2048
     user_type   = 0
     ro          = 0
 
 [partition2]
     class_name  = DISK
-    name        = SYSDATAFS
+    name        = kernel
+    size_hi     = 0
+    size_lo     = 16384
+    user_type   = 0
+    ro          = 0
+
+[partition3]
+    class_name  = DISK
+    name        = rootfs
+    size_hi     = 0
+    size_lo     = 524288
+    user_type   = 0
+    ro          = 0
+
+[partition4]
+    class_name  = DISK
+    name        = sysdatafs
     size_hi     = 0
     size_lo     = 262144
     user_type   = 0
@@ -341,20 +357,14 @@ num     = 3
 [down_num]
 down_num    = 2
 
-;[download0]
-;part_name   = SYSDATAFS
-;pkt_name    = ROOTFS_000000000
-;verify_file = VERIFY_000000000
-
 [download0]
-part_name   = BOOTFS
+part_name   = bootfs
 pkt_name    = BOOTFS_000000000
 encrypt     = 0
 
 [download1]
-part_name   = ROOTFS
+part_name   = rootfs
 pkt_name    = ROOTFS_000000000
-;verify_file = VERIFY_000000000
 encrypt     = 0
 
 
