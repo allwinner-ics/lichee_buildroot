@@ -28,7 +28,7 @@ NAME
     build - The top level build script for Lichee Linux BSP
 
 SYNOPSIS
-    build [-h] | [-p platform] [-k kern_version] [-m module]
+    build [-h] | [-p platform] [-k kern_version] [-m module] | pack
 
 OPTIONS
     -h             Display help message
@@ -42,11 +42,13 @@ OPTIONS
 
     -m [module]    Use this option when you dont want to build all. [OPTIONAL]
                    e.g. kernel, buildroot, all(default)...
+    pack           To start pack program
 
 Examples:
     ./build.sh -p sun4i-lite
     ./build.sh -p sun4i_crane
     ./build.sh -p sun4i-lite
+    ./build.sh pack
 
 "
 
@@ -128,6 +130,11 @@ clean_output()
 	rm -rf ${U_BOOT_DIR}/u-boot*
 }
 
+if [ "$1" = "pack" ]; then
+        ${BR_DIR}/scripts/build_pack.sh
+        exit 0
+fi
+
 while getopts hp:m:k: OPTION
 do
 	case $OPTION in
@@ -150,11 +157,6 @@ done
 if [ -z "$PLATFORM" ]; then
 	show_help
 	exit 1
-fi
-
-if [ "$PLATFORM" = "pack" ]; then
-	${BR_DIR}/scripts/build_pack.sh
-	exit 0
 fi
 
 clean_output

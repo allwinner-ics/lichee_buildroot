@@ -1,7 +1,6 @@
 #!/bin/bash
 
 LICHEE_ROOT=$PWD
-LICHEE_OUT=$PWD/out
 PACK_ROOT=tools/pack
 INDEX=0
 
@@ -57,7 +56,6 @@ done
 printf "\n"
 
 cd $PACK_ROOT
-export LICHEE_OUT
 ./pack -c $CHIP_TYPE -p $PLATFORM_TYPE -b $BOARD_TYPE
 cd -
 
