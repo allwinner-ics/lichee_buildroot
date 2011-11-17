@@ -91,7 +91,7 @@ gen_output_sun3i()
 
 gen_output_generic()
 {
-    cp -v ${KERN_OUT_DIR}/bImage ${BR_PACK_DIR}/wboot/bootfs/linux/
+    cp -v ${KERN_OUT_DIR}/uImage ${BR_PACK_DIR}/wboot/kernel.fex
     cp -v ${U_BOOT_DIR}/u-boot.bin ${BR_PACK_DIR}/wboot/bootfs/linux/
     cp -v ${BR_OUT_DIR}/images/rootfs.ext4 ${BR_PACK_DIR}/wboot/rootfs.fex
 
