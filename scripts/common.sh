@@ -105,8 +105,20 @@ gen_output_generic()
 
 do_pack()
 {
-    printf "Packing for $BOARD board\n"
-    (cd ${BR_PACK_DIR}; ./pack -B $BOARD)
+    PACK_CHIP=`echo $PLATFORM| awk -F[-_] '{print $1}'`
+    PACK_PLAT=`echo $PLATFORM| awk -F[-_] '{print $2}'`
+
+    case $PACK_PLAT in
+    crane*)
+        PACK_PLAT=crane
+        ;;
+    *)
+        PACK_PLAT=linux
+        ;;
+    esac
+
+    printf "Packing for $PACK_CHIP, $PACK_PLAT, $BOARD board\n"
+    (cd ${BR_PACK_DIR}; ./pack-new -c $PACK_CHIP -p $PACK_PLAT -b $BOARD)
 }
 
 gen_output_sun4i()
@@ -190,7 +202,7 @@ else
     cd ${BR_DIR} && ./build.sh -p ${PLATFORM}
     export PATH=${BR_OUT_DIR}/external-toolchain/bin:$PATH
     cd ${KERN_DIR} && ./build.sh -p ${PLATFORM}
-    cd ${U_BOOT_DIR} && make aw1623
+    cd ${U_BOOT_DIR} && make CROSS_COMPILE=arm-none-linux-gnueabi- aw1623
     regen_rootfs
     gen_output_${PLATFORM}
 fi

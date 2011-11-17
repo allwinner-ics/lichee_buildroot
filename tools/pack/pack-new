@@ -144,9 +144,11 @@ do_pack_linux()
 {
     printf "!!!Packing for linux!!!\n"
     cp -v eFex/chips/$PACK_CHIP/$PACK_PLATFORM/sys_config1[._]$PACK_BOARD.fex out/sys_config1.fex
-    cp -v eFex/chips/$PACK_CHIP/$PACK_PLATFORM/sys_config.fex out/sys_config.fex
+    #cp -v eFex/chips/$PACK_CHIP/$PACK_PLATFORM/sys_config.fex out/sys_config.fex
+    cp -v eFex/chips/$PACK_CHIP/$PACK_PLATFORM/sys_config[._]$PACK_BOARD.fex out/sys_config.fex
     cp -v wboot/image_${PACK_PLATFORM}.cfg out/image.cfg
 
+    echo aaa
     cp -rf eFex/split_xxxx.fex eFex/card/mbr.fex \
 	eGon/storage_media/nand/boot0.bin eGon/storage_media/nand/boot1.bin \
 	wboot/bootfs wboot/bootfs.ini \
@@ -173,14 +175,12 @@ do_pack_linux()
     update_23 sys_config1.bin card_boot0.fex card_boot1.fex SDMMC_CARD
     cp sys_config1.bin bootfs/script0.bin
     cp sys_config1.bin bootfs/script.bin
-
     update_mbr sys_config.bin mbr.fex
     fsbuild bootfs.ini split_xxxx.fex
-
-    FileAddSum bootfs.fex vboot.fex
-    FileAddSum root.fex vroot.fex
-    FileAddSum system.fex vsystem.fex
-    FileAddSum recovery.fex vrecovery.fex
+    #FileAddSum bootfs.fex vboot.fex
+    #FileAddSum root.fex vroot.fex
+    #FileAddSum system.fex vsystem.fex
+    #FileAddSum recovery.fex vrecovery.fex
     dragon image.cfg
 
     cd -
