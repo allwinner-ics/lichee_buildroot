@@ -87,6 +87,7 @@ gen_output_generic()
 
 	cp -v ${BR_OUT_DIR}/images/* ${OUT_DIR}/
 	cp -r ${KERN_OUT_DIR}/* ${OUT_DIR}/
+	cp -v ${U_BOOT_DIR}/u-boot.bin ${OUT_DIR}/
 }
 
 gen_output_sun4i()
@@ -124,6 +125,7 @@ clean_output()
 	rm -rf ${OUT_DIR}/*
 	rm -rf ${BR_OUT_DIR}/images/*
 	rm -rf ${KERN_OUT_DIR}/*
+	rm -rf ${U_BOOT_DIR}/u-boot*
 }
 
 while getopts hp:m:k: OPTION
@@ -163,7 +165,7 @@ else
 	cd ${BR_DIR} && ./build.sh -p ${PLATFORM}
 	export PATH=${BR_OUT_DIR}/external-toolchain/bin:$PATH
 	cd ${KERN_DIR} && ./build.sh -p ${PLATFORM}
-	cd ${U_BOOT_DIR} && make CROSS_COMPILE=arm-none-linux-gnueabi- aw1623
+	cd ${U_BOOT_DIR} && make CROSS_COMPILE=arm-none-linux-gnueabi- -j4 aw1623
 	regen_rootfs
 	gen_output_${PLATFORM}
 fi
