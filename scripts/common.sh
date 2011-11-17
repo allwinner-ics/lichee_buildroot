@@ -152,6 +152,11 @@ if [ -z "$PLATFORM" ]; then
 	exit 1
 fi
 
+if [ "$PLATFORM" = "pack" ]; then
+	${BR_DIR}/scripts/build_pack.sh
+	exit 0
+fi
+
 clean_output
 
 if [ "$MODULE" = buildroot ]; then
