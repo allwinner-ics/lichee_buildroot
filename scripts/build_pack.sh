@@ -34,7 +34,6 @@ done
 PLATFORM_TYPE=not_exist
 while [ ! -d $PACK_ROOT/configs/$CHIP_TYPE/$PLATFORM_TYPE ]; do
         read -p "Please select a platform(name): "
-	echo $PACK_ROOT/configs/$CHIP_TYPE/$PLATFORM_TYPE
         PLATFORM_TYPE=$REPLY
 done
 printf "\n"
