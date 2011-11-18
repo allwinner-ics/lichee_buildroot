@@ -123,6 +123,10 @@ gen_output_sun4i_crane()
 	cp -r ${KERN_OUT_DIR}/* ${OUT_DIR}/android/
 	mkdir -p ${OUT_DIR}/android/toolchain/
 	cp ${BR_DIR}/dl/arm-2010.09-50-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2 ${OUT_DIR}/android/toolchain/
+
+	if [ -e ${U_BOOT_DIR}/u-boot.bin ]; then
+		cp -v ${U_BOOT_DIR}/u-boot.bin ${OUT_DIR}/android
+	fi
 }
 
 clean_output()
