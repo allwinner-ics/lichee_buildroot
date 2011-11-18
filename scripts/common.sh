@@ -89,7 +89,10 @@ gen_output_generic()
 
 	cp -v ${BR_OUT_DIR}/images/* ${OUT_DIR}/
 	cp -r ${KERN_OUT_DIR}/* ${OUT_DIR}/
-	cp -v ${U_BOOT_DIR}/u-boot.bin ${OUT_DIR}/ 2>/dev/null
+
+	if [ -e ${U_BOOT_DIR}/u-boot.bin ]; then
+		cp -v ${U_BOOT_DIR}/u-boot.bin ${OUT_DIR}/
+	fi
 }
 
 gen_output_sun4i()
@@ -127,7 +130,6 @@ clean_output()
 	rm -rf ${OUT_DIR}/*
 	rm -rf ${BR_OUT_DIR}/images/*
 	rm -rf ${KERN_OUT_DIR}/*
-	rm -rf ${U_BOOT_DIR}/u-boot*
 }
 
 if [ "$1" = "pack" ]; then
@@ -169,11 +171,16 @@ elif [ "$MODULE" = kernel ]; then
 	regen_rootfs
 	gen_output_${PLATFORM}
 elif [ "$MODULE" = "uboot" ]; then
-	cd ${U_BOOT_DIR} && make -j4 aw1623
+	cd ${U_BOOT_DIR} && make -j4 aw1623 CROSS_COMPILE=arm-none-linux-gnueabi-
 else
 	cd ${BR_DIR} && ./build.sh -p ${PLATFORM}
 	export PATH=${BR_OUT_DIR}/external-toolchain/bin:$PATH
 	cd ${KERN_DIR} && ./build.sh -p ${PLATFORM}
+
+	if [ ! -e ${U_BOOT_DIR}/u-boot.bin ]; then
+		cd ${U_BOOT_DIR} && make -j4 aw1623 CROSS_COMPILE=arm-none-linux-gnueabi-
+	fi
+
 	regen_rootfs
 	gen_output_${PLATFORM}
 fi
