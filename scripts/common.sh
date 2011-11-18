@@ -41,7 +41,7 @@ OPTIONS
     -k [kern_ver]  2.6.36(default), or 3.0                          [OPTIONAL]
 
     -m [module]    Use this option when you dont want to build all. [OPTIONAL]
-                   e.g. kernel, buildroot, all(default)...
+                   e.g. kernel, buildroot, uboot, all(default)...
     pack           To start pack program
 
 Examples:
@@ -89,7 +89,7 @@ gen_output_generic()
 
 	cp -v ${BR_OUT_DIR}/images/* ${OUT_DIR}/
 	cp -r ${KERN_OUT_DIR}/* ${OUT_DIR}/
-	cp -v ${U_BOOT_DIR}/u-boot.bin ${OUT_DIR}/
+	cp -v ${U_BOOT_DIR}/u-boot.bin ${OUT_DIR}/ 2>/dev/null
 }
 
 gen_output_sun4i()
@@ -168,11 +168,12 @@ elif [ "$MODULE" = kernel ]; then
 	cd ${KERN_DIR} && ./build.sh -p ${PLATFORM}
 	regen_rootfs
 	gen_output_${PLATFORM}
+elif [ "$MODULE" = "uboot" ]; then
+	cd ${U_BOOT_DIR} && make -j4 aw1623
 else
 	cd ${BR_DIR} && ./build.sh -p ${PLATFORM}
 	export PATH=${BR_OUT_DIR}/external-toolchain/bin:$PATH
 	cd ${KERN_DIR} && ./build.sh -p ${PLATFORM}
-	cd ${U_BOOT_DIR} && make CROSS_COMPILE=arm-none-linux-gnueabi- -j4 aw1623
 	regen_rootfs
 	gen_output_${PLATFORM}
 fi
