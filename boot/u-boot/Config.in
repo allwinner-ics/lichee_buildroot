@@ -1,3 +1,0 @@
-config BR2_TARGET_UBOOT_AW1623
-	bool "u-boot for SUN4I"
-
