@@ -181,7 +181,8 @@ else
 	export PATH=${BR_OUT_DIR}/external-toolchain/bin:$PATH
 	cd ${KERN_DIR} && ./build.sh -p ${PLATFORM}
 
-	if [ ! -e ${U_BOOT_DIR}/u-boot.bin ]; then
+	#if [ ! -e ${U_BOOT_DIR}/u-boot.bin ]; then
+	if [ ! -e ${U_BOOT_DIR}/force.compile ]; then
 		cd ${U_BOOT_DIR} && make -j4 aw1623 CROSS_COMPILE=arm-none-linux-gnueabi-
 	fi
 
