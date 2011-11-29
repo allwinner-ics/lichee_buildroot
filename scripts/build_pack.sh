@@ -120,12 +120,12 @@ select_boards $TARGET_CHIP $TARGET_PLATFORM
 echo "$TARGET_CHIP $TARGET_PLATFORM $TARGET_BOARD"
 
 if [ "$TARGET_PLATFORM" = "crane" ]; then
-    if [ -z "$CRAME_IMAGE_OUT" ]; then
+    if [ -z "$CRANE_IMAGE_OUT" ]; then
         echo "You need to export CRANE_IMAGE_OUT var to env"
         exit 1
     fi
 
-    if [ ! -f "$CRAME_IMAGE_OUT/system.img" ]; then
+    if [ ! -f "$CRANE_IMAGE_OUT/system.img" ]; then
         echo "You have wrong CRANE_IMAGE_OUT env"
         exit 1
     fi
