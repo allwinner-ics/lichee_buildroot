@@ -1,1 +1,0 @@
-A sub-folder represents a platform
