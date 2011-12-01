@@ -188,6 +188,9 @@ else
 
 	regen_rootfs
 	gen_output_${PLATFORM}
-fi
+	echo "###############################"
+	echo "#         compile success     #"
+	echo "###############################"
+	fi
 
 
