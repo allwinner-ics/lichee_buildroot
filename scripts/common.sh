@@ -110,6 +110,11 @@ gen_output_sun4i-debug()
 	gen_output_generic
 }
 
+gen_output_sun5i()
+{
+	gen_output_generic
+}
+
 gen_output_sun4i_crane()
 {
 	if [ ! -d "${OUT_DIR}" ]; then
