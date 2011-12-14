@@ -13,8 +13,8 @@ select_chips()
 
     printf "All valid chips:\n"
 
-    for chip in $(cd $PACK_ROOT/configs/; find -mindepth 1 -maxdepth 1 -type d |sort); do
-        chips[$count]=`basename $PACK_ROOT/configs/$chip`
+    for chip in $(cd $PACK_ROOT/chips/; find -mindepth 1 -maxdepth 1 -type d |sort); do
+        chips[$count]=`basename $PACK_ROOT/chips/$chip`
         printf "$count. ${chips[$count]}\n"
         let count=$count+1
     done
@@ -47,8 +47,8 @@ select_platform()
 
     printf "All valid platforms:\n"
 
-    for platform in $(cd $PACK_ROOT/configs/$chip/; find -mindepth 1 -maxdepth 1 -type d |sort); do
-        platforms[$count]=`basename $PACK_ROOT/configs/$chip/$platform`
+    for platform in $(cd $PACK_ROOT/chips/$chip/configs/; find -mindepth 1 -maxdepth 1 -type d |sort); do
+        platforms[$count]=`basename $PACK_ROOT/chips/$chip/configs/$platform`
         printf "$count. ${platforms[$count]}\n"
         let count=$count+1
     done
@@ -82,8 +82,8 @@ select_boards()
 
     printf "All valid boards:\n"
 
-    for board in $(cd $PACK_ROOT/configs/$chip/$platform/; find -mindepth 1 -maxdepth 1 -type d |sort); do
-        boards[$count]=`basename $PACK_ROOT/configs/$chip/$platform/$board`
+    for board in $(cd $PACK_ROOT/chips/$chip/configs/$platform/; find -mindepth 1 -maxdepth 1 -type d |sort); do
+        boards[$count]=`basename $PACK_ROOT/chips/$chip/configs/$platform/$board`
         printf "$count. ${boards[$count]}\n"
         let count=$count+1
     done
