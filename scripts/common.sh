@@ -188,7 +188,7 @@ else
 
 	#if [ ! -e ${U_BOOT_DIR}/u-boot.bin ]; then
 	if [ ! -e ${U_BOOT_DIR}/force.compile ]; then
-		cd ${U_BOOT_DIR} && make disclean &&make -j4 sun4i CROSS_COMPILE=arm-none-linux-gnueabi-
+		cd ${U_BOOT_DIR} && make distclean &&make -j4 sun4i CROSS_COMPILE=arm-none-linux-gnueabi-
 	fi
 
 	regen_rootfs
