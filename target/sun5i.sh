@@ -14,11 +14,10 @@ mkdir /dev/pts
 mount -t devpts none /dev/pts
 
 mknod /dev/mali c 230 0
-hostname sun4i
+hostname a12x
 mkdir -p /boot
 mount /dev/nanda /boot
 MODULES_DIR=/lib/modules/\`uname -r\`
-(cd \$MODULES_DIR;insmod disp.ko;insmod lcd.ko;insmod hdmi.ko)
 
 
 EOF
