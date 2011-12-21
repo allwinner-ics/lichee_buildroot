@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
-# Buildroot 2011.02-00024-g34d9a94-dirty Configuration
-# Fri Dec  9 17:16:04 2011
+# Buildroot 2011.02-00003-g8ef5089-dirty Configuration
+# Mon Dec 19 18:41:26 2011
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_arm=y
@@ -211,7 +211,7 @@ BR2_PACKAGE_BUSYBOX_CONFIG="package/busybox/busybox-1.18.x.config"
 # BR2_PACKAGE_LSOF is not set
 # BR2_PACKAGE_LTP_TESTSUITE is not set
 # BR2_PACKAGE_LTRACE is not set
-# BR2_PACKAGE_MEMSTAT is not set
+BR2_PACKAGE_MEMSTAT=y
 # BR2_PACKAGE_NETPERF is not set
 BR2_PACKAGE_STRACE=y
 # BR2_PACKAGE_WHETSTONE is not set
@@ -355,7 +355,7 @@ BR2_PACKAGE_IOSTAT=y
 # BR2_PACKAGE_LVM2 is not set
 # BR2_PACKAGE_MAKEDEVS is not set
 # BR2_PACKAGE_MDADM is not set
-# BR2_PACKAGE_MEMTESTER is not set
+BR2_PACKAGE_MEMTESTER=y
 # BR2_PACKAGE_MTD is not set
 BR2_PACKAGE_NTFS_3G=y
 # BR2_PACKAGE_PCIUTILS is not set
