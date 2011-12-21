@@ -82,7 +82,7 @@ select_boards()
 
     printf "All valid boards:\n"
 
-    for board in $(cd $PACK_ROOT/chips/$chip/configs/$platform/; find -mindepth 1 -maxdepth 1 -type d |sort); do
+    for board in $(cd $PACK_ROOT/chips/$chip/configs/$platform/; find -mindepth 1 -maxdepth 1 -type d |grep -v default|sort); do
         boards[$count]=`basename $PACK_ROOT/chips/$chip/configs/$platform/$board`
         printf "$count. ${boards[$count]}\n"
         let count=$count+1
