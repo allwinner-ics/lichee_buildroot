@@ -180,16 +180,12 @@ elif [ "$MODULE" = kernel ]; then
 	regen_rootfs
 	gen_output_${PLATFORM}
 elif [ "$MODULE" = "uboot" ]; then
-	cd ${U_BOOT_DIR} && make -j4 sun4i CROSS_COMPILE=arm-none-linux-gnueabi-
+	cd ${U_BOOT_DIR} && ./build.sh -p ${PLATFORM}
 else
 	cd ${BR_DIR} && ./build.sh -p ${PLATFORM}
 	export PATH=${BR_OUT_DIR}/external-toolchain/bin:$PATH
 	cd ${KERN_DIR} && ./build.sh -p ${PLATFORM}
-
-	#if [ ! -e ${U_BOOT_DIR}/u-boot.bin ]; then
-	if [ ! -e ${U_BOOT_DIR}/force.compile ]; then
-		cd ${U_BOOT_DIR} && make distclean &&make -j4 sun4i CROSS_COMPILE=arm-none-linux-gnueabi-
-	fi
+	cd ${U_BOOT_DIR} && ./build.sh -p ${PLATFORM}
 
 	regen_rootfs
 	gen_output_${PLATFORM}
