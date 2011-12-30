@@ -115,6 +115,16 @@ gen_output_sun5i()
 	gen_output_generic
 }
 
+gen_output_a12()
+{
+	gen_output_generic
+}
+
+gen_output_a13()
+{
+	gen_output_generic
+}
+
 gen_output_sun4i_crane()
 {
 	if [ ! -d "${OUT_DIR}" ]; then
@@ -180,12 +190,39 @@ elif [ "$MODULE" = kernel ]; then
 	regen_rootfs
 	gen_output_${PLATFORM}
 elif [ "$MODULE" = "uboot" ]; then
-	cd ${U_BOOT_DIR} && ./build.sh -p ${PLATFORM}
+	case ${PLATFORM} in
+	a12*)
+		echo "build uboot for sun5i_a12"
+		cd ${U_BOOT_DIR} && ./build.sh -p sun5i_a12
+		;;
+	a13*)
+		echo "build uboot for sun5i_a13"
+		cd ${U_BOOT_DIR} && ./build.sh -p sun5i_a13
+		;;
+	*)
+		echo "build uboot for ${PLATFORM}"
+		cd ${U_BOOT_DIR} && ./build.sh -p ${PLATFORM}
+		;;
+	esac
 else
 	cd ${BR_DIR} && ./build.sh -p ${PLATFORM}
 	export PATH=${BR_OUT_DIR}/external-toolchain/bin:$PATH
 	cd ${KERN_DIR} && ./build.sh -p ${PLATFORM}
-	cd ${U_BOOT_DIR} && ./build.sh -p ${PLATFORM}
+
+	case ${PLATFORM} in
+        a12*)
+                echo "build uboot for sun5i_a12"
+                cd ${U_BOOT_DIR} && ./build.sh -p sun5i_a12
+                ;;
+        a13*)
+                echo "build uboot for sun5i_a13"
+                cd ${U_BOOT_DIR} && ./build.sh -p sun5i_a13
+                ;;
+        *)
+                echo "build uboot for ${PLATFORM}"
+                cd ${U_BOOT_DIR} && ./build.sh -p ${PLATFORM}
+                ;;
+        esac
 
 	regen_rootfs
 	gen_output_${PLATFORM}
